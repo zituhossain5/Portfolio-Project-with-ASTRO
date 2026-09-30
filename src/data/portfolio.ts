@@ -31,6 +31,17 @@ export interface WorkMarqueeItem {
 	alt: string;
 }
 
+export interface WhyStat {
+	value: string;
+	label: string;
+}
+
+export interface WhyPrinciple {
+	title: string;
+	description: string;
+	icon: `/icons/${string}.svg`;
+}
+
 export const portfolio = {
 	meta: {
 		name: "Abdur Rahim",
@@ -90,13 +101,59 @@ export const portfolio = {
 		{ name: "Pentillo", src: "/images/clients/pentillo.svg", width: 132, height: 33, mobileHeight: 24 },
 		{ name: "Riptide", src: "/images/clients/riptide.svg", width: 100, height: 28, mobileHeight: 20 },
 	] satisfies ClientLogo[],
-	sections: {
-		whyChoose: {
-			id: "about",
-			badge: "Why work with me",
-			heading: "I don't just design. I think product",
-			description: "I'm a UI/UX & Product Designer with 12+ years of turning messy product problems into experiences people actually want to use.",
+	whyChoose: {
+		id: "about",
+		badge: "Why work with me",
+		heading: "I don't just design.",
+		headingAccent: "I think product",
+		description: "I'm a UI/UX & Product Designer with 12+ years of turning messy product problems into experiences people actually want to use.",
+		featured: {
+			title: "AI-native. Human-directed",
+			icon: "/icons/why-ai.svg",
+			paragraphs: [
+				"AI made everything faster, not better. Anyone can prompt a logo or a landing page now and most of it looks the same.",
+				"I use AI to move fast and explore wide. But every final call what to keep, what to cut still comes from experience, not a prompt.",
+			],
 		},
+		stats: [
+			{ value: "12+", label: "Years designing digital experiences" },
+			{ value: "210+", label: "Projects shipped" },
+			{ value: "120+", label: "Global clients" },
+		] satisfies WhyStat[],
+		principles: [
+			{
+				title: "Product Thinking",
+				description: "I don't decorate screens, I architect outcomes. Every decision is traced back to a business metric, a user need, and a release plan.",
+				icon: "/icons/why-product-thinking.svg",
+			},
+			{
+				title: "UX Architecture",
+				description: "I design the structure before styling the surface flows, states, systems, and interactions that keep complex products simple.",
+				icon: "/icons/why-ux-architecture.svg",
+			},
+			{
+				title: "User Psychology",
+				description: "Good UX starts with how people think, hesitate, decide, and act. I design around those moments, not idealized user journeys.",
+				icon: "/icons/why-user-psychology.svg",
+			},
+			{
+				title: "Design With Momentum",
+				description: "From first flow to final handoff, I keep decisions moving. Fast exploration, focused iteration, and less time lost in the process.",
+				icon: "/icons/why-design-momentum.svg",
+			},
+			{
+				title: "Open & Honest Communication",
+				description: "When I work on digital projects, everything is out in the open. I build trust from day one and always say things as they are.",
+				icon: "/icons/why-communication.svg",
+			},
+			{
+				title: "Unlimited Revisions",
+				description: "Refine every detail until it feels right, with unlimited revisions and ongoing support throughout the entire design process.",
+				icon: "/icons/why-revisions.svg",
+			},
+		] satisfies WhyPrinciple[],
+	},
+	sections: {
 		portfolio: { id: "works", badge: "Selected Works", heading: "A glimpse of my best work" },
 		services: {
 			id: "services",
