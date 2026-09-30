@@ -4,8 +4,8 @@ import { portfolio } from "../../data/portfolio";
 const { whyChoose } = portfolio;
 ---
 
-<section class="why" id={whyChoose.id} aria-labelledby="why-heading">
-	<div class="why__band why__band--top" aria-hidden="true"></div>
+<section class="why layout-rails" id={whyChoose.id} aria-labelledby="why-heading">
+	<div class="layout-band why__band why__band--top" aria-hidden="true"></div>
 
 	<div class="content-container why__inner">
 		<header class="why__intro">
@@ -53,47 +53,14 @@ const { whyChoose } = portfolio;
 		</div>
 	</div>
 
-	<div class="why__band why__band--bottom" aria-hidden="true"></div>
+	<div class="layout-band why__band why__band--bottom" aria-hidden="true"></div>
 </section>
 
 <style>
-	.why {
-		--rail-line: rgb(255 255 255 / 15%);
-		--dash-x: repeating-linear-gradient(to right, var(--rail-line) 0 3px, transparent 3px 5px);
-		--dash-y: repeating-linear-gradient(to bottom, var(--rail-line) 0 3px, transparent 3px 5px);
-		--rails-inset: calc(50% - var(--container-rails) / 2);
-		position: relative;
-		padding-block: 9.25rem 5.5rem;
-		background: var(--color-page);
-	}
+	/* Figma "Layout Border 3": 1631px from the clients section, bands at 60px from the top and flush with the bottom. */
+	.why { padding-block: 9.25rem 5.5rem; }
 
-	.why::before,
-	.why::after {
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		z-index: 0;
-		width: 1px;
-		background: var(--dash-y);
-		content: "";
-		pointer-events: none;
-	}
-
-	.why::before { left: var(--rails-inset); }
-	.why::after { right: var(--rails-inset); }
-
-	.why__band {
-		position: absolute;
-		left: var(--rails-inset);
-		right: var(--rails-inset);
-		height: 1.75rem;
-		background:
-			var(--dash-x) top / 100% 1px no-repeat,
-			var(--dash-x) bottom / 100% 1px no-repeat,
-			url("/images/why-layout-hatch.png") center / 100% 100% no-repeat;
-		pointer-events: none;
-	}
-
+	.why__band { position: absolute; right: 0; left: 0; }
 	.why__band--top { top: 3.75rem; }
 	.why__band--bottom { bottom: 0; }
 
@@ -111,7 +78,7 @@ const { whyChoose } = portfolio;
 		text-align: center;
 	}
 
-	.why__headline { height: 11.6875rem; }
+	.why__headline { min-height: 11.6875rem; }
 
 	.why__eyebrow {
 		display: flex;
@@ -164,18 +131,18 @@ const { whyChoose } = portfolio;
 		line-height: 1.6;
 	}
 
+	/* Figma strokes here are "inside" and take no space, so they're drawn as inset shadows rather than borders. */
 	.why__cards {
 		position: relative;
 		display: grid;
 		grid-template-columns: repeat(6, minmax(0, 1fr));
-		grid-template-rows: 21.375rem 21.25rem 21.25rem;
+		grid-template-rows: minmax(21.375rem, auto) minmax(21.25rem, auto) minmax(21.25rem, auto);
 		gap: 0.75rem;
-		height: 66.875rem;
 		padding: 0.75rem;
 		overflow: hidden;
-		border: 1px solid var(--color-border-subtle);
 		border-radius: 1.25rem;
 		background: #090c0f;
+		box-shadow: inset 0 0 0 1px var(--color-border-subtle);
 	}
 
 	.why__cards::after,
@@ -184,7 +151,7 @@ const { whyChoose } = portfolio;
 		inset: 0;
 		z-index: 2;
 		border-radius: inherit;
-		background: url("/images/why-card-noise.svg") 0 0 / 2rem 2rem repeat;
+		background: url("/images/surface-noise.png") 0 0 / 8rem 8rem repeat;
 		content: "";
 		pointer-events: none;
 	}
@@ -193,9 +160,9 @@ const { whyChoose } = portfolio;
 	.why__stat {
 		position: relative;
 		min-width: 0;
-		border: 1px solid var(--color-border-subtle);
 		border-radius: 0.875rem;
 		background: rgb(255 255 255 / 6%);
+		box-shadow: inset 0 0 0 1px var(--color-border-subtle);
 	}
 
 	.why__card > *,
@@ -218,16 +185,16 @@ const { whyChoose } = portfolio;
 		grid-column: 4 / 7;
 		grid-row: 1;
 		grid-template-columns: repeat(2, minmax(0, 1fr));
-		grid-template-rows: repeat(2, 10.3125rem);
+		grid-template-rows: repeat(2, minmax(10.3125rem, auto));
 		gap: 0.75rem;
 	}
 
 	.why__stat {
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
+		justify-content: flex-end;
 		gap: 0.5rem;
-		padding: 2.5rem;
+		padding: 2.625rem 2.5rem;
 	}
 
 	.why__stat:first-child { grid-column: 1 / -1; }
@@ -259,9 +226,9 @@ const { whyChoose } = portfolio;
 		height: 4rem;
 		flex: 0 0 auto;
 		place-items: center;
-		border: 1px solid var(--color-border-subtle);
 		border-radius: 0.75rem;
 		background: rgb(255 255 255 / 6%);
+		box-shadow: inset 0 0 0 1px var(--color-border-subtle);
 	}
 
 	.why__icon-shell img {
@@ -293,13 +260,9 @@ const { whyChoose } = portfolio;
 	.why__featured-copy p { margin-top: 0.5rem; }
 
 	@media (max-width: 79.99rem) and (min-width: 56.25rem) {
-		.why { padding-block: 7.5rem 5rem; }
-		.why__band--top { top: 3rem; }
-
 		.why__cards {
 			grid-template-columns: repeat(2, minmax(0, 1fr));
 			grid-template-rows: auto;
-			height: auto;
 		}
 
 		.why__featured,
@@ -313,18 +276,14 @@ const { whyChoose } = portfolio;
 		.why__principle { grid-column: span 1; min-height: 21.25rem; }
 	}
 
+	/* Figma mobile: bands 40px from the top and flush with the bottom, cards sized by their content. */
 	@media (max-width: 56.24rem) {
-		.why {
-			--rails-inset: 0.5rem;
-			padding-block: 6.5rem 4rem;
-		}
-
-		.why__band { height: 1.5rem; }
+		.why { padding-block: 6.5rem 4rem; }
 		.why__band--top { top: 2.5rem; }
 
 		.why__inner { gap: 2rem; }
 		.why__intro { width: 100%; }
-		.why__headline { height: 7.25rem; }
+		.why__headline { min-height: 7.25rem; }
 		.why__eyebrow { margin-bottom: 0.75rem; }
 
 		.why h2 {
@@ -345,31 +304,27 @@ const { whyChoose } = portfolio;
 
 		.why__cards {
 			display: flex;
-			height: auto;
 			flex-direction: column;
 			gap: 0.75rem;
 		}
 
-		.why__featured { min-height: 26.125rem; order: 2; padding: 1rem; }
-		.why__stats { min-height: 17rem; order: 1; }
-		.why__principle { min-height: 17.3125rem; order: 3; padding: 1rem; }
-		.why__principle:nth-of-type(6) { min-height: 19.125rem; }
+		.why__stats { order: 1; grid-template-rows: minmax(7.5rem, auto) minmax(8.75rem, auto); }
+		.why__featured { order: 2; }
+		.why__principle { order: 3; }
 
-		.why__stats {
-			grid-template-columns: repeat(2, minmax(0, 1fr));
-			grid-template-rows: 7.5rem 8.75rem;
+		.why__featured,
+		.why__principle {
+			gap: 1.5rem;
+			padding: 1rem 1rem 1.5rem;
 		}
 
-		.why__stat {
-			justify-content: flex-start;
-			padding: 1.5rem 1.25rem;
-		}
-
+		/* The wide stat stays bottom-aligned; the two small ones align to the top. */
+		.why__stat { padding: 1.5rem 1.25rem; }
+		.why__stat:not(:first-child) { justify-content: flex-start; }
 		.why__stat strong { font-size: 2.5rem; }
 
-		.why__featured-copy { margin-top: 1.5rem; }
+		.why__copy { margin-top: 0; }
 		.why__featured-copy p { margin-top: 0.75rem; }
-		.why__principle .why__copy { margin-top: 1.5rem; }
 		.why__principle .why__copy p { margin-top: 1rem; }
 	}
 

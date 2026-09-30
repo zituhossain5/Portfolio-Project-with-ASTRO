@@ -3,9 +3,9 @@
 @font-face {
 	font-family: "Inter";
 	font-style: normal;
-	font-weight: 400 700;
+	font-weight: 100 900;
 	font-display: swap;
-	src: url("/fonts/inter-latin.woff2") format("woff2");
+	src: url("/fonts/inter-opsz-latin.woff2") format("woff2");
 }
 
 @font-face {
@@ -50,6 +50,8 @@
 	--shadow-sm: 0 2px 20px rgb(0 0 0 / 6%);
 	--focus-ring: 0 0 0 3px rgb(255 243 17 / 45%);
 	font-family: "Inter", "Inter Display", ui-sans-serif, system-ui, sans-serif;
+	/* The design uses Inter Display, i.e. Inter's optical size 32, at every text size. */
+	font-variation-settings: "opsz" 32;
 	color: var(--color-text);
 	background: var(--color-page);
 	font-synthesis: none;
@@ -137,6 +139,48 @@ a {
 	transform: translateY(0);
 }
 
+/*
+ * Figma "Layout Border" frames: dashed rails on the 1460px column edges, and hatched bands between
+ * full-width dashed lines (3/2 dash with round caps, so 4px on / 1px off). Bands must sit inside .layout-rails.
+ */
+.layout-rails {
+	--layout-line: rgb(255 255 255 / 15%);
+	--layout-dash-x: repeating-linear-gradient(to right, var(--layout-line) 0 4px, transparent 4px 5px);
+	--layout-dash-y: repeating-linear-gradient(to bottom, var(--layout-line) 0 4px, transparent 4px 5px);
+	--rails-inset: calc(50% - var(--container-rails) / 2);
+	position: relative;
+	/* Below 1460px the rails sit off-screen, like the hero's; don't let them widen the page. */
+	overflow-x: clip;
+}
+
+.layout-rails::before,
+.layout-rails::after {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 1px;
+	background: var(--layout-dash-y);
+	content: "";
+	pointer-events: none;
+}
+
+.layout-rails::before { left: var(--rails-inset); }
+.layout-rails::after { right: var(--rails-inset); }
+
+.layout-band {
+	position: relative;
+	height: 1.75rem;
+	background: var(--layout-dash-x) top / 100% 1px no-repeat, var(--layout-dash-x) bottom / 100% 1px no-repeat;
+	pointer-events: none;
+}
+
+.layout-band::before {
+	position: absolute;
+	inset: 0 var(--rails-inset);
+	background: url("/images/layout-hatch.svg") 0 0 / 0.75rem 0.75rem repeat;
+	content: "";
+}
+
 .section-foundation {
 	position: relative;
 	border-top: 1px solid var(--color-border-subtle);
@@ -180,6 +224,10 @@ a {
 	:root {
 		--gutter-page: 1.25rem;
 	}
+
+	/* Mobile frames inset the rails 8px from the edges and use 24px bands. */
+	.layout-rails { --rails-inset: 0.5rem; }
+	.layout-band { height: 1.5rem; }
 
 	.section-foundation {
 		padding-block: 5rem;
