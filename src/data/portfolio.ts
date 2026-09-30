@@ -42,6 +42,16 @@ export interface WhyPrinciple {
 	icon: `/icons/${string}.svg`;
 }
 
+export interface PortfolioProject {
+	title: string;
+	image: `/images/work/${string}.png`;
+	alt: string;
+	tags: readonly string[];
+}
+
+const portfolioProjectTitle = "EmLock — EMI-Based Mobile App Development";
+const portfolioProjectTags = ["Mobile Application", "App Development", "SaaS Development", "UI/UX Design"] as const;
+
 export const portfolio = {
 	meta: {
 		name: "Abdur Rahim",
@@ -153,8 +163,76 @@ export const portfolio = {
 			},
 		] satisfies WhyPrinciple[],
 	},
+	selectedWorks: {
+		id: "works",
+		badge: "Selected Works",
+		heading: "A glimpse of my",
+		headingAccent: "best work",
+		projects: [
+			{
+				title: "EmLock — EMI-Based Mobile App",
+				image: "/images/work/FormGent 1.png",
+				alt: "FormGent visual form builder interface",
+				tags: ["Mobile App Design", "SaaS Design", "UI/UX Design"],
+			},
+			{
+				title: portfolioProjectTitle,
+				image: "/images/work/HelpGent 1.png",
+				alt: "HelpGent customer-support flow builder interface",
+				tags: portfolioProjectTags,
+			},
+			{
+				title: portfolioProjectTitle,
+				image: "/images/work/Directorist App 2.png",
+				alt: "Directorist mobile directory application shown on two phones",
+				tags: portfolioProjectTags,
+			},
+			{
+				title: portfolioProjectTitle,
+				image: "/images/work/Directorist Plugin 3.png",
+				alt: "Directorist listing-form builder interface",
+				tags: portfolioProjectTags,
+			},
+			{
+				title: portfolioProjectTitle,
+				image: "/images/work/Quran_App 1.png",
+				alt: "Quran reading mobile application shown in hand",
+				tags: portfolioProjectTags,
+			},
+			{
+				title: portfolioProjectTitle,
+				image: "/images/work/01_Project_EmLock 3.png",
+				alt: "EmLock local shopping mobile application shown in hand",
+				tags: portfolioProjectTags,
+			},
+			{
+				title: portfolioProjectTitle,
+				image: "/images/work/Quran_App 1.png",
+				alt: "Quran reading mobile application shown in hand",
+				tags: portfolioProjectTags,
+			},
+			{
+				title: portfolioProjectTitle,
+				image: "/images/work/01_Project_EmLock 3.png",
+				alt: "EmLock local shopping mobile application shown in hand",
+				tags: portfolioProjectTags,
+			},
+			{
+				title: portfolioProjectTitle,
+				image: "/images/work/Quran_App 1.png",
+				alt: "Quran reading mobile application shown in hand",
+				tags: portfolioProjectTags,
+			},
+			{
+				title: portfolioProjectTitle,
+				image: "/images/work/01_Project_EmLock 3.png",
+				alt: "EmLock local shopping mobile application shown in hand",
+				tags: portfolioProjectTags,
+			},
+		] satisfies PortfolioProject[],
+		viewMoreLabel: "View more works",
+	},
 	sections: {
-		portfolio: { id: "works", badge: "Selected Works", heading: "A glimpse of my best work" },
 		services: {
 			id: "services",
 			badge: "My Services",
