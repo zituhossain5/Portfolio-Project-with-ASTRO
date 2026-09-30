@@ -1,1 +1,111 @@
-<section class="client-foundation" aria-label="Selected clients"></section>
+---
+import { portfolio } from "../../data/portfolio";
+
+const { clients } = portfolio;
+---
+
+<section class="clients" aria-label="Selected clients">
+	<div class="clients__band" aria-hidden="true"></div>
+	<ul class="content-container clients__grid" role="list">
+		{clients.map(({ name, src, width, height, mobileHeight }) => (
+			<li class="clients__tile">
+				<img
+					src={src}
+					alt={name}
+					width={width}
+					height={height}
+					loading="lazy"
+					decoding="async"
+					style={`--logo-height: ${height / 16}rem; --logo-height-mobile: ${mobileHeight / 16}rem;`}
+				/>
+			</li>
+		))}
+	</ul>
+	<div class="clients__band" aria-hidden="true"></div>
+</section>
+
+<style>
+	/* Figma "Section - Clients Logo" + "Layout Border 2": 462px tall from the bottom of the work marquee. */
+	.clients {
+		--line: rgb(255 255 255 / 16%);
+		--dash-x: repeating-linear-gradient(to right, var(--line) 0 4px, transparent 4px 5px);
+		--dash-y: repeating-linear-gradient(to bottom, var(--line) 0 4px, transparent 4px 5px);
+		--rails-inset: calc(50% - var(--container-rails) / 2);
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		gap: 2.5rem;
+		padding-top: 8.25rem;
+	}
+
+	/* Vertical layout rails, continuing the hero's dashed lines. */
+	.clients::before,
+	.clients::after {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		width: 1px;
+		background: var(--dash-y);
+		content: "";
+	}
+
+	.clients::before { left: var(--rails-inset); }
+	.clients::after { right: var(--rails-inset); }
+
+	/* Full-width dashed lines above and below a hatched strip that spans the rails. */
+	.clients__band {
+		position: relative;
+		height: 1.75rem;
+		background: var(--dash-x) top / 100% 1px no-repeat, var(--dash-x) bottom / 100% 1px no-repeat;
+	}
+
+	.clients__band::before {
+		position: absolute;
+		inset: 0 var(--rails-inset);
+		background: url("/images/client-hatch.svg") 0 0 / 0.75rem 0.75rem repeat;
+		content: "";
+	}
+
+	.clients__grid {
+		display: grid;
+		grid-template-columns: repeat(6, minmax(0, 1fr));
+		gap: 0.625rem;
+		margin-block: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.clients__tile {
+		display: grid;
+		height: 5.75rem;
+		place-items: center;
+		border: 1px solid rgb(255 255 255 / 6%);
+		border-radius: 0.75rem;
+		background: url("/images/logo-tile-noise.png") 0 0 / 8rem 8rem repeat, #090c0f;
+	}
+
+	.clients__tile img {
+		width: auto;
+		max-width: calc(100% - 1.5rem);
+		height: var(--logo-height);
+		object-fit: contain;
+	}
+
+	@media (max-width: 72rem) {
+		.clients__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+	}
+
+	/* Figma mobile: 590px tall, 2-column 66px tiles, rails and hatch inset 8px from the edges. */
+	@media (max-width: 56.24rem) {
+		.clients {
+			--rails-inset: 0.5rem;
+			gap: 2rem;
+			padding-top: 2rem;
+		}
+
+		.clients__band { height: 1.5rem; }
+		.clients__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+		.clients__tile { height: 4.125rem; border-radius: 0.625rem; }
+		.clients__tile img { height: var(--logo-height-mobile); }
+	}
+</style>

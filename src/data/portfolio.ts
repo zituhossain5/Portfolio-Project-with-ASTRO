@@ -17,6 +17,15 @@ export interface SectionCopy {
 	description?: string;
 }
 
+export interface ClientLogo {
+	name: string;
+	src: `/images/clients/${string}.svg`;
+	/** Figma logo box in px: desktop width/height, and height in the mobile tile. */
+	width: number;
+	height: number;
+	mobileHeight: number;
+}
+
 export interface WorkMarqueeItem {
 	src: `/images/work/${string}`;
 	alt: string;
@@ -67,6 +76,20 @@ export const portfolio = {
 			{ src: "/images/work/Directorist App 2.png", alt: "Directorist mobile directory application" },
 		] satisfies WorkMarqueeItem[],
 	},
+	clients: [
+		{ name: "Directorist", src: "/images/clients/directorist.svg", width: 132, height: 40, mobileHeight: 32 },
+		{ name: "Reborn", src: "/images/clients/reborn.svg", width: 102, height: 60, mobileHeight: 40 },
+		{ name: "FormGent", src: "/images/clients/formgent.svg", width: 136, height: 32, mobileHeight: 24 },
+		{ name: "LeadFex", src: "/images/clients/leadfex.svg", width: 132, height: 32, mobileHeight: 24 },
+		{ name: "HelpGent", src: "/images/clients/helpgent.svg", width: 132, height: 31, mobileHeight: 24 },
+		{ name: "Cultural Sponge", src: "/images/clients/cultural-sponge.svg", width: 94, height: 44, mobileHeight: 32 },
+		{ name: "Synthesia", src: "/images/clients/synthesia.svg", width: 140, height: 23, mobileHeight: 18 },
+		{ name: "Offcoustic", src: "/images/clients/offcoustic.svg", width: 148, height: 24, mobileHeight: 18 },
+		{ name: "Waymark", src: "/images/clients/waymark.svg", width: 140, height: 26.8874, mobileHeight: 18 },
+		{ name: "Lendflow", src: "/images/clients/lendflow.svg", width: 140, height: 22, mobileHeight: 16 },
+		{ name: "Pentillo", src: "/images/clients/pentillo.svg", width: 132, height: 33, mobileHeight: 24 },
+		{ name: "Riptide", src: "/images/clients/riptide.svg", width: 100, height: 28, mobileHeight: 20 },
+	] satisfies ClientLogo[],
 	sections: {
 		whyChoose: {
 			id: "about",

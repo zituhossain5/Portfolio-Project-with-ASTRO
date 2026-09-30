@@ -175,11 +175,6 @@ a {
 	line-height: 1.6;
 }
 
-.client-foundation {
-	min-height: 12rem;
-	border-top: 1px solid var(--color-border-subtle);
-	border-bottom: 1px solid var(--color-border-subtle);
-}
 
 @media (max-width: 56.24rem) {
 	:root {
