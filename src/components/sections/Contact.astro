@@ -1,14 +1,467 @@
 ---
-import SectionIntro from "../ui/SectionIntro.astro";
+import ButtonLink from "../ui/ButtonLink.astro";
 import { portfolio } from "../../data/portfolio";
+
+const { contact } = portfolio;
 ---
 
-<SectionIntro section={portfolio.sections.contact} />
-<footer class="site-footer">
-	<p>© 2026 Abdur Rahim. All Rights Reserved</p>
-</footer>
+<section class="contact layout-rails" id={contact.id} aria-labelledby="contact-heading">
+	<div class="layout-band contact__top-band" aria-hidden="true"></div>
+
+	<div class="content-container contact__inner">
+		<div class="contact__top">
+			<header class="contact__intro">
+				<div class="contact__headline">
+					<p class="contact__eyebrow"><span aria-hidden="true"></span>{contact.badge}</p>
+					<h2 id="contact-heading">
+						<span>{contact.heading}</span>
+						<em>{contact.headingAccent}</em>
+					</h2>
+				</div>
+				<p class="contact__description">{contact.description}</p>
+			</header>
+
+			<div class="contact__actions">
+				<div class="contact__buttons">
+					<ButtonLink {...contact.primaryCta} class="contact__button contact__primary" />
+					<ButtonLink {...contact.secondaryCta} variant="whatsapp" class="contact__button contact__chat" />
+				</div>
+				<a class="contact__email" href={`mailto:${contact.email}`}>{contact.email}</a>
+			</div>
+		</div>
+
+		<div class="contact__or" aria-hidden="true"><span>or</span></div>
+
+		<div class="contact__form-shell">
+			<form class="contact-form" aria-labelledby="contact-form-heading">
+				<h3 id="contact-form-heading">{contact.form.heading}</h3>
+
+				<div class="contact-form__fields">
+					{contact.form.fields.map((field) => (
+						<div class="contact-form__field">
+							<label for={`contact-${field.name}`}>{field.label}</label>
+							{field.multiline ? (
+								<textarea
+									id={`contact-${field.name}`}
+									name={field.name}
+									placeholder={field.placeholder}
+									required={field.required}
+								></textarea>
+							) : (
+								<input
+									id={`contact-${field.name}`}
+									name={field.name}
+									type={field.type}
+									placeholder={field.placeholder}
+									required={field.required}
+									autocomplete={field.autocomplete}
+								/>
+							)}
+						</div>
+					))}
+				</div>
+
+				<button class="contact-form__submit" type="button">
+					<img src={contact.form.submitIcon} alt="" aria-hidden="true" width="24" height="24" />
+					<span>{contact.form.submitLabel}</span>
+				</button>
+			</form>
+		</div>
+
+		<div class="layout-band contact__footer-band" aria-hidden="true"></div>
+
+		<footer class="contact__footer">
+			<div class="contact__socials">
+				<p>{contact.socialLabel}</p>
+				<div class="contact__social-list">
+					{contact.socials.map(({ name, icon }) => (
+						<span class="contact__social-icon" role="img" aria-label={name}>
+							<img src={icon} alt="" aria-hidden="true" width="24" height="24" />
+						</span>
+					))}
+				</div>
+			</div>
+			<p class="contact__copyright">{contact.copyright}</p>
+		</footer>
+	</div>
+</section>
 
 <style>
-	.site-footer { padding: 2rem var(--gutter-page); border-top: 1px solid var(--color-border-subtle); color: var(--color-text-muted); font-size: 0.875rem; text-align: center; }
-	.site-footer p { margin: 0; }
+	.contact {
+		padding-block: 9.25rem 2.5rem;
+		background: var(--color-page);
+	}
+
+	.contact__top-band {
+		position: absolute;
+		top: 3.75rem;
+		right: 0;
+		left: 0;
+	}
+
+	.contact__inner {
+		position: relative;
+		z-index: 1;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.contact__top {
+		display: flex;
+		width: min(55.875rem, 100%);
+		min-height: 25.8125rem;
+		flex-direction: column;
+		align-items: center;
+		gap: 2.5rem;
+	}
+
+	.contact__intro {
+		display: flex;
+		width: 100%;
+		min-height: 16.5625rem;
+		flex-direction: column;
+		align-items: center;
+		gap: 1.25rem;
+		text-align: center;
+	}
+
+	.contact__headline {
+		display: flex;
+		width: 100%;
+		min-height: 11.6875rem;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.75rem;
+	}
+
+	.contact__eyebrow {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.625rem;
+		margin: 0;
+		color: var(--color-text-muted);
+		font-size: 0.875rem;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		line-height: 1.1;
+		text-transform: uppercase;
+	}
+
+	.contact__eyebrow span {
+		width: 0.75rem;
+		height: 0.75rem;
+		flex: 0 0 auto;
+		border-radius: 0.125rem;
+		background: var(--color-brand);
+	}
+
+	.contact h2 {
+		width: min(51.125rem, 100%);
+		margin: 0;
+		font-size: 4.5rem;
+		line-height: 1.1;
+	}
+
+	.contact h2 span,
+	.contact h2 em { display: block; }
+
+	.contact h2 span {
+		font-weight: 700;
+		letter-spacing: -0.04em;
+	}
+
+	.contact h2 em {
+		font-family: "Instrument Serif", Georgia, serif;
+		font-weight: 400;
+		letter-spacing: -0.03em;
+	}
+
+	.contact__description {
+		width: min(39.375rem, 100%);
+		margin: 0;
+		color: var(--color-text-muted);
+		font-size: 1.125rem;
+		font-weight: 400;
+		line-height: 1.6;
+	}
+
+	.contact__actions {
+		display: flex;
+		min-height: 6.75rem;
+		flex-direction: column;
+		align-items: center;
+		gap: 1.5rem;
+	}
+
+	.contact__buttons {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+	}
+
+	:global(.contact__chat) { gap: 0.625rem; }
+
+	.contact__email {
+		color: rgb(255 255 255 / 50%);
+		font-size: 1.25rem;
+		font-weight: 500;
+		letter-spacing: 0.02em;
+		line-height: 1.6;
+		text-align: center;
+	}
+
+	.contact__email:hover { color: var(--color-text-muted); }
+
+	.contact__or {
+		position: relative;
+		display: flex;
+		width: min(var(--container-rails), calc(100vw - 1rem));
+		height: 2.1875rem;
+		flex: 0 0 auto;
+		align-items: flex-start;
+		justify-content: center;
+		margin-top: 3.75rem;
+		background: var(--layout-dash-x) top / 100% 1px no-repeat, var(--layout-dash-x) bottom / 100% 1px no-repeat;
+	}
+
+	.contact__or span {
+		position: relative;
+		z-index: 1;
+		padding-inline: 0.75rem;
+		background: var(--color-page);
+		color: rgb(255 255 255 / 50%);
+		font-family: "Instrument Serif", Georgia, serif;
+		font-size: 1.75rem;
+		font-style: italic;
+		font-weight: 400;
+		letter-spacing: -0.03em;
+		line-height: 1.1;
+	}
+
+	/* Figma "Content Cards" > "Contact form": two 4% white layers with inside strokes and no noise effect. */
+	.contact__form-shell {
+		width: min(40.125rem, 100%);
+		min-height: 46.375rem;
+		margin-top: 3.75rem;
+		padding: 0.75rem;
+		border-radius: 1.25rem;
+		background: rgb(255 255 255 / 4%);
+		box-shadow: inset 0 0 0 1px var(--color-border-subtle);
+	}
+
+	.contact-form {
+		position: relative;
+		display: flex;
+		width: 100%;
+		min-height: 44.875rem;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: center;
+		gap: 2rem;
+		padding: 2rem;
+		border: 1px solid var(--color-border-subtle);
+		border-radius: 1rem;
+		background: rgb(255 255 255 / 4%);
+	}
+
+	.contact-form h3 {
+		margin: 0;
+		font-size: 1.875rem;
+		font-weight: 600;
+		letter-spacing: -0.01em;
+		line-height: 1.15;
+	}
+
+	.contact-form__fields {
+		display: flex;
+		width: 100%;
+		flex-direction: column;
+		gap: 1.75rem;
+	}
+
+	.contact-form__field {
+		display: flex;
+		min-width: 0;
+		width: 100%;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.contact-form label {
+		font-size: 1rem;
+		font-weight: 500;
+		line-height: 1.6;
+	}
+
+	.contact-form input,
+	.contact-form textarea {
+		width: 100%;
+		min-width: 0;
+		border: 0;
+		border-radius: 0.5rem;
+		outline: 0;
+		background: rgb(255 255 255 / 2%);
+		/* Figma draws this stroke outside the field. */
+		box-shadow: 0 0 0 1px rgb(255 255 255 / 15%);
+		color: var(--color-text);
+		font: inherit;
+		font-size: 1rem;
+		font-weight: 400;
+		line-height: 1.6;
+	}
+
+	.contact-form input {
+		height: 3.125rem;
+		padding: 0.75rem 1rem;
+	}
+
+	.contact-form textarea {
+		height: 8.25rem;
+		padding: 0.75rem 1rem;
+		resize: none;
+	}
+
+	.contact-form input::placeholder,
+	.contact-form textarea::placeholder {
+		color: rgb(255 255 255 / 50%);
+		opacity: 1;
+	}
+
+	.contact-form input:focus-visible,
+	.contact-form textarea:focus-visible {
+		box-shadow: 0 0 0 1px var(--color-brand), var(--focus-ring);
+	}
+
+	.contact-form__submit {
+		display: inline-flex;
+		min-height: 3.25rem;
+		align-items: center;
+		justify-content: center;
+		gap: 0.5rem;
+		border: 0;
+		border-radius: var(--radius-pill);
+		background: var(--color-brand);
+		padding: 0.875rem 1.25rem;
+		color: var(--color-ink);
+		cursor: default;
+		font: inherit;
+		font-size: 1.125rem;
+		font-weight: 600;
+		line-height: 1.22;
+		white-space: nowrap;
+	}
+
+	.contact-form__submit img { flex: 0 0 auto; }
+
+	.contact__footer-band {
+		width: 100vw;
+		flex: 0 0 auto;
+		margin-top: 3.75rem;
+	}
+
+	.contact__footer {
+		display: flex;
+		width: 100%;
+		min-height: 9rem;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 2rem;
+		margin-top: 4.1875rem;
+		color: rgb(255 255 255 / 50%);
+		text-align: center;
+	}
+
+	.contact__socials {
+		display: flex;
+		min-height: 5.375rem;
+		flex-direction: column;
+		align-items: center;
+		gap: 1rem;
+	}
+
+	.contact__socials p,
+	.contact__copyright {
+		margin: 0;
+		font-size: 1rem;
+		line-height: 1.6;
+	}
+
+	.contact__socials p { font-weight: 500; }
+	.contact__copyright { font-weight: 400; }
+
+	.contact__social-list {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+	.contact__social-icon {
+		display: flex;
+		width: 2.75rem;
+		height: 2.75rem;
+		align-items: center;
+		justify-content: center;
+		border-radius: 0.625rem;
+		background: rgb(255 255 255 / 10%);
+	}
+
+	.contact__social-icon img {
+		width: 1.5rem;
+		height: 1.5rem;
+	}
+
+	@media (max-width: 56.24rem) {
+		.contact { padding-block: 6.5rem 2.5rem; }
+		.contact__top-band { top: 2.5rem; }
+
+		.contact__top,
+		.contact__intro,
+		.contact__headline,
+		.contact__actions { min-height: 0; }
+
+		.contact__top { width: 100%; gap: 2rem; }
+
+		.contact h2 {
+			font-size: 2.5rem;
+			line-height: 1.1;
+		}
+
+		.contact h2 span,
+		.contact h2 em { letter-spacing: -0.01em; }
+
+		.contact h2 span { font-weight: 600; }
+
+		.contact__description {
+			font-size: 1rem;
+			line-height: 1.6;
+		}
+
+		.contact__or,
+		.contact__form-shell,
+		.contact__footer-band { margin-top: 3rem; }
+
+		.contact__footer { min-height: 0; margin-top: 3rem; }
+	}
+
+	@media (max-width: 39.99rem) {
+		.contact__buttons {
+			width: min(20rem, 100%);
+			flex-direction: column;
+		}
+
+		:global(.contact__button) { width: 100%; }
+
+		.contact__email {
+			max-width: 100%;
+			font-size: 1rem;
+			overflow-wrap: anywhere;
+		}
+
+		/* Figma mobile keeps the desktop type and spacing; only the side padding drops to 20px. */
+		.contact__form-shell { min-height: 0; }
+		.contact-form { min-height: 0; padding: 2rem 1.25rem; }
+	}
 </style>

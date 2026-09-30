@@ -1,5 +1,260 @@
 ---
-import SectionIntro from "../ui/SectionIntro.astro";
 import { portfolio } from "../../data/portfolio";
+
+const { process } = portfolio;
 ---
-<SectionIntro section={portfolio.sections.process} />
+
+<section class="process layout-rails" id={process.id} aria-labelledby="process-heading">
+	<div class="layout-band process__band process__band--top" aria-hidden="true"></div>
+
+	<div class="content-container process__inner">
+		<header class="process__intro">
+			<div class="process__headline">
+				<p class="process__eyebrow"><span aria-hidden="true"></span>{process.badge}</p>
+				<h2 id="process-heading">
+					<span>{process.heading}</span>
+					<em>{process.headingAccent}</em>
+				</h2>
+			</div>
+			<p class="process__description">{process.description}</p>
+		</header>
+
+		<ol class="process__cards">
+			{process.steps.map(({ number, title, titleLines, description, extraBottomPadding }) => (
+				<li class:list={["process-card", { "process-card--extra-bottom": extraBottomPadding }]}>
+					<span class="process-card__number" aria-hidden="true">{number}</span>
+					<div class="process-card__copy">
+						<h3 aria-label={title}>
+							{titleLines.map((line) => <span aria-hidden="true">{line}</span>)}
+						</h3>
+						<p>{description}</p>
+					</div>
+				</li>
+			))}
+		</ol>
+	</div>
+
+	<div class="layout-band process__band process__band--bottom" aria-hidden="true"></div>
+</section>
+
+<style>
+	.process {
+		padding-block: 9.25rem 5.5rem;
+		background: var(--color-page);
+	}
+
+	.process__band {
+		position: absolute;
+		right: 0;
+		left: 0;
+	}
+
+	.process__band--top { top: 3.75rem; }
+	.process__band--bottom { bottom: 0; }
+
+	.process__inner {
+		position: relative;
+		z-index: 1;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 3.75rem;
+	}
+
+	.process__intro {
+		display: flex;
+		width: min(55.875rem, 100%);
+		min-height: 16.5625rem;
+		flex-direction: column;
+		align-items: center;
+		gap: 1.25rem;
+		text-align: center;
+	}
+
+	.process__headline {
+		display: flex;
+		width: 100%;
+		min-height: 11.6875rem;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.75rem;
+	}
+
+	.process__eyebrow {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.625rem;
+		margin: 0;
+		color: var(--color-text-muted);
+		font-size: 0.875rem;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		line-height: 1.1;
+		text-transform: uppercase;
+	}
+
+	.process__eyebrow span {
+		width: 0.75rem;
+		height: 0.75rem;
+		flex: 0 0 auto;
+		border-radius: 0.125rem;
+		background: var(--color-brand);
+	}
+
+	.process h2 {
+		width: 100%;
+		margin: 0;
+		font-size: 4.5rem;
+		line-height: 1.1;
+	}
+
+	.process h2 span,
+	.process h2 em { display: block; }
+
+	.process h2 span {
+		font-weight: 700;
+		letter-spacing: -0.04em;
+	}
+
+	.process h2 em {
+		font-family: "Instrument Serif", Georgia, serif;
+		font-weight: 400;
+		letter-spacing: -0.03em;
+	}
+
+	.process__description {
+		width: min(39.25rem, 100%);
+		margin: 0;
+		color: var(--color-text-muted);
+		font-size: 1.125rem;
+		font-weight: 500;
+		line-height: 1.6;
+	}
+
+	.process__cards {
+		position: relative;
+		display: grid;
+		width: 100%;
+		min-height: 18.25rem;
+		grid-template-columns: repeat(6, minmax(0, 1fr));
+		gap: 0.75rem;
+		margin: 0;
+		padding: 0.75rem;
+		overflow: hidden;
+		border-radius: 1.25rem;
+		background: #090c0f;
+		box-shadow: inset 0 0 0 1px var(--color-border-subtle);
+		list-style: none;
+	}
+
+	.process__cards::after {
+		position: absolute;
+		inset: 0;
+		z-index: 2;
+		border-radius: inherit;
+		background: url("/images/surface-noise.png") 0 0 / 8rem 8rem repeat;
+		content: "";
+		pointer-events: none;
+	}
+
+	.process-card {
+		position: relative;
+		display: flex;
+		min-width: 0;
+		min-height: 16.75rem;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 0.75rem;
+		padding: 1.5rem;
+		border-radius: 0.875rem;
+		background: rgb(255 255 255 / 6%);
+		box-shadow: inset 0 0 0 1px var(--color-border-subtle);
+	}
+
+	.process-card--extra-bottom { padding-bottom: 2rem; }
+
+	.process-card > * {
+		position: relative;
+		z-index: 1;
+	}
+
+	.process-card__number {
+		color: rgb(255 255 255 / 25%);
+		font-family: "Instrument Serif", Georgia, serif;
+		font-size: 2.75rem;
+		font-style: italic;
+		font-weight: 400;
+		letter-spacing: -0.02em;
+		line-height: 1.1;
+		white-space: nowrap;
+	}
+
+	.process-card__copy {
+		display: flex;
+		min-width: 0;
+		width: 100%;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.process-card h3 {
+		margin: 0;
+		font-size: 1.5rem;
+		font-weight: 600;
+		letter-spacing: -0.01em;
+		line-height: 1.2;
+	}
+
+	.process-card h3 span { display: block; }
+
+	.process-card p {
+		margin: 0;
+		color: var(--color-text-muted);
+		font-size: 1rem;
+		font-weight: 400;
+		line-height: 1.6;
+	}
+
+	@media (max-width: 79.99rem) {
+		.process__cards {
+			min-height: 0;
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+		}
+	}
+
+	@media (max-width: 56.24rem) {
+		.process { padding-block: 6.5rem 4rem; }
+		.process__band--top { top: 2.5rem; }
+		.process__inner { gap: 2rem; }
+
+		.process__intro {
+			width: 100%;
+			min-height: 0;
+		}
+
+		.process__headline { min-height: 0; }
+
+		.process h2 {
+			font-size: 2.5rem;
+			line-height: 1.1;
+		}
+
+		.process h2 span,
+		.process h2 em { letter-spacing: -0.01em; }
+
+		.process h2 span { font-weight: 600; }
+
+		.process__description {
+			font-size: 1rem;
+			line-height: 1.6;
+		}
+
+		.process__cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+		.process-card { min-height: 0; }
+	}
+
+	@media (max-width: 39.99rem) {
+		.process__cards { grid-template-columns: minmax(0, 1fr); }
+	}
+</style>

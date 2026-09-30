@@ -6,7 +6,7 @@ export interface NavigationItem {
 export interface CtaLink {
 	label: string;
 	href: string;
-	icon: "/icons/calendar.svg" | "/icons/whatsapp.svg";
+	icon: `/icons/${string}.svg`;
 	external: boolean;
 }
 
@@ -47,6 +47,44 @@ export interface PortfolioProject {
 	image: `/images/work/${string}.png`;
 	alt: string;
 	tags: readonly string[];
+}
+
+export interface ServiceCard {
+	title: string;
+	titleLines?: readonly string[];
+	description: string;
+	items: readonly string[];
+	icon: `/icons/service-${string}.svg`;
+}
+
+export interface Testimonial {
+	name: string;
+	quote: string;
+	avatar: `/images/testimonials/${string}.png`;
+	height: number;
+	avatarWidth?: number;
+	avatarLeft?: number;
+	avatarTop?: number;
+	avatarOverflow?: "visible";
+	quoteGap?: number;
+}
+
+export interface ProcessStep {
+	number: `0${number}.`;
+	title: string;
+	titleLines: readonly string[];
+	description: string;
+	extraBottomPadding?: boolean;
+}
+
+export interface ContactField {
+	label: string;
+	name: string;
+	type: "text" | "email" | "tel";
+	placeholder: string;
+	required: boolean;
+	autocomplete?: string;
+	multiline?: boolean;
 }
 
 const portfolioProjectTitle = "EmLock — EMI-Based Mobile App Development";
@@ -232,30 +270,421 @@ export const portfolio = {
 		] satisfies PortfolioProject[],
 		viewMoreLabel: "View more works",
 	},
-	sections: {
-		services: {
-			id: "services",
-			badge: "My Services",
-			heading: "Design that solves the right problems",
-			description: "I design digital products around real users, real business goals, and the problems that matter, not just what looks good on screen.",
+	services: {
+		id: "services",
+		badge: "My Services",
+		heading: "Design that solves the",
+		headingAccent: "right problems",
+		description: "I design digital products around real users, real business goals, and the problems that matter, not just what looks good on screen.",
+		cards: [
+			{
+				title: "SaaS & Product Design",
+				description: "I turn complex workflows and product ideas into intuitive experiences that are easier to understand, use, and scale.",
+				items: [
+					"Product Strategy & UX",
+					"User Flows & Information Architecture",
+					"SaaS & Web App UI",
+					"Design Systems",
+					"Prototyping & Usability",
+				],
+				icon: "/icons/service-saas-product.svg",
+			},
+			{
+				title: "Mobile App Design",
+				titleLines: ["Mobile App", "Design"],
+				description: "From early concepts to production-ready screens, I design mobile experiences that feel simple, natural, and effortless.",
+				items: [
+					"UX Strategy & User Flows",
+					"App Architecture",
+					"iOS & Android UI",
+					"Prototyping",
+					"Design Systems",
+				],
+				icon: "/icons/service-mobile-app.svg",
+			},
+			{
+				title: "Website Design",
+				titleLines: ["Website", "Design"],
+				description: "I design strategic websites that make your value clear, guide visitors naturally, and turn attention into action.",
+				items: [
+					"UX & Content Structure",
+					"Landing Pages",
+					"SaaS & Business Websites",
+					"Conversion-focused UI",
+					"Responsive Design",
+				],
+				icon: "/icons/service-website.svg",
+			},
+			{
+				title: "UX Audit & Improvement",
+				description: "I uncover usability problems, confusing flows, and missed opportunities and turn them into clearer, more effective experiences.",
+				items: [
+					"UX & Usability Audit",
+					"User Journey Review",
+					"Information Architecture",
+					"UI/UX Improvements",
+					"Accessibility & Interaction Review",
+				],
+				icon: "/icons/service-ux-audit.svg",
+			},
+		] satisfies ServiceCard[],
+	},
+	testimonials: {
+		id: "testimonials",
+		badge: "Wall of Trust",
+		heading: "What founders say after",
+		headingAccent: "we work together",
+		description: "Real words from founders and teams I’ve had the opportunity to work with.",
+		columns: [
+			[
+				{
+					name: "Bob Taylor",
+					quote: "Abdur was great to work with - asked the right questions, made all the revisions asked in good time and had the work done. Would highly recommend. Will be working with him again in the future.",
+					avatar: "/images/testimonials/bob-taylor.png",
+					height: 264,
+				},
+				{
+					name: "John Wright",
+					quote: "Alone we can do so much little, together we can do so much. Your dedication and service is appreciated Abdur, I shared my requirement but was not clear to you and you conversed with me and output was simply amazing, thank you Sir.",
+					avatar: "/images/testimonials/john-wright.png",
+					height: 264,
+					avatarWidth: 133,
+					avatarLeft: -16,
+				},
+				{
+					name: "Assaf Ohana",
+					quote: "Excellent work.. I will definitely use him again for the rest of my screens.. very professional and gets the job done..\nMore screens will be required and I know he is the man for the job",
+					avatar: "/images/testimonials/assaf-ohana.png",
+					height: 238,
+					avatarWidth: 133,
+					avatarLeft: -14,
+				},
+				{
+					name: "Christopher Ball",
+					quote: "Very fast and professional, understands your requirements well and puts in the extra effort to give you exactly what you are looking for.",
+					avatar: "/images/testimonials/christopher-ball.png",
+					height: 212,
+					avatarWidth: 120,
+					avatarLeft: -10,
+					avatarTop: -10,
+					avatarOverflow: "visible",
+				},
+				{
+					name: "Angelo Bonorino",
+					quote: "Abdur goes out of his way to produce top notch, high quality designs each and every time. Highly recommended!",
+					avatar: "/images/testimonials/angelo-bonorino.png",
+					height: 186,
+				},
+				{
+					name: "Scott Graham",
+					quote: "Very talented designer. He does great work & is very affordable.",
+					avatar: "/images/testimonials/scott-graham.png",
+					height: 160,
+					avatarWidth: 120,
+					avatarLeft: -10,
+					avatarTop: -10,
+					avatarOverflow: "visible",
+				},
+				{
+					name: "SM Haque",
+					quote: "This guy is the best of the best. Very creative and quick. We will continue to use this tech for all of our upcoming work. He is very talented and creative.",
+					avatar: "/images/testimonials/sm-haque.png",
+					height: 212,
+					avatarWidth: 133,
+					avatarLeft: -16,
+				},
+				{
+					name: "Angel Gonzalez",
+					quote: "Another successful project completed and always a pleasure working with Abdur.. Highly recommended for Creative designs",
+					avatar: "/images/testimonials/angel-gonzalez.png",
+					height: 212,
+					avatarWidth: 133,
+				},
+				{
+					name: "Aimee Vo",
+					quote: "Thanks Abdur! Great UI skills and attention to detail Abdur. Best of luck!",
+					avatar: "/images/testimonials/aimee-vo.png",
+					height: 160,
+					avatarWidth: 133,
+					avatarLeft: -16,
+				},
+			],
+			[
+				{
+					name: "Michelle Sjögren Leong",
+					quote: "I’d be very happy to recommend Adbur. I brought him in to create mock-up screens for our MVP Leanier app so we could visually show the concept and user journey more clearly. The original task was to take simulation mock-ups and turn them into more polished Figma versions, but he contributed much more than that. He was flexible, accommodating, and proactive from the start. He didn’t just follow the brief mechanically; he researched similar apps and brought in ideas that helped improve the overall quality and consistency of the mock-ups. He helped standardise and elevate the work while still being very respectful of the vision behind it. He also took feedback extremely well. He was open to changes, quick to make amendments, and easy to work with throughout. That combination of responsiveness and initiative made a real difference.\nHe delivered a great result at great value, and I appreciated the fact that he added genuine thought and effort rather than simply executing instructions. I would definitely recommend & use him again.",
+					avatar: "/images/testimonials/michelle-sjogren-leong.png",
+					height: 904,
+				},
+				{
+					name: "Andy Moore",
+					quote: "Freelancer revised the designs several times with no complaints. End result was superb, highly recommended!",
+					avatar: "/images/testimonials/andy-moore.png",
+					height: 186,
+				},
+				{
+					name: "Michael O'Callaghan",
+					quote: "AMAZING DESIGNER!!!!!!! We are more than satisfied with his work...so much so, we have more designs needed from this tech. very creative",
+					avatar: "/images/testimonials/michael-ocallaghan.png",
+					height: 246,
+					avatarWidth: 133,
+					avatarLeft: -28,
+				},
+				{
+					name: "Martin Bell",
+					quote: "Great freelancer, have used Abdur previously, and always great to work with. Does what I need with very little guidance.",
+					avatar: "/images/testimonials/martin-bell.png",
+					height: 212,
+					avatarWidth: 133,
+					avatarLeft: -10,
+				},
+				{
+					name: "Liam O' Boyle",
+					quote: "Abdur was great UI/UX designer, and able to provide what I needed. Always a pleasure working with him.",
+					avatar: "/images/testimonials/liam-oboyle.png",
+					height: 186,
+					avatarWidth: 133,
+					avatarLeft: -6,
+				},
+				{
+					name: "Gurvann Saintot",
+					quote: "Abdur is a very good designer, and the communication was perfect. I'll definitely hire him again in the future.",
+					avatar: "/images/testimonials/gurvann-saintot.png",
+					height: 186,
+					avatarWidth: 133,
+					avatarLeft: -17,
+				},
+			],
+			[
+				{
+					name: "Rodney Hall",
+					quote: "Another excellent work of Abdur, always available and quick respon, Thank you for the good job done. Looking forward to work with you on our new coming project. Thanks!!!",
+					avatar: "/images/testimonials/rodney-hall.png",
+					height: 242,
+					avatarWidth: 133,
+					avatarLeft: -17,
+					quoteGap: 24,
+				},
+				{
+					name: "Kamel Fawaz",
+					quote: "Abdur goes out of his way to produce top notch, high quality designs each and every time. Highly recommended!",
+					avatar: "/images/testimonials/top-rank.png",
+					height: 186,
+					avatarWidth: 133,
+					avatarLeft: -10,
+				},
+				{
+					name: "Italos Marios",
+					quote: "Doing a good job is not always about impressive innovation. Sometimes it is only about doing something with plain dedication. Well done Abdur.",
+					avatar: "/images/testimonials/italos-marios.png",
+					height: 212,
+				},
+				{
+					name: "Mohammad Shir",
+					quote: "Abdur is a talented and hardworking designer. He delivered an excellent set of application screens for me, and his response time with communication was very quick. I will definitely use his services again.",
+					avatar: "/images/testimonials/mohammad-shir.png",
+					height: 264,
+					avatarWidth: 133,
+					avatarLeft: -17,
+				},
+				{
+					name: "Andrew Seymour",
+					quote: "Abdur and I have worked together on many different design projects. He is very easy to work with and also very accommodating when it comes to revisions and requests. From logos to mobile apps design, his design work is excellent! We have been thrilled by Abdur's work and I highly recommend him.",
+					avatar: "/images/testimonials/andrew-seymour.png",
+					height: 342,
+				},
+				{
+					name: "Jacqui Aby",
+					quote: "Abdur provided quality work and was able to meet deadlines. Abdur is great to work with and I will be happy to work with him again.",
+					avatar: "/images/testimonials/jacqui-aby.png",
+					height: 212,
+				},
+				{
+					name: "Tomislav M",
+					quote: "It's always a pleasure working with Abdur Rahim. He is one of the best UI/UX designers we have here on Upwork. Will definitely hire again.",
+					avatar: "/images/testimonials/tomislav-m.png",
+					height: 212,
+				},
+				{
+					name: "Ksquare Technologies Ltd",
+					quote: "Abdur was great to work with! He responded extremely quickly to all of my messages and was very accommodating with the changes I requested.",
+					avatar: "/images/testimonials/ksquare-technologies.png",
+					height: 238,
+				},
+			],
+			[
+				{
+					name: "Ankit K.",
+					quote: "Great job from Abdur. Understood requirements and made changes to design as needed. Will work with him again.",
+					avatar: "/images/testimonials/ankit-k.png",
+					height: 212,
+				},
+				{
+					name: "Augustine Ikekhuah",
+					quote: "Abdur is one of the best graphic designers I have worked with and I highly recommend him. Great service and will definitely buy again.",
+					avatar: "/images/testimonials/augustine-ikekhuah.png",
+					height: 212,
+					avatarWidth: 120,
+					avatarLeft: -10,
+					avatarTop: -10,
+					avatarOverflow: "visible",
+				},
+				{
+					name: "Mitchell B",
+					quote: "More than only a designer, Abdur Rahim go deeply in requirement and get out of there an amazing design for our Mobile App.\nHighly Highly Recommand him!!!!\nThank you sir for your inspiration.",
+					avatar: "/images/testimonials/mitchell-b.png",
+					height: 264,
+				},
+				{
+					name: "Social Gains Limited",
+					quote: "Another successful experience with Abdur and looking forward to working with him on my future designs. Highly recommended!",
+					avatar: "/images/testimonials/social-gains-limited.png",
+					height: 212,
+				},
+				{
+					name: "Tariq Jalil",
+					quote: "Abdur was responsive and really cares about his work.",
+					avatar: "/images/testimonials/shared-client-avatar.png",
+					height: 160,
+				},
+				{
+					name: "Matthew Ebersole",
+					quote: "This tech has to be one of the best Upwork has to offer. We are very excited to see the final results and has plenty of remaining more work for this tech. Its affordable for small business on limited budget",
+					avatar: "/images/testimonials/matthew-ebersole.png",
+					height: 264,
+					avatarWidth: 133,
+					avatarLeft: -33,
+				},
+				{
+					name: "Ven Grollmus",
+					quote: "We have been on Upwork for a few years now. Not only is this tech reliable but he is quick and very creative . I truly believe this guy is the best upwork has to offer. He has always been available and the quality of work is the best of the best. If you are looking for someone who is adherence to schedule with skills, then Abdur Rahim is the person.",
+					avatar: "/images/testimonials/ven-grollmus.png",
+					height: 342,
+					avatarWidth: 120,
+					avatarLeft: -10,
+					avatarTop: -10,
+					avatarOverflow: "visible",
+				},
+				{
+					name: "Pankaj Yadav",
+					quote: "Abdur is always pleasant, and gets the job done quickly and to my satisfaction. Comes up with good designs when I all I have is an idea, without any conceptual designs",
+					avatar: "/images/testimonials/shared-client-avatar.png",
+					height: 238,
+				},
+			],
+		] satisfies Testimonial[][],
+	},
+	process: {
+		id: "process",
+		badge: "My Process",
+		heading: "A system, not a",
+		headingAccent: "stroke of luck",
+		description: "Every project starts by understanding the problem, aligning on what matters, and creating the right path forward. No surprises, no scope drift.",
+		steps: [
+			{
+				number: "01.",
+				title: "Discovery Call",
+				titleLines: ["Discovery", "Call"],
+				description: "Understand the product, goals, and project needs.",
+			},
+			{
+				number: "02.",
+				title: "Research & Planning",
+				titleLines: ["Research &", "Planning"],
+				description: "Gather insights and define the right direction.",
+			},
+			{
+				number: "03.",
+				title: "UX & Wireframing",
+				titleLines: ["UX &", "Wireframing"],
+				description: "Map user flows and structure the experience.",
+			},
+			{
+				number: "04.",
+				title: "UI & Visual Design",
+				titleLines: ["UI &", "Visual Design"],
+				description: "Create a clear, polished, and consistent interface.",
+			},
+			{
+				number: "05.",
+				title: "Feedback & Revisions",
+				titleLines: ["Feedback &", "Revisions"],
+				description: "Review the design, gather feedback, and refine.",
+				extraBottomPadding: true,
+			},
+			{
+				number: "06.",
+				title: "Handoff & Support",
+				titleLines: ["Handoff &", "Support"],
+				description: "Deliver organized Figma files and support the next steps.",
+				extraBottomPadding: true,
+			},
+		] satisfies ProcessStep[],
+	},
+	contact: {
+		id: "contact",
+		badge: "Contact",
+		heading: "Let's build the product",
+		headingAccent: "people remember",
+		description: "Schedule a free 30-minute discovery call. No pitch, no pressure, just an honest conversation about your mission and how I can support it.",
+		primaryCta: {
+			label: "Book a Free Call",
+			href: "#contact",
+			icon: "/icons/cta-calendar.svg",
+			external: false,
+		} satisfies CtaLink,
+		secondaryCta: {
+			label: "Chat with me",
+			href: "#contact",
+			icon: "/icons/cta-whatsapp.svg",
+			external: false,
+		} satisfies CtaLink,
+		email: "workwitharahim@gmail.com",
+		form: {
+			heading: "Hello, I’d love to hear from you!",
+			fields: [
+				{
+					label: "Name*",
+					name: "name",
+					type: "text",
+					placeholder: "Your full name",
+					required: true,
+					autocomplete: "name",
+				},
+				{
+					label: "Email*",
+					name: "email",
+					type: "email",
+					placeholder: "Your email",
+					required: true,
+					autocomplete: "email",
+				},
+				{
+					label: "Phone (Whatsapp)",
+					name: "phone",
+					type: "tel",
+					placeholder: "Phone number",
+					required: false,
+					autocomplete: "tel",
+				},
+				{
+					label: "How can I help you?*",
+					name: "message",
+					type: "text",
+					placeholder: "Briefly describe your project, goals, challenges, and expected timeline",
+					required: true,
+					multiline: true,
+				},
+			] satisfies ContactField[],
+			submitLabel: "Send Message",
+			submitIcon: "/icons/cta-send.svg",
 		},
-		testimonials: {
-			id: "testimonials",
-			badge: "Wall of Trust",
-			heading: "What founders say after we work together",
-			description: "Real words from founders and teams I've had the opportunity to work with.",
-		},
-		process: {
-			id: "process",
-			badge: "My Process",
-			heading: "A system, not a stroke of luck",
-			description: "Every project starts by understanding the problem, aligning on what matters, and creating the right path forward. No surprises, no scope drift.",
-		},
-		contact: {
-			id: "contact",
-			badge: "Contact",
-			heading: "Let's build the product people remember",
-			description: "Schedule a free 30-minute discovery call. No pitch, no pressure, just an honest conversation about your mission and how I can support it.",
-		},
-	} satisfies Record<string, SectionCopy>,
+		socialLabel: "Follow me on socials",
+		socials: [
+			{ name: "LinkedIn", icon: "/icons/cta-linkedin.svg" },
+			{ name: "YouTube", icon: "/icons/cta-youtube.svg" },
+			{ name: "Dribbble", icon: "/icons/cta-dribbble.svg" },
+		],
+		copyright: "© 2026 Abdur Rahim. All Rights Reserved",
+	},
 };
