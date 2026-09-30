@@ -1,0 +1,138 @@
+---
+import { portfolio, type WorkMarqueeItem } from "../../data/portfolio";
+
+interface Props {
+	items: WorkMarqueeItem[];
+	direction: "left" | "right";
+	offset: string;
+}
+
+const { workMarquee } = portfolio;
+
+const rows: Props[] = [
+	{ items: workMarquee.firstRow, direction: "right", offset: "-6.25rem" },
+	{ items: workMarquee.secondRow, direction: "left", offset: "-1.25rem" },
+];
+---
+
+<section class="work-marquee" aria-label="Selected portfolio projects">
+	{rows.map(({ items, direction, offset }) => (
+		<div class="work-marquee__viewport" style={`--row-offset: ${offset};`}>
+			<div class:list={["work-marquee__track", `work-marquee__track--${direction}`]}>
+				<div class="work-marquee__group">
+					{items.map((item, index) => (
+						<figure class="work-marquee__card">
+							<img
+								src={item.src}
+								alt={item.alt}
+								width="660"
+								height="460"
+								loading="eager"
+								fetchpriority={index === 0 ? "high" : "auto"}
+								decoding="async"
+							/>
+						</figure>
+					))}
+				</div>
+				<div class="work-marquee__group" aria-hidden="true">
+					{items.map((item) => (
+						<figure class="work-marquee__card">
+							<img src={item.src} alt="" width="660" height="460" loading="eager" fetchpriority="low" decoding="async" />
+						</figure>
+					))}
+				</div>
+			</div>
+		</div>
+	))}
+</section>
+
+<style>
+	.work-marquee {
+		--card-width: clamp(18rem, 26.25vw, 31.5rem);
+		--card-height: calc(var(--card-width) * 0.706349);
+		--card-border: clamp(0.25rem, 0.4167vw, 0.5rem);
+		--card-radius: clamp(0.75rem, 0.9375vw, 1.125rem);
+		--image-radius: clamp(0.5rem, 0.5208vw, 0.625rem);
+		--marquee-gap: 0.5rem;
+		--marquee-duration: 64s;
+		position: relative;
+		z-index: 1;
+		display: grid;
+		gap: var(--marquee-gap);
+		width: 100%;
+		overflow: hidden;
+		background: transparent;
+	}
+
+	.work-marquee__viewport {
+		width: 100%;
+		overflow: hidden;
+	}
+
+	.work-marquee__track {
+		display: flex;
+		width: max-content;
+		margin-left: var(--row-offset);
+		will-change: transform;
+	}
+
+	.work-marquee__track--right { animation: marquee-right var(--marquee-duration) linear infinite; }
+	.work-marquee__track--left { animation: marquee-left var(--marquee-duration) linear infinite; }
+
+	.work-marquee__group {
+		display: flex;
+		flex: none;
+		gap: var(--marquee-gap);
+		padding-right: var(--marquee-gap);
+	}
+
+	.work-marquee__card {
+		box-sizing: border-box;
+		width: var(--card-width);
+		height: var(--card-height);
+		flex: none;
+		margin: 0;
+		overflow: hidden;
+		border: var(--card-border) solid rgb(255 255 255 / 25%);
+		border-radius: var(--card-radius);
+	}
+
+	.work-marquee__card img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		border-radius: var(--image-radius);
+		object-fit: cover;
+	}
+
+	@keyframes marquee-right {
+		from { transform: translate3d(-50%, 0, 0); }
+		to { transform: translate3d(0, 0, 0); }
+	}
+
+	@keyframes marquee-left {
+		from { transform: translate3d(0, 0, 0); }
+		to { transform: translate3d(-50%, 0, 0); }
+	}
+
+	@media (max-width: 56.24rem) {
+		.work-marquee {
+			--marquee-duration: 54s;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.work-marquee__viewport {
+			overflow-x: auto;
+			scrollbar-width: thin;
+		}
+
+		.work-marquee__track {
+			margin-left: 0;
+			animation: none;
+			will-change: auto;
+		}
+
+		.work-marquee__group[aria-hidden="true"] { display: none; }
+	}
+</style>

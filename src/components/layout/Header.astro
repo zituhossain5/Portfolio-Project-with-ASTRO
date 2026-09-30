@@ -1,0 +1,77 @@
+---
+import ButtonLink from "../ui/ButtonLink.astro";
+import { portfolio } from "../../data/portfolio";
+
+const bookCall = { label: "Book a Call", href: "#contact", icon: "/icons/calendar.svg" as const, external: false };
+---
+
+<header class="site-header">
+	<nav class="desktop-nav" aria-label="Primary navigation">
+		<div class="desktop-nav__left">
+			<a class="brand-link" href="#top" aria-label="Abdur Rahim — home">
+				<img src="/icons/logo.svg" alt="Abdur Rahim" width="82" height="36" />
+			</a>
+			<ul class="desktop-nav__links">
+				{portfolio.navigation.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
+			</ul>
+		</div>
+		<div class="desktop-nav__right">
+			<p class="availability">
+				<img src="/icons/availability.svg" alt="" aria-hidden="true" width="18" height="18" />
+				<span>{portfolio.availability}</span>
+			</p>
+			<ButtonLink {...bookCall} compact />
+		</div>
+	</nav>
+
+	<details class="mobile-nav">
+		<summary aria-label="Toggle navigation menu">
+			<img class="mobile-nav__logo" src="/icons/logo.svg" alt="Abdur Rahim" width="68" height="30" />
+			<img class="mobile-nav__menu" src="/icons/menu.svg" alt="" aria-hidden="true" width="24" height="24" />
+			<img class="mobile-nav__close" src="/icons/close.svg" alt="" aria-hidden="true" width="24" height="24" />
+		</summary>
+		<div class="mobile-nav__panel">
+			<ul>
+				{portfolio.navigation.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
+			</ul>
+			<ButtonLink {...bookCall} compact class="mobile-nav__cta" />
+		</div>
+	</details>
+</header>
+
+<style>
+	.site-header { position: absolute; top: 0.75rem; left: 50%; z-index: 20; width: min(var(--container-content), calc(100% - 2.5rem)); transform: translateX(-50%); }
+	.desktop-nav, .mobile-nav { border: 1px solid var(--color-border); background: rgb(0 0 0 / 2%); backdrop-filter: blur(40px); }
+	.desktop-nav { display: flex; height: 4.25rem; align-items: center; justify-content: space-between; border-radius: var(--radius-pill); padding: 0.75rem 0.75rem 0.75rem 2rem; }
+	.desktop-nav__left, .desktop-nav__right, .desktop-nav__links, .availability { display: flex; align-items: center; }
+	.desktop-nav__left { gap: 4.25rem; }
+	.brand-link { flex: none; }
+	.desktop-nav__links { gap: 1.5rem; margin: 0; padding: 0; list-style: none; color: var(--color-text-80); font-size: 1rem; font-weight: 600; line-height: 1.22; }
+	.desktop-nav__links a { display: block; padding-block: 0.75rem; }
+	.desktop-nav__links a:hover { color: var(--color-text); }
+	.desktop-nav__right { gap: 1.5rem; }
+	.availability { gap: 1rem; margin: 0; color: var(--color-text-muted); font-size: 0.875rem; font-weight: 500; line-height: 1.5; white-space: nowrap; }
+	.mobile-nav { display: none; overflow: hidden; border-radius: var(--radius-pill); }
+	.mobile-nav summary { display: flex; height: 3.75rem; cursor: pointer; align-items: center; justify-content: space-between; padding-inline: 1.25rem; list-style: none; }
+	.mobile-nav summary::-webkit-details-marker { display: none; }
+	.mobile-nav__logo { width: 4.2575rem; height: 1.875rem; }
+	.mobile-nav__close { display: none; }
+	.mobile-nav__panel { display: flex; flex-direction: column; gap: 1rem; padding: 0 1.25rem 1.25rem; }
+	.mobile-nav__panel ul { display: flex; flex-direction: column; gap: 1.25rem; margin: 0; padding: 0.75rem 0; list-style: none; color: var(--color-text-80); font-size: 1rem; font-weight: 600; line-height: 1.22; }
+	.mobile-nav__panel a:not(.mobile-nav__cta) { display: block; }
+	.mobile-nav :global(.mobile-nav__cta) { width: 100%; }
+	.mobile-nav[open] { border-radius: var(--radius-card); }
+	.mobile-nav[open] .mobile-nav__menu { display: none; }
+	.mobile-nav[open] .mobile-nav__close { display: block; }
+
+	@media (max-width: 70rem) {
+		.desktop-nav__left { gap: 2rem; }
+		.availability { display: none; }
+	}
+
+	@media (max-width: 56.24rem) {
+		.site-header { top: 1rem; right: auto; left: 1.25rem; width: calc(100vw - 2.5rem); transform: none; }
+		.desktop-nav { display: none; }
+		.mobile-nav { display: block; }
+	}
+</style>

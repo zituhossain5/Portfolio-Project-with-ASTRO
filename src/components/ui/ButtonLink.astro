@@ -1,0 +1,25 @@
+---
+import type { CtaLink } from "../../data/portfolio";
+
+interface Props extends CtaLink {
+	variant?: "primary" | "whatsapp";
+	compact?: boolean;
+	class?: string;
+}
+
+const { label, href, icon, external, variant = "primary", compact = false, class: className } = Astro.props;
+---
+
+<a class:list={["button-link", `button-link--${variant}`, { "button-link--compact": compact }, className]} href={href} target={external ? "_blank" : undefined} rel={external ? "noopener noreferrer" : undefined}>
+	<img src={icon} alt="" aria-hidden="true" width={compact ? 20 : 24} height={compact ? 20 : 24} />
+	<span>{label}</span>
+</a>
+
+<style>
+	.button-link { display: inline-flex; min-height: 3.25rem; align-items: center; justify-content: center; gap: 0.5rem; border-radius: var(--radius-pill); padding: 0.875rem 1.25rem; font-size: 1.125rem; font-weight: 600; line-height: 1.22; white-space: nowrap; transition: filter 160ms ease, transform 160ms ease; }
+	.button-link:hover { filter: brightness(0.94); transform: translateY(-1px); }
+	.button-link--primary { background: var(--color-brand); color: var(--color-ink); }
+	.button-link--whatsapp { background: var(--color-whatsapp); color: var(--color-text); }
+	.button-link--compact { min-height: 2.75rem; padding-block: 0.75rem; font-size: 1rem; }
+	.button-link img { flex: none; }
+</style>

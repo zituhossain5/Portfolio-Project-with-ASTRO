@@ -1,0 +1,125 @@
+---
+import ButtonLink from "../ui/ButtonLink.astro";
+import { portfolio } from "../../data/portfolio";
+
+const { hero } = portfolio;
+---
+
+<section class="hero" id="top" aria-labelledby="hero-heading">
+	<img class="hero__layout-grid" src="/images/hero-layout-grid.svg" alt="" aria-hidden="true" width="1920" height="906" />
+	<img class="hero__grid" src="/images/hero-grid.png" alt="" aria-hidden="true" width="1920" height="896" />
+	<img class="hero__portrait" src="/images/abdur-rahim-portrait.png" alt="Abdur Rahim, UI/UX and product designer" width="771" height="800" />
+	<div class="hero__overlay-window" aria-hidden="true">
+		<img src="/images/hero-overlay.svg" alt="" width="2440" height="1270" />
+	</div>
+	<div class="hero__gradient-window" aria-hidden="true">
+		<div class="hero__gradient-fill">
+			<img src="/images/hero-gradient.png" alt="" width="4096" height="2731" />
+		</div>
+		<div class="hero__gradient-noise"></div>
+	</div>
+
+	<div class="content-container hero__content">
+		<div class="hero__copy-group">
+			<div class="hero__copy">
+				<div class="hero__title-group">
+					<p class="hero__eyebrow">{hero.eyebrow}</p>
+					<h1 id="hero-heading" aria-label={hero.heading}>
+						{hero.headingLines.map((line) => <span aria-hidden="true">{line}</span>)}
+					</h1>
+				</div>
+				<p class="hero__intro">{hero.introStart}<mark>{hero.introHighlight}</mark>{hero.introEnd}</p>
+			</div>
+			<div class="hero__actions">
+				<ButtonLink {...hero.primaryCta} />
+				<ButtonLink {...hero.secondaryCta} variant="whatsapp" />
+			</div>
+		</div>
+
+		<div class="trust">
+			<div class="trust__avatars" aria-hidden="true">
+				{hero.trustedFounderImages.map((image) => (
+					<span class="trust__avatar"><img src={image} alt="" width="46" height="46" /></span>
+				))}
+				<span class="trust__count">120+</span>
+			</div>
+			<div class="trust__rating">
+				<div class="trust__stars" aria-label="5 out of 5 stars">
+					{Array.from({ length: 5 }).map(() => <img src="/icons/star.svg" alt="" aria-hidden="true" width="18" height="18" />)}
+				</div>
+				<p>{hero.trustCopy}</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.hero { position: relative; height: 56.625rem; overflow: visible; isolation: isolate; background: var(--color-page); }
+	.hero__layout-grid, .hero__grid, .hero__portrait, .hero__overlay-window, .hero__gradient-window, .hero__content { position: absolute; }
+	.hero__layout-grid, .hero__grid, .hero__portrait, .hero__overlay-window, .hero__gradient-window { pointer-events: none; }
+	.hero__layout-grid { top: 0; left: 50%; z-index: 6; width: 120rem; height: 56.625rem; transform: translateX(-50%); }
+	.hero__grid { top: 5.6875rem; left: 50%; z-index: 0; width: 120rem; height: 56rem; transform: translateX(-50%); object-fit: cover; opacity: 0.3; }
+	.hero__portrait { top: 6.625rem; left: calc(50% - 5.0625rem); z-index: 2; width: 48.1875rem; height: 50rem; object-fit: cover; }
+	.hero__overlay-window { top: 31.5rem; right: 0; z-index: 3; width: 120rem; height: 46.875rem; }
+	.hero__overlay-window img { position: absolute; top: -16.25rem; left: -16.25rem; width: 152.5rem; height: 79.375rem; }
+	.hero__gradient-window { top: 51.625rem; left: 50%; z-index: 1; width: 120rem; height: 55.125rem; transform: translateX(-50%); mix-blend-mode: hard-light; opacity: 0.8; }
+	.hero__gradient-fill { position: absolute; inset: 0; overflow: hidden; filter: blur(9.375rem); }
+	.hero__gradient-fill img { width: 120rem; max-width: none; height: 67.5rem; transform: scaleX(-1); object-fit: fill; transform-origin: center; }
+	.hero__gradient-noise { position: absolute; inset: 0; background: url("/images/hero-noise.svg") 0 0 / 2rem 2rem repeat; }
+	.hero__content { top: 13.25rem; left: 50%; z-index: 4; transform: translateX(-50%); }
+	.hero__copy-group { display: flex; width: 42.3125rem; flex-direction: column; align-items: flex-start; gap: 2rem; }
+	.hero__copy { display: flex; flex-direction: column; gap: 1.25rem; }
+	.hero__title-group { display: flex; flex-direction: column; gap: 0.75rem; }
+	.hero__eyebrow { margin: 0; color: var(--color-text-80); font-family: "Instrument Serif", Georgia, serif; font-size: 3.25rem; font-style: italic; font-weight: 400; letter-spacing: -0.03em; line-height: 1; }
+	.hero h1 { margin: 0; font-size: 7rem; font-weight: 600; letter-spacing: -0.04em; line-height: 0.9; }
+	.hero h1 span { display: block; }
+	.hero__intro { width: 36.875rem; margin: 0; color: var(--color-text-muted); font-size: 1.25rem; font-weight: 500; line-height: 1.6; }
+	.hero__intro mark { background: transparent; color: var(--color-brand); }
+	.hero__actions { display: flex; align-items: center; gap: 0.75rem; }
+	.trust { display: flex; align-items: center; gap: 0.75rem; margin-top: 3rem; }
+	.trust__avatars { display: flex; align-items: center; border-radius: var(--radius-pill); background: white; padding: 0.25rem; box-shadow: var(--shadow-sm); }
+	.trust__avatar, .trust__count { position: relative; display: grid; width: 2.375rem; height: 2.375rem; place-items: center; border: 4px solid white; border-radius: var(--radius-pill); }
+	.trust__avatar + .trust__avatar, .trust__count { margin-left: -0.5rem; }
+	.trust__avatar { overflow: hidden; }
+	.trust__avatar img { width: 100%; height: 100%; object-fit: cover; }
+	.trust__avatar:first-child img { width: 133%; max-width: none; }
+	.trust__count { background: var(--color-ink); color: white; font-size: 0.75rem; font-weight: 700; line-height: 1.5; }
+	.trust__rating { display: flex; flex-direction: column; gap: 0.5rem; }
+	.trust__stars { display: flex; }
+	.trust__rating p { margin: 0; color: var(--color-text-muted); font-size: 0.875rem; font-weight: 500; line-height: 1.25; white-space: nowrap; }
+
+	@media (max-width: 78rem) and (min-width: 56.25rem) {
+		.hero__copy-group { width: min(38rem, 58vw); }
+		.hero h1 { font-size: clamp(5rem, 8.7vw, 6.5rem); }
+		.hero__portrait { left: 48%; }
+	}
+
+	@media (max-width: 56.24rem) {
+		.hero { height: 73.6875rem; }
+		.hero__layout-grid, .hero__grid { display: none; }
+		.hero::before, .hero::after { position: absolute; top: 0; bottom: 0; z-index: 0; width: 1px; background: var(--color-border); content: ""; }
+		.hero::before { left: 0.5rem; }
+		.hero::after { right: 0.5rem; }
+		.hero__content { top: 7.625rem; right: auto; left: 1.25rem; width: calc(100vw - 2.5rem); transform: none; }
+		.hero__copy-group { width: calc(100vw - 2.5rem); gap: 2rem; }
+		.hero__copy { width: calc(100vw - 2.5rem); }
+		.hero__title-group, .hero h1 { width: 100%; max-width: 100%; }
+		.hero__eyebrow { font-size: 2.25rem; letter-spacing: -0.03em; }
+		.hero h1 { font-size: 3.75rem; letter-spacing: -0.02em; line-height: 1.1; }
+		.hero__intro { width: calc(100vw - 2.5rem); max-width: calc(100vw - 2.5rem); font-size: 1.125rem; overflow-wrap: break-word; }
+		.hero__actions { flex-direction: column; align-items: flex-start; }
+		.trust { flex-direction: column; align-items: flex-start; gap: 1.25rem; margin-top: 3rem; }
+		.hero__portrait { top: 50.25rem; left: 50%; width: 25.9375rem; height: 26.875rem; transform: translateX(-50%); }
+		.hero__overlay-window { top: 58rem; right: auto; left: 50%; width: 68.4375rem; height: 26.7334rem; transform: translateX(-50%); }
+		.hero__overlay-window img { top: -9.2676rem; left: -9.2676rem; width: 86.9727rem; height: 45.2686rem; }
+		.hero__gradient-window { top: 66.125rem; width: 68.4375rem; height: 31.4375rem; opacity: 0.8; }
+		.hero__gradient-fill { filter: blur(5.3477rem); }
+		.hero__gradient-fill img { width: 68.4375rem; height: 38.5rem; }
+		.hero__gradient-noise { background-size: 1.141rem 1.141rem; }
+	}
+
+	@media (max-width: 23rem) {
+		.hero h1 { font-size: 3.35rem; }
+		.hero__intro { font-size: 1.0625rem; }
+	}
+</style>

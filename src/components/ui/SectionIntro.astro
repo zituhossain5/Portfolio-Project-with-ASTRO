@@ -1,0 +1,14 @@
+---
+import type { SectionCopy } from "../../data/portfolio";
+
+interface Props { section: SectionCopy; }
+const { section } = Astro.props;
+---
+
+<section class="section-foundation" id={section.id} aria-labelledby={`${section.id}-heading`}>
+	<div class="content-container section-foundation__inner">
+		<p class="section-foundation__badge">{section.badge}</p>
+		<h2 class="section-foundation__heading" id={`${section.id}-heading`}>{section.heading}</h2>
+		{section.description && <p class="section-foundation__copy">{section.description}</p>}
+	</div>
+</section>
