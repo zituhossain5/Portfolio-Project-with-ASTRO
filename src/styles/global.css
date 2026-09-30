@@ -20,12 +20,12 @@
 	--font-sans: "Inter", "Inter Display", ui-sans-serif, system-ui, sans-serif;
 	--font-serif: "Instrument Serif", Georgia, serif;
 	--color-brand: #fff311;
-	--color-page: #090c0f;
+	--color-page: #0b0e12;
 	--color-ink: #0e1514;
 }
 
 :root {
-	--color-page: #090c0f;
+	--color-page: #0b0e12;
 	--color-text: #ffffff;
 	--color-text-80: rgb(255 255 255 / 80%);
 	--color-text-muted: rgb(255 255 255 / 70%);

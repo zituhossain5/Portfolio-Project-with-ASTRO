@@ -31,9 +31,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 </BaseLayout>
 
 <style>
+	/* Not a stacking context on purpose: the hero gradient blends with the page behind the cards and below them. */
 	.hero-showcase {
 		position: relative;
-		isolation: isolate;
 		overflow-x: clip;
 		overflow-y: visible;
 		background: var(--color-page);

@@ -56,7 +56,8 @@ const rows: Props[] = [
 		--marquee-gap: 0.5rem;
 		--marquee-duration: 64s;
 		position: relative;
-		z-index: 1;
+		/* Above the hero's portrait, overlay, gradient and content layers (z 0–4). */
+		z-index: 5;
 		display: grid;
 		gap: var(--marquee-gap);
 		width: 100%;
