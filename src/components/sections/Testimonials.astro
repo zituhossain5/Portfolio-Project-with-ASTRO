@@ -177,14 +177,19 @@ const stars = Array.from({ length: 5 });
 		border-radius: 1.25rem;
 		background: #090c0f;
 		box-shadow: inset 0 0 0 1px var(--color-border-subtle);
+		isolation: isolate;
 	}
 
+	/*
+	 * Figma "Content Cards" Noise: Mono, size 0.5, density 100%, white at 10%, the same effect as "Why work with me" (see the note there).
+	 * It sits under the cards so it never dims text, avatars or stars.
+	 */
 	.testimonials__wall::after {
 		position: absolute;
 		inset: 0;
-		z-index: 2;
+		z-index: -1;
 		border-radius: inherit;
-		background: url("/images/surface-noise.png") 0 0 / 8rem 8rem repeat;
+		background: image-set(url("/images/card-grain.png") 1x, url("/images/card-grain@2x.png") 2x) 0 0 / 8rem 8rem repeat;
 		content: "";
 		pointer-events: none;
 	}
