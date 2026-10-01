@@ -147,7 +147,8 @@ const { whyChoose } = portfolio;
 	}
 
 	/*
-	 * One fine grain for the whole panel. The PNG is 2x, like Figma's size-0.5 noise: it averages to a soft grain at 1x and stays crisp on retina.
+	 * One fine grain for the whole panel. Figma's size-0.5 noise is half-pixel specks, so the 2x PNG holds them and the 1x PNG is the same specks
+	 * averaged 2x2 (pre-averaged because the browser's own downscale depends on sub-pixel position and can come out twice as grainy).
 	 * It sits under the cards,
 	 * whose 6% white fill lets it show through, so it never dims text or icons and the stat cards don't get a second layer.
 	 */
@@ -156,7 +157,7 @@ const { whyChoose } = portfolio;
 		inset: 0;
 		z-index: -1;
 		border-radius: inherit;
-		background: url("/images/card-grain.png") 0 0 / 8rem 8rem repeat;
+		background: image-set(url("/images/card-grain.png") 1x, url("/images/card-grain@2x.png") 2x) 0 0 / 8rem 8rem repeat;
 		content: "";
 		pointer-events: none;
 	}

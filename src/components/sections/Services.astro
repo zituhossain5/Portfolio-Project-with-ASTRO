@@ -148,14 +148,16 @@ const { services } = portfolio;
 		border-radius: 1.25rem;
 		background: #090c0f;
 		box-shadow: inset 0 0 0 1px var(--color-border-subtle);
+		isolation: isolate;
 	}
 
+	/* Same panel grain as "Why work with me" (see the note there), under the cards so it never dims text or icons. */
 	.services__cards::after {
 		position: absolute;
 		inset: 0;
-		z-index: 2;
+		z-index: -1;
 		border-radius: inherit;
-		background: url("/images/surface-noise.png") 0 0 / 8rem 8rem repeat;
+		background: image-set(url("/images/card-grain.png") 1x, url("/images/card-grain@2x.png") 2x) 0 0 / 8rem 8rem repeat;
 		content: "";
 		pointer-events: none;
 	}
