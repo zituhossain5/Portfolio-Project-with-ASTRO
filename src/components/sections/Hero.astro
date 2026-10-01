@@ -100,7 +100,8 @@ const { hero } = portfolio;
 	.hero__actions { display: flex; align-items: center; gap: 0.75rem; }
 	.trust { display: flex; align-items: center; gap: 0.75rem; margin-top: 3rem; }
 	.trust__avatars { display: flex; align-items: center; border-radius: var(--radius-pill); background: white; padding: 0.25rem; box-shadow: var(--shadow-sm); }
-	.trust__avatar, .trust__count { position: relative; display: grid; width: 2.375rem; height: 2.375rem; place-items: center; border: 4px solid white; border-radius: var(--radius-pill); }
+	/* Figma: 38px avatars with a 4px white stroke drawn OUTSIDE the circle, so the ring takes no space and the photos stay full size. */
+	.trust__avatar, .trust__count { position: relative; display: grid; width: 2.375rem; height: 2.375rem; place-items: center; border-radius: var(--radius-pill); box-shadow: 0 0 0 4px white; }
 	.trust__avatar + .trust__avatar, .trust__count { margin-left: -0.5rem; }
 	.trust__avatar { overflow: hidden; }
 	.trust__avatar img { width: 100%; height: 100%; object-fit: cover; }
