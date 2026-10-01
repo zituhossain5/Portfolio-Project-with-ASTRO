@@ -16,12 +16,13 @@ const { hero } = portfolio;
 	</div>
 	<!-- Hard-light blends against the page itself, so no ancestor may create a stacking context (isolation, z-index, transform, filter, opacity). -->
 	<div class="hero__gradient-window" aria-hidden="true">
-		<div class="hero__gradient-blur">
-			<div class="hero__gradient-fill">
-				<img src="/images/hero-gradient.png" alt="" width="4096" height="2731" />
+		<div class="hero__gradient-grain">
+			<div class="hero__gradient-blur">
+				<div class="hero__gradient-fill">
+					<img src="/images/hero-gradient.png" alt="" width="4096" height="2731" />
+				</div>
 			</div>
 		</div>
-		<div class="hero__gradient-noise"></div>
 	</div>
 
 	<div class="content-container hero__content">
@@ -66,29 +67,27 @@ const { hero } = portfolio;
 	/* Figma stacking, back to front: grid 0, portrait 1, overlay 2, gradient 3, content 4, work marquee 5, layout lines 6. */
 	.hero__layout-grid { top: 0; left: 50%; z-index: 6; width: 120rem; height: 56.625rem; transform: translateX(-50%); }
 	.hero__grid { top: 5.6875rem; left: 50%; z-index: 0; width: 120rem; height: 56rem; transform: translateX(-50%); object-fit: cover; opacity: 0.3; }
-	.hero__portrait { top: 6.625rem; left: calc(50% - 5.0625rem); z-index: 1; width: 48.1875rem; height: 50rem; }
+	/* The mask fades the lower body (forearms, knees) into the page so only the gradient shows there, as in Figma. */
+	.hero__portrait { top: 6.625rem; left: calc(50% - 5.0625rem); z-index: 1; width: 48.1875rem; height: 50rem; mask: linear-gradient(to bottom, black 62%, rgb(0 0 0 / 45%) 76%, rgb(0 0 0 / 12%) 86%, transparent 93%); }
 	.hero__portrait img { width: 100%; height: 100%; object-fit: cover; }
 	.hero__portrait::after { position: absolute; inset: 0; background: url("/images/hero-noise.svg") 0 0 / 2rem 2rem repeat; content: ""; opacity: 0.5; mask: url("/images/abdur-rahim-portrait.png") center / cover no-repeat; }
 	.hero__overlay-window { top: 31.5rem; right: 0; z-index: 2; width: 120rem; height: 46.875rem; }
 	.hero__overlay-window img { position: absolute; top: -16.25rem; left: -16.25rem; width: 152.5rem; height: 79.375rem; }
 	.hero__gradient-window {
-		/* Figma layer blur 300 = Gaussian σ 150px. The noise edge ramps below sample the normal CDF at 1σ steps across ±3σ. */
+		/* Figma layer blur 300 = Gaussian σ 150px. */
 		--gradient-blur: 9.375rem;
-		--gradient-edge: transparent, rgb(0 0 0 / 2%) var(--gradient-blur), rgb(0 0 0 / 16%) calc(var(--gradient-blur) * 2), rgb(0 0 0 / 50%) calc(var(--gradient-blur) * 3), rgb(0 0 0 / 84%) calc(var(--gradient-blur) * 4), rgb(0 0 0 / 98%) calc(var(--gradient-blur) * 5), black calc(var(--gradient-blur) * 6);
-		top: 51.625rem; left: 50%; z-index: 3; width: 120rem; height: 55.125rem; transform: translateX(-50%); mix-blend-mode: hard-light; opacity: 0.8;
+		/* Below Figma's 0.8 to keep the same brightness: the grain mask lowers the mean alpha and the old dark-speck noise layer is gone. */
+		top: 51.625rem; left: 50%; z-index: 3; width: 120rem; height: 55.125rem; transform: translateX(-50%); mix-blend-mode: hard-light; opacity: 0.7;
 	}
+	/*
+	 * Figma's noise effect modulates the gradient's own pixels (fine brightness grain that scales with each channel),
+	 * so the grain is a per-pixel alpha mask on the blurred gradient. The wrapper extends ±3σ so the mask covers the blur's feathered edges.
+	 */
+	.hero__gradient-grain { position: absolute; inset: calc(var(--gradient-blur) * -3); mask: url("/images/hero-grain.png") 0 0 / 16rem 16rem repeat; }
 	/* Blur sits outside the crop so it feathers past the shape's edges instead of being clipped by them. */
-	.hero__gradient-blur { position: absolute; inset: 0; filter: blur(var(--gradient-blur)); }
+	.hero__gradient-blur { position: absolute; inset: calc(var(--gradient-blur) * 3); filter: blur(var(--gradient-blur)); }
 	.hero__gradient-fill { position: absolute; inset: 0; overflow: hidden; }
 	.hero__gradient-fill img { width: 100%; max-width: none; height: 122.39%; transform: scaleX(-1); object-fit: fill; }
-	/* Grain follows the blurred shape, as in Figma, instead of stopping at a hard rectangle. */
-	.hero__gradient-noise {
-		position: absolute;
-		inset: calc(var(--gradient-blur) * -3);
-		background: url("/images/hero-noise.svg") 0 0 / 2rem 2rem repeat;
-		mask: linear-gradient(to bottom, var(--gradient-edge)), linear-gradient(to top, var(--gradient-edge)), linear-gradient(to right, var(--gradient-edge)), linear-gradient(to left, var(--gradient-edge));
-		mask-composite: intersect;
-	}
 	.hero__content { top: 13.25rem; left: 50%; z-index: 4; transform: translateX(-50%); }
 	.hero__copy-group { display: flex; width: 42.3125rem; flex-direction: column; align-items: flex-start; gap: 2rem; }
 	.hero__copy { display: flex; flex-direction: column; gap: 1.25rem; }
