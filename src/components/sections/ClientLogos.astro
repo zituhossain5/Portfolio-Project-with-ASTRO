@@ -28,10 +28,16 @@ const { clients } = portfolio;
 	/* Figma "Section - Clients Logo" + "Layout Border 2": 462px tall from the bottom of the work marquee. */
 	.clients {
 		--layout-line: rgb(255 255 255 / 16%);
+		position: relative;
+		inset: auto;
+		z-index: auto;
 		display: flex;
+		width: auto;
+		height: auto;
 		flex-direction: column;
 		gap: 2.5rem;
 		padding-top: 8.25rem;
+		overflow: visible;
 	}
 
 	.clients__grid {
@@ -49,7 +55,8 @@ const { clients } = portfolio;
 		place-items: center;
 		border: 1px solid rgb(255 255 255 / 6%);
 		border-radius: 0.75rem;
-		background: url("/images/surface-noise.png") 0 0 / 8rem 8rem repeat, #090c0f;
+		/* Figma Noise: Mono, size 0.5, density 100%, white at 10%. */
+		background: url("/images/surface-noise.png") 0 0 / 4rem 4rem repeat, #090c0f;
 	}
 
 	.clients__tile img {
