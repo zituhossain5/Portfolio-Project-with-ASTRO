@@ -143,15 +143,20 @@ const { whyChoose } = portfolio;
 		border-radius: 1.25rem;
 		background: #090c0f;
 		box-shadow: inset 0 0 0 1px var(--color-border-subtle);
+		isolation: isolate;
 	}
 
-	.why__cards::after,
-	.why__stat::after {
+	/*
+	 * One fine grain for the whole panel. The PNG is 2x, like Figma's size-0.5 noise: it averages to a soft grain at 1x and stays crisp on retina.
+	 * It sits under the cards,
+	 * whose 6% white fill lets it show through, so it never dims text or icons and the stat cards don't get a second layer.
+	 */
+	.why__cards::after {
 		position: absolute;
 		inset: 0;
-		z-index: 2;
+		z-index: -1;
 		border-radius: inherit;
-		background: url("/images/surface-noise.png") 0 0 / 8rem 8rem repeat;
+		background: url("/images/card-grain.png") 0 0 / 8rem 8rem repeat;
 		content: "";
 		pointer-events: none;
 	}
