@@ -2,17 +2,19 @@
 import ButtonLink from "../ui/ButtonLink.astro";
 import { portfolio } from "../../data/portfolio";
 
-const bookCall = { label: "Book a Call", href: "#contact", icon: "/icons/calendar.svg" as const, external: false };
+const onHomePage = Astro.url.pathname === "/";
+const resolveHref = (href: string) => href.startsWith("#") && !onHomePage ? `/${href}` : href;
+const bookCall = { label: "Book a Call", href: resolveHref("#contact"), icon: "/icons/calendar.svg" as const, external: false };
 ---
 
 <header class="site-header">
 	<nav class="desktop-nav" aria-label="Primary navigation">
 		<div class="desktop-nav__left">
-			<a class="brand-link" href="#top" aria-label="Abdur Rahim — home">
+			<a class="brand-link" href={onHomePage ? "#top" : "/"} aria-label="Abdur Rahim — home">
 				<img src="/icons/logo.svg" alt="Abdur Rahim" width="82" height="36" />
 			</a>
 			<ul class="desktop-nav__links">
-				{portfolio.navigation.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
+				{portfolio.navigation.map((item) => <li><a href={resolveHref(item.href)}>{item.label}</a></li>)}
 			</ul>
 		</div>
 		<div class="desktop-nav__right">
@@ -32,7 +34,7 @@ const bookCall = { label: "Book a Call", href: "#contact", icon: "/icons/calenda
 		</summary>
 		<div class="mobile-nav__panel">
 			<ul>
-				{portfolio.navigation.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
+				{portfolio.navigation.map((item) => <li><a href={resolveHref(item.href)}>{item.label}</a></li>)}
 			</ul>
 			<ButtonLink {...bookCall} compact class="mobile-nav__cta" />
 		</div>

@@ -1,0 +1,111 @@
+---
+import { portfolio } from "../../data/portfolio";
+
+const { worksPage } = portfolio;
+---
+
+<section class="works-hero layout-rails" id="top" aria-labelledby="works-page-heading">
+	<div class="content-container works-hero__inner">
+		<div class="works-hero__copy">
+			<h1 id="works-page-heading">
+				<span class="works-hero__title works-hero__title--desktop">
+					<span class="works-hero__line">{worksPage.headingParts[0]} {worksPage.headingParts[1]}</span>
+					<span class="works-hero__line">{worksPage.headingParts[2]} <em>{worksPage.headingAccent}</em></span>
+				</span>
+				<span class="works-hero__title works-hero__title--mobile">
+					<span class="works-hero__line">{worksPage.headingParts[0]}</span>
+					<span class="works-hero__line">{worksPage.headingParts[1]} {worksPage.headingParts[2]}</span>
+					<span class="works-hero__line"><em>{worksPage.headingAccent}</em></span>
+				</span>
+			</h1>
+			<p>{worksPage.description}</p>
+		</div>
+	</div>
+</section>
+
+<style>
+	.works-hero {
+		height: 27.5rem;
+		background:
+			var(--layout-dash-x) 0 5.75rem / 100% 1px no-repeat,
+			var(--color-page);
+	}
+
+	.works-hero__inner {
+		display: flex;
+		height: 100%;
+		align-items: flex-start;
+		padding-top: 10.25rem;
+	}
+
+	.works-hero__copy {
+		display: flex;
+		width: min(42.3125rem, 100%);
+		flex-direction: column;
+		gap: 1.25rem;
+	}
+
+	.works-hero h1 {
+		margin: 0;
+		font-size: 4.5rem;
+		font-weight: 700;
+		letter-spacing: -0.04em;
+		line-height: 1.1;
+	}
+
+	.works-hero h1 span,
+	.works-hero h1 em { display: inline; }
+
+	.works-hero h1 .works-hero__title,
+	.works-hero h1 .works-hero__line { display: block; }
+
+	.works-hero__line { white-space: nowrap; }
+	.works-hero h1 .works-hero__title--mobile { display: none; }
+
+	.works-hero h1 em {
+		font-family: "Instrument Serif", Georgia, serif;
+		font-weight: 400;
+		letter-spacing: -0.03em;
+	}
+
+	.works-hero p {
+		width: min(36.875rem, 100%);
+		margin: 0;
+		color: var(--color-text-muted);
+		font-size: 1.25rem;
+		font-weight: 500;
+		line-height: 1.6;
+	}
+
+	@media (max-width: 56.24rem) {
+		.works-hero {
+			height: 26.25rem;
+			background: var(--color-page);
+		}
+
+		.works-hero__inner {
+			padding-top: 7.625rem;
+		}
+
+		.works-hero__copy {
+			width: 100%;
+		}
+
+		.works-hero h1 {
+			font-size: 3rem;
+			font-weight: 600;
+			letter-spacing: -0.01em;
+		}
+
+		.works-hero h1 em { letter-spacing: -0.01em; }
+
+		.works-hero p {
+			font-size: 1.125rem;
+		}
+	}
+
+	@media (max-width: 29.99rem) {
+		.works-hero h1 .works-hero__title--desktop { display: none; }
+		.works-hero h1 .works-hero__title--mobile { display: block; }
+	}
+</style>

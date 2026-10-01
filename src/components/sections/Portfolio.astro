@@ -2,21 +2,34 @@
 import { portfolio } from "../../data/portfolio";
 import ButtonLink from "../ui/ButtonLink.astro";
 
+interface Props {
+	variant?: "home" | "works";
+}
+
+const { variant = "home" } = Astro.props;
 const { selectedWorks } = portfolio;
+const isWorksPage = variant === "works";
 ---
 
-<section class="portfolio-section layout-rails" id={selectedWorks.id} aria-labelledby="portfolio-heading">
+<section
+	class:list={["portfolio-section layout-rails", { "portfolio-section--works": isWorksPage }]}
+	id={selectedWorks.id}
+	aria-labelledby={isWorksPage ? undefined : "portfolio-heading"}
+	aria-label={isWorksPage ? "Selected work" : undefined}
+>
 	<div class="layout-band portfolio-section__band portfolio-section__band--top" aria-hidden="true"></div>
 
 	<div class="content-container portfolio-section__inner">
 		<div class="portfolio-section__main">
-			<header class="portfolio-section__intro">
-				<p class="portfolio-section__eyebrow"><span aria-hidden="true"></span>{selectedWorks.badge}</p>
-				<h2 id="portfolio-heading">
-					<span>{selectedWorks.heading}</span>
-					<em>{selectedWorks.headingAccent}</em>
-				</h2>
-			</header>
+			{!isWorksPage && (
+				<header class="portfolio-section__intro">
+					<p class="portfolio-section__eyebrow"><span aria-hidden="true"></span>{selectedWorks.badge}</p>
+					<h2 id="portfolio-heading">
+						<span>{selectedWorks.heading}</span>
+						<em>{selectedWorks.headingAccent}</em>
+					</h2>
+				</header>
+			)}
 
 			<ul class="portfolio-grid" role="list">
 				{selectedWorks.projects.map(({ title, image, alt, tags }) => (
@@ -43,10 +56,12 @@ const { selectedWorks } = portfolio;
 			</ul>
 		</div>
 
-		<div class="portfolio-section__actions">
-			<button class="portfolio-section__more" type="button" disabled>{selectedWorks.viewMoreLabel}</button>
-			<ButtonLink {...portfolio.hero.secondaryCta} variant="whatsapp" class="portfolio-section__chat" />
-		</div>
+		{!isWorksPage && (
+			<div class="portfolio-section__actions">
+				<button class="portfolio-section__more" type="button" disabled>{selectedWorks.viewMoreLabel}</button>
+				<ButtonLink {...portfolio.hero.secondaryCta} variant="whatsapp" class="portfolio-section__chat" />
+			</div>
+		)}
 	</div>
 
 	<div class="layout-band portfolio-section__band portfolio-section__band--bottom" aria-hidden="true"></div>
@@ -57,6 +72,14 @@ const { selectedWorks } = portfolio;
 		padding-block: 9.25rem 5.5rem;
 		background: var(--color-page);
 	}
+
+	.portfolio-section--works {
+		padding-block: 10.0625rem 5.527rem;
+	}
+
+	.portfolio-section--works .portfolio-section__band--top { top: 4.5625rem; }
+	.portfolio-section--works .portfolio-section__inner,
+	.portfolio-section--works .portfolio-section__main { gap: 0; }
 
 	.portfolio-section__band {
 		position: absolute;
@@ -247,6 +270,8 @@ const { selectedWorks } = portfolio;
 		}
 
 		.portfolio-section__band--top { top: 2.5rem; }
+		.portfolio-section--works { padding-block: 6.5rem 4.094rem; }
+		.portfolio-section--works .portfolio-section__band--top { top: 2.5rem; }
 		.portfolio-section__inner { gap: 2.5rem; }
 		.portfolio-section__main { gap: 2rem; }
 		.portfolio-section__intro { width: 100%; }
@@ -264,6 +289,11 @@ const { selectedWorks } = portfolio;
 		.portfolio-grid { grid-template-columns: minmax(0, 1fr); }
 		.project-card__body { min-height: 0; padding-block: 1rem; }
 		.project-card__content { gap: 0.75rem; }
+		.portfolio-section--works .project-card__body {
+			min-height: 9.5rem;
+			padding: 0.75rem 0.5rem;
+		}
+		.portfolio-section--works .project-card__content { gap: 1rem; }
 		.portfolio-section__actions { flex-wrap: wrap; }
 	}
 

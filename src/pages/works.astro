@@ -1,0 +1,17 @@
+---
+import Header from "../components/layout/Header.astro";
+import Contact from "../components/sections/Contact.astro";
+import Portfolio from "../components/sections/Portfolio.astro";
+import WorksHero from "../components/sections/WorksHero.astro";
+import { portfolio } from "../data/portfolio";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title={portfolio.worksPage.title} description={portfolio.worksPage.description}>
+	<Header />
+	<main id="main-content">
+		<WorksHero />
+		<Portfolio variant="works" />
+		<Contact />
+	</main>
+</BaseLayout>
