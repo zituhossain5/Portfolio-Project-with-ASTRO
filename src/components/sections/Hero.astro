@@ -37,8 +37,8 @@ const { hero } = portfolio;
 				<p class="hero__intro">{hero.introStart}<mark>{hero.introHighlight}</mark>{hero.introEnd}</p>
 			</div>
 			<div class="hero__actions">
-				<ButtonLink {...hero.primaryCta} />
-				<ButtonLink {...hero.secondaryCta} variant="whatsapp" />
+				<ButtonLink {...hero.primaryCta} mobileLabel="Instant Call" class="hero__action" />
+				<ButtonLink {...hero.secondaryCta} mobileLabel="Quick Chat" variant="whatsapp" class="hero__action" />
 			</div>
 		</div>
 
@@ -130,7 +130,6 @@ const { hero } = portfolio;
 		.hero__eyebrow { font-size: 2.25rem; letter-spacing: -0.03em; }
 		.hero h1 { font-size: 3.75rem; letter-spacing: -0.02em; line-height: 1.1; }
 		.hero__intro { width: calc(100vw - 2.5rem); max-width: calc(100vw - 2.5rem); font-size: 1.125rem; overflow-wrap: break-word; }
-		.hero__actions { flex-direction: column; align-items: flex-start; }
 		.trust { flex-direction: column; align-items: flex-start; gap: 1.25rem; margin-top: 3rem; }
 		/* Mobile frame keeps the desktop overlay size, blur and noise; only the positions and gradient size change. */
 		.hero__portrait { top: 50.25rem; left: calc(50% - 12.78125rem); width: 25.9375rem; height: 26.875rem; }
@@ -141,5 +140,14 @@ const { hero } = portfolio;
 	@media (max-width: 23rem) {
 		.hero h1 { font-size: 3.35rem; }
 		.hero__intro { font-size: 1.0625rem; }
+	}
+
+	@media (max-width: 47.99rem) {
+		.hero__actions { width: 100%; flex-direction: row; align-items: center; gap: 0.5rem; }
+		.hero__actions :global(.hero__action) { flex: 1 1 0; min-width: 0; padding-inline: 0.75rem; }
+	}
+
+	@media (max-width: 22.49rem) {
+		.hero__actions :global(.hero__action) { padding-inline: 0.25rem; }
 	}
 </style>

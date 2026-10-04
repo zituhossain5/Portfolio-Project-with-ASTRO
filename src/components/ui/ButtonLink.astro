@@ -4,15 +4,17 @@ import type { CtaLink } from "../../data/portfolio";
 interface Props extends CtaLink {
 	variant?: "primary" | "whatsapp";
 	compact?: boolean;
+	mobileLabel?: string;
 	class?: string;
 }
 
-const { label, href, icon, external, variant = "primary", compact = false, class: className } = Astro.props;
+const { label, mobileLabel, href, icon, external, variant = "primary", compact = false, class: className } = Astro.props;
 ---
 
 <a class:list={["button-link", `button-link--${variant}`, { "button-link--compact": compact }, className]} href={href} target={external ? "_blank" : undefined} rel={external ? "noopener noreferrer" : undefined}>
 	<img src={icon} alt="" aria-hidden="true" width={compact ? 20 : 24} height={compact ? 20 : 24} />
-	<span>{label}</span>
+	<span class="button-link__label--desktop">{label}</span>
+	<span class="button-link__label--mobile">{mobileLabel ?? label}</span>
 </a>
 
 <style>
@@ -22,4 +24,10 @@ const { label, href, icon, external, variant = "primary", compact = false, class
 	.button-link--whatsapp { background: var(--color-whatsapp); color: var(--color-text); }
 	.button-link--compact { min-height: 2.75rem; padding-block: 0.75rem; font-size: 1rem; }
 	.button-link img { flex: none; }
+	.button-link__label--mobile { display: none; }
+
+	@media (max-width: 47.99rem) {
+		.button-link__label--desktop { display: none; }
+		.button-link__label--mobile { display: inline; }
+	}
 </style>
