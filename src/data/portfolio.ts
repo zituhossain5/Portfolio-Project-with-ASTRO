@@ -47,6 +47,7 @@ export interface PortfolioProject {
   image: `/images/work/${string}.png`;
   alt: string;
   tags: readonly string[];
+  slug?: string;
 }
 
 export interface ServiceCard {
@@ -363,6 +364,7 @@ export const portfolio = {
         image: "/images/work/Quran_App 1.png",
         alt: "Quran reading mobile application shown in hand",
         tags: portfolioProjectTags,
+        slug: "al-quran",
       },
       {
         title: portfolioProjectTitle,
@@ -375,6 +377,7 @@ export const portfolio = {
         image: "/images/work/Quran_App 1.png",
         alt: "Quran reading mobile application shown in hand",
         tags: portfolioProjectTags,
+        slug: "al-quran",
       },
       {
         title: portfolioProjectTitle,
@@ -387,6 +390,7 @@ export const portfolio = {
         image: "/images/work/Quran_App 1.png",
         alt: "Quran reading mobile application shown in hand",
         tags: portfolioProjectTags,
+        slug: "al-quran",
       },
       {
         title: portfolioProjectTitle,

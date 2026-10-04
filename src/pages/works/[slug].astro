@@ -1,0 +1,110 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import { access } from "node:fs/promises";
+import { join } from "node:path";
+import Header from "../../components/layout/Header.astro";
+import Contact from "../../components/sections/Contact.astro";
+import WorkSection from "../../components/work/WorkSection.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+interface Props { work: CollectionEntry<"works">; }
+
+export async function getStaticPaths() {
+	const works = await getCollection("works");
+	for (const work of works) {
+		const images = [work.data.coverImage, ...work.data.sections.flatMap((section) => section.imageAfter ? [section.imageAfter] : []), ...work.data.gallery];
+		for (const image of images) {
+			if (!image.src.startsWith(`/images/work_details/${work.data.imageFolder}/`)) {
+				throw new Error(`Image ${image.src} is outside the folder for work ${work.id}`);
+			}
+			await access(join(process.cwd(), "public", image.src.slice(1)));
+		}
+		await access(join(process.cwd(), "public", work.data.card.image.slice(1)));
+	}
+	return works.map((work) => ({ params: { slug: work.id }, props: { work } }));
+}
+
+const { work } = Astro.props;
+const { data } = work;
+---
+
+<BaseLayout title={`${data.title} | Abdur Rahim`} description={data.intro} ogImage={data.coverImage.src}>
+	<Header />
+	<main id="main-content" class="work-page layout-rails">
+		<div class="work-page__case-study">
+			<div class="work-page__back-shell">
+				<a class="work-page__back" href="/works">
+					<svg viewBox="0 0 20 20" width="20" height="20" fill="none" aria-hidden="true"><path d="m11.75 4.5-5.5 5.5 5.5 5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+					<span>Back to Works</span>
+				</a>
+			</div>
+			<article class="work-page__article">
+				<header class="work-page__hero">
+					<h1>{data.title}</h1>
+					<dl class="work-page__metadata">
+						{data.metadata.map((item) => (
+							<div class="work-page__meta-item">
+								<dt>{item.label}</dt>
+								<dd>{item.values.map((value) => <span>{item.href ? <a href={item.href} target="_blank" rel="noopener noreferrer">{value}</a> : value}</span>)}</dd>
+							</div>
+						))}
+					</dl>
+					<p>{data.intro}</p>
+				</header>
+				<img class="work-page__image" src={data.coverImage.src} alt={data.coverImage.alt} width={data.coverImage.width} height={data.coverImage.height} fetchpriority="high" decoding="async" />
+				{data.sections.map((section) => <WorkSection section={section} />)}
+				{data.gallery.length > 0 && <div class="work-page__gallery" aria-label="Project gallery">{data.gallery.map((image) => <img class="work-page__image" src={image.src} alt={image.alt} width={image.width} height={image.height} loading="lazy" decoding="async" />)}</div>}
+			</article>
+		</div>
+		<Contact />
+	</main>
+</BaseLayout>
+
+<style>
+	.work-page { padding-top: 5.75rem; background: var(--color-page); }
+	.work-page__case-study { position: relative; z-index: 1; display: flow-root; }
+	.work-page__case-study::before,
+	.work-page__case-study::after {
+		position: absolute;
+		top: 5rem;
+		bottom: -3.75rem;
+		width: 1px;
+		background: var(--layout-dash-y);
+		content: "";
+		pointer-events: none;
+	}
+	.work-page__case-study::before { left: calc(50% - 31.125rem); }
+	.work-page__case-study::after { right: calc(50% - 31.125rem); }
+	.work-page__back-shell { width: min(var(--container-rails), calc(100% - 2 * var(--gutter-page))); height: 5rem; margin-inline: auto; border-bottom: 1px dashed rgb(255 255 255 / 15%); }
+	.work-page__back { display: inline-flex; height: 100%; align-items: center; gap: 0.25rem; padding-left: 2.5rem; color: rgb(255 255 255 / 50%); font-size: 0.9375rem; font-weight: 500; line-height: 1.2; }
+	.work-page__back:hover { color: var(--color-text); }
+	.work-page__article { display: flex; width: min(57.25rem, calc(100% - 2 * var(--gutter-page))); flex-direction: column; gap: 3.75rem; margin: 3.75rem auto 4.5rem; }
+	.work-page__hero { display: flex; flex-direction: column; }
+	.work-page__hero h1 { max-width: 100%; margin: 0; font-size: 3rem; font-weight: 600; letter-spacing: -0.01em; line-height: 1.1; }
+	.work-page__metadata { display: grid; grid-template-columns: 6rem 8.75rem 9.75rem 6.5rem; gap: 4.5rem; margin: 2.5rem 0 2.5rem; }
+	.work-page__meta-item { min-width: 0; }
+	.work-page__meta-item dt { margin-bottom: 1rem; color: rgb(255 255 255 / 50%); font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.04em; line-height: 1.2; text-transform: uppercase; white-space: nowrap; }
+	.work-page__meta-item dd { display: flex; flex-direction: column; gap: 0.25rem; margin: 0; color: var(--color-text-80); font-size: 0.875rem; font-weight: 500; line-height: 1.4; white-space: nowrap; }
+	.work-page__meta-item a { text-decoration: underline; text-underline-offset: 0.2em; }
+	.work-page__hero > p { max-width: 57.25rem; margin: 0; color: var(--color-text-muted); font-size: 1.125rem; font-weight: 400; line-height: 1.5; }
+	.work-page__image { display: block; width: 100%; height: auto; border-radius: var(--radius-card); }
+	.work-page__gallery { display: flex; flex-direction: column; gap: 2.5rem; }
+	@media (max-width: 56.24rem) {
+		.work-page { padding-top: 5rem; }
+		.work-page__case-study::before,
+		.work-page__case-study::after { display: none; }
+		.work-page__back { padding-left: 0; }
+		.work-page__article { margin-top: 3rem; gap: 3rem; }
+		.work-page__metadata { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem 2rem; margin-block: 2rem; }
+		.work-page__meta-item dd { white-space: normal; }
+	}
+	@media (max-width: 39.99rem) {
+		.work-page__article { margin-top: 2.5rem; gap: 2.5rem; }
+		.work-page__hero h1 { font-size: clamp(2rem, 9vw, 3rem); }
+		.work-page__hero > p { font-size: 1rem; line-height: 1.6; }
+		.work-page__metadata { gap: 1.5rem 1rem; }
+		.work-page__meta-item dt { white-space: normal; }
+		.work-page__gallery { gap: 1.5rem; }
+		.work-page__image { border-radius: 0.875rem; }
+	}
+</style>

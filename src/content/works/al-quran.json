@@ -1,0 +1,100 @@
+{
+  "title": "Al Quran — UI/UX Design for a Modern Quran Reading Mobile Application",
+  "intro": "A complete UI/UX design case study of Al Quran, a full-featured Quran mobile app with multi-translation reading, reciter playback, bookmarks, and topic exploration. Now live on App Store & Google Play.",
+  "imageFolder": "al_quran",
+  "card": {
+    "title": "Al Quran — UI/UX Design for a Modern Quran Reading Mobile Application",
+    "image": "/images/work/Quran_App 1.png",
+    "alt": "Al Quran reading mobile application shown in hand",
+    "tags": ["Mobile App Design", "UI/UX Design"]
+  },
+  "metadata": [
+    { "label": "Industry", "values": ["Education"] },
+    { "label": "Service Category", "values": ["Mobile App Design"] },
+    { "label": "Scope of work", "values": ["Product Discovery", "UX Research", "Wireframing", "High-Fidelity UI Design", "Design System"] },
+    { "label": "Live Link", "values": ["Live Preview"] }
+  ],
+  "coverImage": { "src": "/images/work_details/al_quran/Quran_App 1.png", "alt": "Al Quran mobile app displayed on a phone against a lavender background", "width": 916, "height": 638 },
+  "sections": [
+    {
+      "id": "about",
+      "title": "About the Project",
+      "blocks": [
+        { "type": "paragraph", "text": "AL Quran is a full-featured Quran mobile application designed to bring Quran reading, listening, translation, and learning together in one clear and intuitive digital experience." },
+        { "type": "paragraph", "text": "We designed the product from scratch, starting with UX research and user flow planning and continuing through information architecture, wireframing, interaction design, and final high-fidelity UI." },
+        { "type": "paragraph", "text": "The experience was carefully structured around the needs of Quran readers, with features such as Surah and Juz navigation, multi-translation support (Bengali & English), verse-by-verse reading, audio recitation, reciter selection, Ayat repeat and delay controls, bookmarks, and topic exploration." },
+        { "type": "paragraph", "text": "The final design focuses on clarity, accessibility, ease of navigation, and a respectful visual experience appropriate for a Quran-focused application." },
+        { "type": "paragraph", "text": "The application is currently live on both the App Store and Google Play Store." }
+      ]
+    },
+    {
+      "id": "problems",
+      "title": "Problems",
+      "blocks": [
+        { "type": "paragraphs", "paragraphs": ["Quran applications often contain a large number of reading, translation, audio, and learning features. When these features are not organized properly, users can struggle to find what they need or become overwhelmed by complex navigation.", "The goal was to create a Quran app experience that keeps powerful functionality accessible while maintaining a calm, focused, and intuitive reading experience."] },
+        { "type": "paragraph", "text": "The key problems we identified:" },
+        { "type": "list", "items": [
+          { "text": "Users need a simple way to navigate between Surahs and Juz." },
+          { "text": "Reading Quran alongside translations requires a clear and distraction-free interface." },
+          { "text": "Multiple translation options can make the reading experience complex if not structured properly." },
+          { "text": "Users need easy access to audio recitation without interrupting their reading flow." },
+          { "text": "Reciter, playback, repeat, and delay settings require intuitive controls." },
+          { "text": "Users need a convenient way to save and return to important Ayats." },
+          { "text": "Topic-based exploration requires a clear information structure." },
+          { "text": "A Quran application needs to balance functionality with a respectful and focused visual experience." }
+        ] }
+      ]
+    },
+    {
+      "id": "challenges",
+      "title": "Challenges",
+      "blocks": [
+        { "type": "paragraph", "text": "Designing a complete Quran mobile application required careful consideration of both UX complexity and the nature of the content." },
+        { "type": "list", "items": [
+          { "text": "Understanding different Quran reading, listening, and learning behaviors." },
+          { "text": "Identifying the most important actions for regular and occasional users." },
+          { "text": "Structuring a large amount of Quranic content without making navigation overwhelming." },
+          { "text": "Designing separate but connected experiences for reading, listening, translation, bookmarking, and topic exploration." },
+          { "text": "Creating an information architecture that could accommodate a wide range of Quran-related features." }
+        ] }
+      ],
+      "imageAfter": { "src": "/images/work_details/al_quran/Quran Mobile App_Dark version 1.png", "alt": "Al Quran mobile app interface on a dark background", "width": 916, "height": 551 }
+    },
+    {
+      "id": "solutions",
+      "title": "Solutions",
+      "blocks": [
+        { "type": "paragraph", "text": "To address these challenges, we designed a complete, thoughtful UI/UX system that puts the reading and listening experience first:" },
+        { "type": "list", "items": [
+          { "lead": "Designed an intuitive Surah & Juz navigation system:", "text": " Allowing users to quickly jump between chapters, sections, and bookmarked verses without friction." },
+          { "lead": "Built a clean multi-translation reading layout: ", "text": "Bengali and English translations are presented alongside Arabic text in a way that stays readable and uncluttered." },
+          { "lead": "Created a dedicated reciter selection and playback experience:", "text": " users can easily choose their preferred reciter and adjust playback settings on the fly." },
+          { "lead": "Designed ayat repeat & delay controls:", "text": " Making it easy for users to repeat specific verses or set delays for memorization and practice." },
+          { "lead": "Implemented a simple, accessible bookmarking system:", "text": " So users can save their place and return to it instantly." },
+          { "lead": "Added topic exploration:", "text": " Helping users discover verses and chapters based on themes and subjects relevant to their needs." },
+          { "lead": "Followed a research-driven, accessibility-first design approach", "text": ": with careful attention to typography, spacing, and contrast for comfortable long-form reading." },
+          { "text": "Maintained a calm, minimal, and spiritually respectful visual language throughout the app, from onboarding to the reading screen." }
+        ] }
+      ]
+    },
+    {
+      "id": "result",
+      "title": "The Final Result",
+      "blocks": [
+        { "type": "paragraph", "text": "Through in-depth research, structured wireframing, and a carefully crafted high-fidelity UI, Al Quran has become a complete, feature-rich Quran application that offers a smooth and meaningful user experience." },
+        { "type": "list", "items": [
+          { "text": "Users can now navigate, read, and listen to the Quran effortlessly, with all core features accessible in just a few taps." },
+          { "text": "The multi-translation reading experience makes the app accessible to a wider audience, including both Bengali and English readers." },
+          { "text": "The app is now live on both the App Store and Google Play Store, delivering a polished, real-world product used by everyday readers." }
+        ] },
+        { "type": "paragraph", "text": "Overall, Al Quran stands as a strong example of how thoughtful, research-backed UI/UX design can turn a feature-heavy religious app into a calm, intuitive, and genuinely useful experience and we're proud to have led this design journey from the very first sketch to the final live product." }
+      ]
+    }
+  ],
+  "gallery": [
+    { "src": "/images/work_details/al_quran/Quran Mobile App 3.png", "alt": "Al Quran mobile app Quran reading screens and controls", "width": 916, "height": 687 },
+    { "src": "/images/work_details/al_quran/Quran Mobile App-1 1.png", "alt": "Al Quran app mobile screen designs", "width": 916, "height": 687 },
+    { "src": "/images/work_details/al_quran/Quran Mobile App-2 1.png", "alt": "Al Quran app mobile interface showcase", "width": 916, "height": 687 },
+    { "src": "/images/work_details/al_quran/Quran Mobile App-3 1.png", "alt": "Al Quran app mobile UI screens", "width": 916, "height": 687 }
+  ]
+}

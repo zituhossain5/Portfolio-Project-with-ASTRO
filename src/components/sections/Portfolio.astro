@@ -1,5 +1,6 @@
 ---
 import { portfolio } from "../../data/portfolio";
+import { getCollection } from "astro:content";
 import ButtonLink from "../ui/ButtonLink.astro";
 
 interface Props {
@@ -9,6 +10,7 @@ interface Props {
 const { variant = "home" } = Astro.props;
 const { selectedWorks } = portfolio;
 const isWorksPage = variant === "works";
+const workEntries = new Map((await getCollection("works")).map((entry) => [entry.id, entry.data.card]));
 ---
 
 <section
@@ -32,27 +34,43 @@ const isWorksPage = variant === "works";
 			)}
 
 			<ul class="portfolio-grid" role="list">
-				{selectedWorks.projects.map(({ title, image, alt, tags }) => (
-					<li class="project-card">
-						<img
-							class="project-card__image"
-							src={image}
-							alt={alt}
-							width="660"
-							height="460"
-							loading="lazy"
-							decoding="async"
-						/>
-						<div class="project-card__body">
-							<div class="project-card__content">
-								<h3>{title}</h3>
-								<ul class="project-card__tags" aria-label="Project services">
-									{tags.map((tag) => <li>{tag}</li>)}
-								</ul>
-							</div>
-						</div>
-					</li>
-				))}
+				{selectedWorks.projects.map(({ title, image, alt, tags, slug }) => {
+					const detail = slug ? workEntries.get(slug) : undefined;
+					const href = detail ? `/works/${slug}` : undefined;
+					const CardSurface = href ? "a" : "div";
+					const cardTitle = detail?.title ?? title;
+					return (
+						<li class:list={["project-card", { "project-card--linked": href }]}>
+							<CardSurface class="project-card__surface" href={href} aria-label={href ? `View project: ${cardTitle}` : undefined}>
+								<div class="project-card__media" data-project-media={href ? "" : undefined}>
+									<img
+										class="project-card__image"
+										src={detail?.image ?? image}
+										alt={detail?.alt ?? alt}
+										width="660"
+										height="460"
+										loading="lazy"
+										decoding="async"
+									/>
+									{href && (
+										<span class="project-card__cta" aria-hidden="true">
+											<span class="project-card__cta-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true"><path d="m9 6 6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+											<span>View Project</span>
+										</span>
+									)}
+								</div>
+								<div class="project-card__body">
+									<div class="project-card__content">
+										<h3>{cardTitle}</h3>
+										<ul class="project-card__tags" aria-label="Project services">
+											{(detail?.tags ?? tags).map((tag) => <li>{tag}</li>)}
+										</ul>
+									</div>
+								</div>
+							</CardSurface>
+						</li>
+					);
+				})}
 			</ul>
 		</div>
 
@@ -66,6 +84,108 @@ const isWorksPage = variant === "works";
 
 	<div class="layout-band portfolio-section__band portfolio-section__band--bottom" aria-hidden="true"></div>
 </section>
+
+<script>
+	const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
+	const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+	const clamp = (value: number, min: number, max: number) => Math.min(Math.max(value, min), max);
+
+	for (const media of document.querySelectorAll<HTMLElement>("[data-project-media]")) {
+		const cta = media.querySelector<HTMLElement>(".project-card__cta");
+		const card = media.closest<HTMLAnchorElement>("a.project-card__surface");
+		if (!cta) continue;
+
+		let bounds: DOMRect;
+		let badgeWidth = 0;
+		let badgeHeight = 0;
+		let currentX = 0;
+		let currentY = 0;
+		let targetX = 0;
+		let targetY = 0;
+		let frame = 0;
+		let resetTimer = 0;
+		let active = false;
+
+		const updateTarget = (event: PointerEvent) => {
+			const pointerX = event.clientX - bounds.left;
+			const pointerY = event.clientY - bounds.top;
+			const halfWidth = badgeWidth / 2;
+			const halfHeight = badgeHeight / 2;
+			const inset = 12;
+			const gap = 14;
+			const minX = halfWidth + inset;
+			const maxX = Math.max(minX, bounds.width - halfWidth - inset);
+			const minY = halfHeight + inset;
+			const maxY = Math.max(minY, bounds.height - halfHeight - inset);
+			const right = pointerX + gap + halfWidth;
+			const left = pointerX - gap - halfWidth;
+			const below = pointerY + gap + halfHeight;
+			const above = pointerY - gap - halfHeight;
+
+			targetX = clamp(right <= maxX ? right : left >= minX ? left : pointerX, minX, maxX);
+			targetY = clamp(below <= maxY ? below : above >= minY ? above : pointerY, minY, maxY);
+		};
+
+		const positionBadge = () => {
+			cta.style.transform = `translate3d(${currentX - bounds.width / 2}px, ${currentY - bounds.height / 2}px, 0) translate(-50%, -50%)`;
+		};
+
+		const animate = () => {
+			if (!active) { frame = 0; return; }
+			const easing = reducedMotion.matches ? 1 : 0.22;
+			currentX += (targetX - currentX) * easing;
+			currentY += (targetY - currentY) * easing;
+			if (Math.abs(targetX - currentX) < 0.25 && Math.abs(targetY - currentY) < 0.25) {
+				currentX = targetX;
+				currentY = targetY;
+				positionBadge();
+				frame = 0;
+				return;
+			}
+			positionBadge();
+			frame = requestAnimationFrame(animate);
+		};
+
+		const stopTracking = (resetImmediately = false) => {
+			active = false;
+			media.classList.remove("is-pointer-active");
+			cancelAnimationFrame(frame);
+			frame = 0;
+			window.clearTimeout(resetTimer);
+			if (resetImmediately) {
+				cta.style.removeProperty("transform");
+			} else {
+				resetTimer = window.setTimeout(() => {
+					if (!active) cta.style.removeProperty("transform");
+				}, 220);
+			}
+		};
+
+		media.addEventListener("pointerenter", (event) => {
+			if (!finePointer.matches || event.pointerType !== "mouse" || card?.matches(":focus-visible")) return;
+			window.clearTimeout(resetTimer);
+			bounds = media.getBoundingClientRect();
+			badgeWidth = cta.offsetWidth;
+			badgeHeight = cta.offsetHeight;
+			updateTarget(event);
+			currentX = targetX;
+			currentY = targetY;
+			positionBadge();
+			active = true;
+			media.classList.add("is-pointer-active");
+		});
+
+		media.addEventListener("pointermove", (event) => {
+			if (!active) return;
+			updateTarget(event);
+			if (!frame) frame = requestAnimationFrame(animate);
+		});
+
+		media.addEventListener("pointerleave", () => stopTracking());
+		card?.addEventListener("focusin", () => stopTracking(true));
+		window.addEventListener("resize", () => stopTracking(true));
+	}
+</script>
 
 <style>
 	.portfolio-section {
@@ -165,6 +285,7 @@ const isWorksPage = variant === "works";
 	}
 
 	.project-card {
+		position: relative;
 		display: flex;
 		min-width: 0;
 		flex-direction: column;
@@ -175,11 +296,102 @@ const isWorksPage = variant === "works";
 		box-shadow: inset 0 0 0 1px var(--color-border-subtle);
 	}
 
-	.project-card__image {
+	.project-card--linked:hover { box-shadow: inset 0 0 0 1px var(--color-text-muted); }
+
+	.project-card__surface {
+		display: flex;
+		min-width: 0;
+		width: 100%;
+		flex: 1;
+		flex-direction: column;
+		gap: 0.25rem;
+		border-radius: inherit;
+	}
+
+	.project-card__surface:focus-visible {
+		outline: 2px solid var(--color-brand);
+		outline-offset: 4px;
+	}
+
+	.project-card__media {
+		position: relative;
+		display: block;
 		width: 100%;
 		aspect-ratio: 2000 / 1393;
+		overflow: hidden;
+		border-radius: 0.875rem;
+	}
+
+	.project-card__media::after {
+		position: absolute;
+		inset: 0;
+		background: rgb(0 0 0 / 34%);
+		content: "";
+		opacity: 0;
+		pointer-events: none;
+		transition: opacity 220ms ease;
+	}
+
+	.project-card__image {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
 		border-radius: 0.875rem;
 		object-fit: cover;
+	}
+
+	.project-card__cta {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		z-index: 1;
+		display: inline-flex;
+		min-height: 2.75rem;
+		align-items: center;
+		gap: 0.5rem;
+		border: 1px solid rgb(255 255 255 / 65%);
+		border-radius: 0.75rem;
+		background: rgb(255 255 255 / 78%);
+		box-shadow: 0 0.5rem 1.5rem rgb(0 0 0 / 20%);
+		color: var(--color-ink);
+		font-size: 0.875rem;
+		font-weight: 600;
+		line-height: 1.2;
+		opacity: 0;
+		padding: 0.25rem 0.875rem 0.25rem 0.25rem;
+		pointer-events: none;
+		transform: translate3d(0, 0, 0) translate(-50%, -50%);
+		transition: opacity 220ms ease;
+		white-space: nowrap;
+		backdrop-filter: blur(12px);
+	}
+
+	.project-card__cta-icon {
+		display: grid;
+		width: 2.25rem;
+		height: 2.25rem;
+		flex: 0 0 auto;
+		place-items: center;
+		border-radius: 0.5rem;
+		background: rgb(255 255 255 / 85%);
+		box-shadow: 0 0.125rem 0.375rem rgb(0 0 0 / 15%);
+	}
+
+	.project-card__surface:focus-visible .project-card__media::after,
+	.project-card__surface:focus-visible .project-card__cta { opacity: 1; }
+
+	@media (hover: hover) and (pointer: fine) {
+		.project-card__media.is-pointer-active,
+		.project-card__media.is-pointer-active * { cursor: none; }
+
+		.project-card__surface:hover .project-card__media::after,
+		.project-card__media.is-pointer-active .project-card__cta { opacity: 1; }
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.project-card__media::after,
+		.project-card__cta { transition: none; }
 	}
 
 	.project-card__body {

@@ -1,0 +1,42 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+type Section = CollectionEntry<"works">["data"]["sections"][number];
+interface Props { section: Section; }
+const { section } = Astro.props;
+---
+
+<section class="work-section" id={section.id} aria-labelledby={`${section.id}-heading`}>
+	<div class="work-section__reading">
+		<h2 id={`${section.id}-heading`}>{section.title}</h2>
+		<div class="work-section__body">
+			{section.blocks.map((block) => (
+				block.type === "paragraph" ? <p>{block.text}</p> :
+				block.type === "paragraphs" ? <div class="work-section__paragraphs">{block.paragraphs.map((paragraph) => <p>{paragraph}</p>)}</div> :
+				<ul>{block.items.map((item) => <li>{item.lead && <strong>{item.lead}</strong>}{item.text}</li>)}</ul>
+			))}
+		</div>
+	</div>
+	{section.imageAfter && <img class="work-section__image" src={section.imageAfter.src} alt={section.imageAfter.alt} width={section.imageAfter.width} height={section.imageAfter.height} loading="lazy" decoding="async" />}
+</section>
+
+<style>
+	.work-section { display: flex; flex-direction: column; gap: 3.75rem; width: 100%; }
+	.work-section__reading { width: min(39.125rem, 100%); margin-left: min(5.625rem, max(0px, calc((100% - 39.125rem) / 2))); }
+	h2 { margin: 0 0 0.75rem; font-size: 3rem; font-weight: 600; letter-spacing: -0.01em; line-height: 1.5; }
+	.work-section__body { display: flex; flex-direction: column; gap: 0.75rem; color: var(--color-text-muted); font-size: 1.125rem; font-weight: 400; letter-spacing: -0.01em; line-height: 1.5; }
+	p { margin: 0; }
+	.work-section__paragraphs p + p { margin-top: 0; }
+	ul { display: flex; flex-direction: column; gap: 0; margin: 0; padding-left: 1.6875rem; color: #999; }
+	li { padding-left: 0; }
+	strong { color: var(--color-text-muted); font-weight: 600; }
+	.work-section__image { width: 100%; height: auto; border-radius: var(--radius-card); }
+	@media (max-width: 56.24rem) {
+		.work-section { gap: 2.5rem; }
+		.work-section__reading { margin-left: auto; margin-right: auto; }
+		h2 { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.2; }
+	}
+	@media (max-width: 39.99rem) {
+		.work-section__body { font-size: 1rem; line-height: 1.6; }
+	}
+</style>
