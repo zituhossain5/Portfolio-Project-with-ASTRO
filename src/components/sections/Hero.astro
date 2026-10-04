@@ -107,7 +107,7 @@ const { hero } = portfolio;
 	.trust__avatar img { width: 100%; height: 100%; object-fit: cover; }
 	.trust__avatar:first-child img { width: 133%; max-width: none; }
 	.trust__count { background: var(--color-ink); color: white; font-size: 0.75rem; font-weight: 700; line-height: 1.5; }
-	.trust__rating { display: flex; flex-direction: column; gap: 0.5rem; }
+	.trust__rating { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 8px; }
 	.trust__stars { display: flex; }
 	.trust__rating p { margin: 0; color: var(--color-text-muted); font-size: 0.875rem; font-weight: 500; line-height: 1.25; white-space: nowrap; }
 
@@ -130,9 +130,9 @@ const { hero } = portfolio;
 		.hero__eyebrow { font-size: 2.25rem; letter-spacing: -0.03em; }
 		.hero h1 { font-size: 3.75rem; letter-spacing: -0.02em; line-height: 1.1; }
 		.hero__intro { width: calc(100vw - 2.5rem); max-width: calc(100vw - 2.5rem); font-size: 1.125rem; overflow-wrap: break-word; }
-		.trust { flex-direction: column; align-items: flex-start; gap: 1.25rem; margin-top: 3rem; }
+		.trust { flex-direction: column; align-items: flex-start; gap: 1.25rem; margin-top: 2rem; }
 		/* Mobile frame keeps the desktop overlay size, blur and noise; only the positions and gradient size change. */
-		.hero__portrait { top: 50.25rem; left: calc(50% - 12.78125rem); width: 25.9375rem; height: 26.875rem; }
+		.hero__portrait { top: 44.25rem; left: calc(50% - 12.78125rem); width: 25.9375rem; height: 26.875rem; }
 		.hero__overlay-window { top: 54.6875rem; right: auto; left: calc(50% - 94.15625rem); }
 		.hero__gradient-window { top: 71.6875rem; width: 68.4375rem; height: 31.4375rem; }
 	}
@@ -145,6 +145,12 @@ const { hero } = portfolio;
 	@media (max-width: 47.99rem) {
 		.hero__actions { width: 100%; flex-direction: row; align-items: center; gap: 0.5rem; }
 		.hero__actions :global(.hero__action) { flex: 1 1 0; min-width: 0; padding-inline: 0.75rem; }
+		.trust { width: 100%; flex-direction: row; align-items: center; justify-content: space-between; gap: 0.75rem; }
+		.trust__avatars { flex-shrink: 0; }
+		.trust__rating { flex: 1; min-width: 0; }
+		.trust__stars { flex-wrap: nowrap; }
+		.trust__stars img { flex-shrink: 0; }
+		.trust__rating p { white-space: normal; }
 	}
 
 	@media (max-width: 22.49rem) {
