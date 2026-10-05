@@ -26,11 +26,6 @@ export interface ClientLogo {
   mobileHeight: number;
 }
 
-export interface WorkMarqueeItem {
-  src: `/images/work/${string}`;
-  alt: string;
-}
-
 export interface WhyStat {
   value: string;
   label: string;
@@ -137,44 +132,6 @@ export const portfolio = {
       "/images/trusted-founder-3.png",
       "/images/trusted-founder-4.png",
     ],
-  },
-  workMarquee: {
-    firstRow: [
-      {
-        src: "/images/work/HelpGent 1.png",
-        alt: "HelpGent customer-support product interface",
-      },
-      {
-        src: "/images/work/Directorist App 2.png",
-        alt: "Directorist mobile directory application",
-      },
-      {
-        src: "/images/work/FormGent 1.png",
-        alt: "FormGent visual form builder interface",
-      },
-      {
-        src: "/images/work/Quran_App 1.png",
-        alt: "Quran learning mobile application",
-      },
-    ] satisfies WorkMarqueeItem[],
-    secondRow: [
-      {
-        src: "/images/work/01_Project_EmLock 3.png",
-        alt: "EmLock local shopping mobile application",
-      },
-      {
-        src: "/images/work/Quran_App 1.png",
-        alt: "Quran learning mobile application",
-      },
-      {
-        src: "/images/work/Directorist Plugin 3.png",
-        alt: "Directorist directory plugin settings interface",
-      },
-      {
-        src: "/images/work/Directorist App 2.png",
-        alt: "Directorist mobile directory application",
-      },
-    ] satisfies WorkMarqueeItem[],
   },
   clients: [
     {

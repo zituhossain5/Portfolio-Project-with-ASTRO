@@ -1,17 +1,18 @@
 ---
-import { portfolio, type WorkMarqueeItem } from "../../data/portfolio";
+import { portfolio, type PortfolioProject } from "../../data/portfolio";
 
 interface Props {
-	items: WorkMarqueeItem[];
+	items: PortfolioProject[];
 	direction: "left" | "right";
 	offset: string;
 }
 
-const { workMarquee } = portfolio;
+const { projects } = portfolio.selectedWorks;
+const rowBreak = Math.ceil(projects.length / 2);
 
 const rows: Props[] = [
-	{ items: workMarquee.firstRow, direction: "right", offset: "-6.25rem" },
-	{ items: workMarquee.secondRow, direction: "left", offset: "-1.25rem" },
+	{ items: projects.slice(0, rowBreak), direction: "right", offset: "-6.25rem" },
+	{ items: projects.slice(rowBreak), direction: "left", offset: "-1.25rem" },
 ];
 ---
 
@@ -23,7 +24,7 @@ const rows: Props[] = [
 					{items.map((item, index) => (
 						<figure class="work-marquee__card">
 							<img
-								src={item.src}
+								src={item.image}
 								alt={item.alt}
 								width="660"
 								height="460"
@@ -37,7 +38,7 @@ const rows: Props[] = [
 				<div class="work-marquee__group" aria-hidden="true">
 					{items.map((item) => (
 						<figure class="work-marquee__card">
-							<img src={item.src} alt="" width="660" height="460" loading="eager" fetchpriority="low" decoding="async" />
+							<img src={item.image} alt="" width="660" height="460" loading="eager" fetchpriority="low" decoding="async" />
 						</figure>
 					))}
 				</div>
