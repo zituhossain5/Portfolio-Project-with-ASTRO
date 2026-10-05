@@ -88,14 +88,6 @@ export interface ContactField {
   multiline?: boolean;
 }
 
-const portfolioProjectTitle = "EmLock — EMI-Based Mobile App Development";
-const portfolioProjectTags = [
-  "Mobile Application",
-  "App Development",
-  "SaaS Development",
-  "UI/UX Design",
-] as const;
-
 export const portfolio = {
   meta: {
     name: "Abdur Rahim",
@@ -336,67 +328,65 @@ export const portfolio = {
     headingAccent: "best work",
     projects: [
       {
-        title: "EmLock — EMI-Based Mobile App",
-        image: "/images/work/FormGent 1.png",
-        alt: "FormGent visual form builder interface",
-        tags: ["Mobile App Design", "SaaS Design", "UI/UX Design"],
+        title: "Reborn Packaging — Ecommerce Mobile App UI/UX Design",
+        image: "/images/work/Reborn packaging.png",
+        alt: "Three Reborn Packaging ecommerce app screens on a mint background",
+        tags: ["Mobile App Design", "UI/UX Design", "Ecommerce App", "Shopify App"],
       },
       {
-        title: portfolioProjectTitle,
+        title: "HelpGent — Wordpress Form Builder Plugin UI/UX Design",
         image: "/images/work/HelpGent 1.png",
-        alt: "HelpGent customer-support flow builder interface",
-        tags: portfolioProjectTags,
+        alt: "HelpGent form builder with a customer-support chat preview",
+        tags: ["UI/UX Design", "SaaS Design", "Product Design", "WordPress Plugin"],
       },
       {
-        title: portfolioProjectTitle,
+        title: "Leanier — Productivity Mobile App UI/UX Design",
+        image: "/images/work/Leanier app.png",
+        alt: "Two Leanier productivity app screens on a green background",
+        tags: ["Mobile App Design", "UI/UX Design", "SaaS Design", "Productivity App"],
+      },
+      {
+        title: "Directorist — Directory Listing Mobile App Design",
         image: "/images/work/Directorist App 2.png",
-        alt: "Directorist mobile directory application shown on two phones",
-        tags: portfolioProjectTags,
+        alt: "Directorist directory listing app displayed on two phones",
+        tags: ["Mobile App Design", "UI/UX Design", "SaaS Design", "Directory App"],
       },
       {
-        title: portfolioProjectTitle,
+        title: "Al Quran — Quran Reading Mobile App UI/UX Design",
+        image: "/images/work/Quran_App 1.png",
+        alt: "Al Quran reading app displayed on a phone held in hand",
+        tags: ["Mobile App Design", "UI/UX Design", "Product Design", "Religious App"],
+        slug: "al-quran",
+      },
+      {
+        title: "FormGent — WordPress Form Builder Plugin Design",
+        image: "/images/work/FormGent 1.png",
+        alt: "FormGent drag-and-drop form builder interface",
+        tags: ["UI/UX Design", "SaaS Design", "Product Design", "WordPress Plugin"],
+      },
+      {
+        title: "Directorist — Directory Plugin UI/UX Design",
         image: "/images/work/Directorist Plugin 3.png",
-        alt: "Directorist listing-form builder interface",
-        tags: portfolioProjectTags,
+        alt: "Directorist listing form builder interface",
+        tags: ["UI/UX Design", "SaaS Design", "WordPress Plugin", "Builder Design"],
       },
       {
-        title: portfolioProjectTitle,
-        image: "/images/work/Quran_App 1.png",
-        alt: "Quran reading mobile application shown in hand",
-        tags: portfolioProjectTags,
-        slug: "al-quran",
-      },
-      {
-        title: portfolioProjectTitle,
+        title: "EmLock — EMI Mobile Shopping App UI/UX Design",
         image: "/images/work/01_Project_EmLock 3.png",
-        alt: "EmLock local shopping mobile application shown in hand",
-        tags: portfolioProjectTags,
+        alt: "EmLock shopping app displayed on a phone held in hand",
+        tags: ["Mobile App Design", "UI/UX Design", "Fintech App", "Ecommerce App"],
       },
       {
-        title: portfolioProjectTitle,
-        image: "/images/work/Quran_App 1.png",
-        alt: "Quran reading mobile application shown in hand",
-        tags: portfolioProjectTags,
-        slug: "al-quran",
+        title: "HRM — Workforce Management Platform UI/UX Design",
+        image: "/images/work/Sovware_HRM.png",
+        alt: "HRM workforce management and attendance dashboard",
+        tags: ["UI/UX Design", "SaaS Design", "Product Design", "Dashboard Design"],
       },
       {
-        title: portfolioProjectTitle,
-        image: "/images/work/01_Project_EmLock 3.png",
-        alt: "EmLock local shopping mobile application shown in hand",
-        tags: portfolioProjectTags,
-      },
-      {
-        title: portfolioProjectTitle,
-        image: "/images/work/Quran_App 1.png",
-        alt: "Quran reading mobile application shown in hand",
-        tags: portfolioProjectTags,
-        slug: "al-quran",
-      },
-      {
-        title: portfolioProjectTitle,
-        image: "/images/work/01_Project_EmLock 3.png",
-        alt: "EmLock local shopping mobile application shown in hand",
-        tags: portfolioProjectTags,
+        title: "LeadFex — B2B Lead Generation Website Design",
+        image: "/images/work/Leadfex.png",
+        alt: "LeadFex lead generation website displayed on a laptop",
+        tags: ["UI/UX Design", "Website Design", "Landing Page Design", "SaaS Website"],
       },
     ] satisfies PortfolioProject[],
     viewMoreLabel: "View more works",

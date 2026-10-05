@@ -10,7 +10,7 @@ interface Props {
 const { variant = "home" } = Astro.props;
 const { selectedWorks } = portfolio;
 const isWorksPage = variant === "works";
-const workEntries = new Map((await getCollection("works")).map((entry) => [entry.id, entry.data.card]));
+const workSlugs = new Set((await getCollection("works")).map((entry) => entry.id));
 ---
 
 <section
@@ -35,18 +35,16 @@ const workEntries = new Map((await getCollection("works")).map((entry) => [entry
 
 			<ul class="portfolio-grid" role="list">
 				{selectedWorks.projects.map(({ title, image, alt, tags, slug }) => {
-					const detail = slug ? workEntries.get(slug) : undefined;
-					const href = detail ? `/works/${slug}` : undefined;
+					const href = slug && workSlugs.has(slug) ? `/works/${slug}` : undefined;
 					const CardSurface = href ? "a" : "div";
-					const cardTitle = detail?.title ?? title;
 					return (
 						<li class:list={["project-card", { "project-card--linked": href }]}>
-							<CardSurface class="project-card__surface" href={href} aria-label={href ? `View project: ${cardTitle}` : undefined}>
+							<CardSurface class="project-card__surface" href={href} aria-label={href ? `View project: ${title}` : undefined}>
 								<div class="project-card__media" data-project-media={href ? "" : undefined}>
 									<img
 										class="project-card__image"
-										src={detail?.image ?? image}
-										alt={detail?.alt ?? alt}
+										src={image}
+										alt={alt}
 										width="660"
 										height="460"
 										loading="lazy"
@@ -61,9 +59,9 @@ const workEntries = new Map((await getCollection("works")).map((entry) => [entry
 								</div>
 								<div class="project-card__body">
 									<div class="project-card__content">
-										<h3>{cardTitle}</h3>
+										<h3>{title}</h3>
 										<ul class="project-card__tags" aria-label="Project services">
-											{(detail?.tags ?? tags).map((tag) => <li>{tag}</li>)}
+											{tags.map((tag) => <li>{tag}</li>)}
 										</ul>
 									</div>
 								</div>
