@@ -22,6 +22,8 @@ const works = defineCollection({
 	schema: z.object({
 		title: z.string().min(1),
 		intro: z.string().min(1),
+		showIntro: z.boolean().optional(),
+		tightSectionHeadings: z.boolean().optional(),
 		imageFolder: z.string().min(1),
 		card: z.object({
 			title: z.string().min(1),
@@ -31,8 +33,12 @@ const works = defineCollection({
 		}),
 		metadata: z.array(z.object({
 			label: z.string().min(1),
-			values: z.array(z.string().min(1)).min(1),
+			values: z.array(z.union([
+				z.string().min(1),
+				z.object({ text: z.string().min(1), href: z.string().url().optional() }),
+			])).min(1),
 			href: z.string().url().optional(),
+			inline: z.boolean().optional(),
 		})),
 		coverImage: localImage,
 		sections: z.array(z.object({

@@ -294,6 +294,7 @@ export const portfolio = {
           "Ecommerce App",
           "Shopify App",
         ],
+        slug: "reborn-packaging",
       },
       {
         title: "HelpGent — Wordpress Form Builder Plugin UI/UX Design",

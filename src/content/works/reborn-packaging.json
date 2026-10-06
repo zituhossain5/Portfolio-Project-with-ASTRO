@@ -1,0 +1,114 @@
+{
+  "title": "Reborn Packaging — UI/UX Design for an Eco-Friendly Packaging Shopping App",
+  "intro": "Reborn Packaging is a UK-based ecommerce business providing sustainable and eco-friendly food packaging products for restaurants, cafés, takeaways, caterers, and other food-service businesses.",
+  "showIntro": false,
+  "tightSectionHeadings": true,
+  "imageFolder": "reborn",
+  "card": {
+    "title": "Reborn Packaging — Ecommerce Mobile App UI/UX Design",
+    "image": "/images/work/Reborn packaging.png",
+    "alt": "Three Reborn Packaging ecommerce app screens on a mint background",
+    "tags": ["Mobile App Design", "UI/UX Design", "Ecommerce App", "Shopify App"]
+  },
+  "metadata": [
+    { "label": "Industry", "values": ["Ecommerce"] },
+    { "label": "Service Category", "values": ["Mobile App Design"] },
+    { "label": "Scope of work", "values": ["Research", "UX Strategy", "User Flow", "Wireframing", "UI Design", "Prototyping", "Design System"] },
+    {
+      "label": "Live Link",
+      "inline": true,
+      "values": [
+        { "text": "App Store", "href": "https://apps.apple.com/gb/app/reborn-packaging/id6814178306" },
+        { "text": "&" },
+        { "text": "Google Play", "href": "https://play.google.com/store/apps/details?id=com.rebornpackaging.reborn_packaging" }
+      ]
+    }
+  ],
+  "coverImage": {
+    "src": "/images/work_details/reborn/Reborn packaging.png",
+    "alt": "Reborn Packaging sign-in, product collections, and product listing screens",
+    "width": 916,
+    "height": 639
+  },
+  "sections": [
+    {
+      "id": "about",
+      "title": "About the Project",
+      "blocks": [
+        { "type": "paragraph", "text": "Reborn Packaging is a UK-based ecommerce business providing sustainable and eco-friendly food packaging products for restaurants, cafés, takeaways, caterers, and other food-service businesses." },
+        { "type": "paragraph", "text": "The goal was to transform the existing Shopify ecommerce experience into a dedicated mobile shopping app that makes browsing, finding, and ordering packaging products faster and easier on mobile." },
+        { "type": "paragraph", "text": "I designed the complete mobile app experience from scratch; user research, information architecture, and wireframes to the final UI design, reusable components, and production-ready screens. The app connects with the Shopify-powered ecommerce experience and is now live on both Google Play and the App Store." }
+      ]
+    },
+    {
+      "id": "problems",
+      "title": "Problems",
+      "blocks": [
+        { "type": "paragraph", "text": "The existing ecommerce experience needed a more focused mobile shopping experience for customers who frequently browse and purchase food packaging products." },
+        { "type": "paragraph", "text": "Key problems identified during the UX process included:" },
+        { "type": "list", "items": [
+          { "text": "A large and diverse product catalogue made product discovery difficult on smaller screens." },
+          { "text": "Customers needed a faster way to browse packaging categories and find specific products." },
+          { "text": "Product variations, sizes, specifications, and pricing needed to remain clear on mobile." },
+          { "text": "The shopping journey needed to feel simple from product discovery through checkout." },
+          { "text": "Returning customers needed easier access to their accounts, previous orders, and delivery information." },
+          { "text": "The mobile experience needed to support both quick browsing and repeat purchasing." }
+        ] }
+      ]
+    },
+    {
+      "id": "challenges",
+      "title": "Challenges",
+      "blocks": [
+        { "type": "paragraph", "text": "Designing an ecommerce mobile app for a large packaging catalogue introduced several UX challenges:" },
+        { "type": "list", "items": [
+          { "text": "Structuring a wide range of packaging categories without making navigation overwhelming." },
+          { "text": "Designing product pages that could clearly present images, variants, sizes, pricing, and product information." },
+          { "text": "Creating intuitive search, filtering, and product discovery experiences." },
+          { "text": "Translating an existing Shopify ecommerce workflow into a focused mobile experience." },
+          { "text": "Designing cart and checkout interactions that remain simple while supporting ecommerce requirements." },
+          { "text": "Maintaining consistency across a large number of screens, states, and reusable UI components." }
+        ] }
+      ],
+      "imageAfter": {
+        "src": "/images/work_details/reborn/Reborn packaging 5.png",
+        "alt": "Reborn Packaging product collections screen shown on a phone against a dark background",
+        "width": 916,
+        "height": 638
+      }
+    },
+    {
+      "id": "solutions",
+      "title": "Solutions",
+      "blocks": [
+        { "type": "paragraph", "text": "I designed the mobile experience around clarity, product discovery, and a frictionless ecommerce journey, keeping the interface simple while supporting the complexity of the product catalogue." },
+        { "type": "paragraph", "text": "Key UX/UI solutions included:" },
+        { "type": "list", "items": [
+          { "text": "Created a clear mobile information architecture for product categories and collections." },
+          { "text": "Designed intuitive navigation to help customers quickly browse and discover packaging products." },
+          { "text": "Developed structured product pages for images, product details, sizes, variants, pricing, and purchasing actions." },
+          { "text": "Designed a streamlined search experience for faster product discovery." },
+          { "text": "Created a simple cart experience for reviewing products and managing quantities." },
+          { "text": "Integrated the mobile shopping flow with the Shopify ecommerce checkout experience." },
+          { "text": "Designed customer account, order history, profile, and delivery address management screens." },
+          { "text": "Built a consistent UI system with reusable components to maintain visual and functional consistency across the app." },
+          { "text": "Designed the complete experience from early wireframes through high-fidelity, production-ready UI." }
+        ] }
+      ]
+    },
+    {
+      "id": "result",
+      "title": "The Final Result",
+      "blocks": [
+        { "type": "paragraph", "text": "The result is a modern ecommerce mobile app for Reborn Packaging that brings the company's Shopify shopping experience into a dedicated mobile environment." },
+        { "type": "paragraph", "text": "Customers can browse food packaging categories, search the catalogue, explore product options and pricing, manage their cart, complete checkout through Shopify, and manage their account and previous orders directly from the app." }
+      ]
+    }
+  ],
+  "gallery": [
+    { "src": "/images/work_details/reborn/Reborn packaging 1 1.png", "alt": "Reborn Packaging splash, collections, listing, search, and product detail screens", "width": 916, "height": 658 },
+    { "src": "/images/work_details/reborn/Reborn packaging 2 1.png", "alt": "Reborn Packaging cart, checkout, payment, and order confirmation screens", "width": 916, "height": 658 },
+    { "src": "/images/work_details/reborn/Reborn packaging 3 1.png", "alt": "Reborn Packaging sign-in and customer order history screens", "width": 916, "height": 658 },
+    { "src": "/images/work_details/reborn/Reborn packaging 4 1.png", "alt": "Reborn Packaging profile, email editing, and delivery address screens", "width": 916, "height": 658 }
+  ]
+}

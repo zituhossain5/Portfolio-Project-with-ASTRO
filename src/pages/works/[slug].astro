@@ -38,18 +38,22 @@ const { data } = work;
 					<span>Back to Works</span>
 				</a>
 			</div>
-			<article class="work-page__article">
-				<header class="work-page__hero">
+			<article class:list={["work-page__article", { "work-page__article--tight-headings": data.tightSectionHeadings }]}>
+				<header class:list={["work-page__hero", { "work-page__hero--without-intro": data.showIntro === false }]}>
 					<h1>{data.title}</h1>
 					<dl class="work-page__metadata">
 						{data.metadata.map((item) => (
 							<div class="work-page__meta-item">
 								<dt>{item.label}</dt>
-								<dd>{item.values.map((value) => <span>{item.href ? <a href={item.href} target="_blank" rel="noopener noreferrer">{value}</a> : value}</span>)}</dd>
+						<dd class:list={{ "work-page__meta-values--inline": item.inline }}>{item.values.map((value) => {
+							const label = typeof value === "string" ? value : value.text;
+							const href = typeof value === "string" ? item.href : value.href ?? item.href;
+							return <span>{href ? <a href={href} target="_blank" rel="noopener noreferrer">{label}</a> : label}</span>;
+						})}</dd>
 							</div>
 						))}
 					</dl>
-					<p>{data.intro}</p>
+					{data.showIntro !== false && <p>{data.intro}</p>}
 				</header>
 				<img class="work-page__image" src={data.coverImage.src} alt={data.coverImage.alt} width={data.coverImage.width} height={data.coverImage.height} fetchpriority="high" decoding="async" />
 				{data.sections.map((section) => <WorkSection section={section} />)}
@@ -82,11 +86,15 @@ const { data } = work;
 	.work-page__hero { display: flex; flex-direction: column; }
 	.work-page__hero h1 { max-width: 100%; margin: 0; font-size: 3rem; font-weight: 600; letter-spacing: -0.01em; line-height: 1.1; }
 	.work-page__metadata { display: grid; grid-template-columns: 6rem 8.75rem 9.75rem 6.5rem; gap: 4.5rem; margin: 2.5rem 0 2.5rem; }
+	.work-page__hero--without-intro .work-page__metadata { grid-template-columns: 4.6875rem 8.375rem 7rem 9.5rem; }
 	.work-page__meta-item { min-width: 0; }
 	.work-page__meta-item dt { margin-bottom: 1rem; color: rgb(255 255 255 / 50%); font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.04em; line-height: 1.2; text-transform: uppercase; white-space: nowrap; }
 	.work-page__meta-item dd { display: flex; flex-direction: column; gap: 0.25rem; margin: 0; color: var(--color-text-80); font-size: 0.875rem; font-weight: 500; line-height: 1.4; white-space: nowrap; }
+	.work-page__meta-item .work-page__meta-values--inline { flex-direction: row; }
+	.work-page__hero--without-intro .work-page__metadata { margin-bottom: 0; }
 	.work-page__meta-item a { text-decoration: underline; text-underline-offset: 0.2em; }
 	.work-page__hero > p { max-width: 57.25rem; margin: 0; color: var(--color-text-muted); font-size: 1.125rem; font-weight: 400; line-height: 1.5; }
+	.work-page__article--tight-headings :global(.work-section h2) { line-height: 1.1; }
 	.work-page__image { display: block; width: 100%; height: auto; border-radius: var(--radius-card); }
 	.work-page__gallery { display: flex; flex-direction: column; gap: 2.5rem; }
 	@media (max-width: 56.24rem) {
@@ -96,6 +104,8 @@ const { data } = work;
 		.work-page__back { padding-left: 0; }
 		.work-page__article { margin-top: 3rem; gap: 3rem; }
 		.work-page__metadata { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem 2rem; margin-block: 2rem; }
+		.work-page__hero--without-intro .work-page__metadata { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+		.work-page__article--tight-headings :global(.work-section h2) { line-height: 1.2; }
 		.work-page__meta-item dd { white-space: normal; }
 	}
 	@media (max-width: 39.99rem) {
