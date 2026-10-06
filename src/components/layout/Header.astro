@@ -1,10 +1,10 @@
 ---
 import ButtonLink from "../ui/ButtonLink.astro";
-import { portfolio } from "../../data/portfolio";
+import { calendlyBookingUrl, portfolio } from "../../data/portfolio";
 
 const onHomePage = Astro.url.pathname === "/";
 const resolveHref = (href: string) => href.startsWith("#") && !onHomePage ? `/${href}` : href;
-const bookCall = { label: "Book a Call", href: resolveHref("#contact"), icon: "/icons/calendar.svg" as const, external: false };
+const bookCall = { label: "Book a Call", href: calendlyBookingUrl, icon: "/icons/calendar.svg" as const, external: true };
 ---
 
 <header class="site-header">
@@ -41,8 +41,44 @@ const bookCall = { label: "Book a Call", href: resolveHref("#contact"), icon: "/
 	</details>
 </header>
 
+<script>
+	const header = document.querySelector<HTMLElement>(".site-header");
+	const mobileMenu = header?.querySelector<HTMLDetailsElement>(".mobile-nav");
+
+	if (header) {
+		let lastScrollY = Math.max(0, window.scrollY);
+		let frame: number | null = null;
+		const topThreshold = header.offsetHeight + parseFloat(getComputedStyle(header).top);
+
+		const updateVisibility = () => {
+			const scrollY = Math.max(0, window.scrollY);
+			const distance = scrollY - lastScrollY;
+
+			if (scrollY <= topThreshold || mobileMenu?.open) {
+				header.classList.remove("site-header--hidden");
+				lastScrollY = scrollY;
+			} else if (Math.abs(distance) >= 4) {
+				header.classList.toggle("site-header--hidden", distance > 0);
+				lastScrollY = scrollY;
+			}
+
+			frame = null;
+		};
+
+		window.addEventListener("scroll", () => {
+			if (frame === null) frame = requestAnimationFrame(updateVisibility);
+		}, { passive: true });
+		mobileMenu?.addEventListener("toggle", () => {
+			if (mobileMenu.open) header.classList.remove("site-header--hidden");
+			lastScrollY = Math.max(0, window.scrollY);
+		});
+		header.addEventListener("focusin", () => header.classList.remove("site-header--hidden"));
+	}
+</script>
+
 <style>
-	.site-header { position: absolute; top: 0.75rem; left: 50%; z-index: 20; width: min(var(--container-content), calc(100% - 2.5rem)); transform: translateX(-50%); }
+	.site-header { --header-translate-y: 0px; position: fixed; top: 0.75rem; left: 50%; z-index: 30; width: min(var(--container-content), calc(100% - 2.5rem)); transform: translate3d(-50%, var(--header-translate-y), 0); transition: transform 280ms cubic-bezier(0.22, 1, 0.36, 1); will-change: transform; }
+	.site-header--hidden { --header-translate-y: calc(-100% - 1.25rem); pointer-events: none; }
 	.desktop-nav, .mobile-nav { border: 1px solid var(--color-border); background: rgb(0 0 0 / 2%); backdrop-filter: blur(40px); }
 	.desktop-nav { display: flex; height: 4.25rem; align-items: center; justify-content: space-between; border-radius: var(--radius-pill); padding: 0.75rem 0.75rem 0.75rem 2rem; }
 	.desktop-nav__left, .desktop-nav__right, .desktop-nav__links, .availability { display: flex; align-items: center; }
@@ -72,7 +108,7 @@ const bookCall = { label: "Book a Call", href: resolveHref("#contact"), icon: "/
 	}
 
 	@media (max-width: 56.24rem) {
-		.site-header { top: 1rem; right: auto; left: 1.25rem; width: calc(100vw - 2.5rem); transform: none; }
+		.site-header { top: 1rem; right: auto; left: 1.25rem; width: calc(100vw - 2.5rem); transform: translate3d(0, var(--header-translate-y), 0); }
 		.desktop-nav { display: none; }
 		.mobile-nav { display: block; }
 	}
@@ -82,5 +118,8 @@ const bookCall = { label: "Book a Call", href: resolveHref("#contact"), icon: "/
 		.mobile-nav[open] summary { height: 1.875rem; padding-inline: 0; }
 		.mobile-nav[open] .mobile-nav__panel { margin-top: 1.25rem; padding: 0; }
 		.mobile-nav[open] .mobile-nav__panel li { min-height: 1.25rem; }
+	}
+	@media (prefers-reduced-motion: reduce) {
+		.site-header { transition: none; }
 	}
 </style>

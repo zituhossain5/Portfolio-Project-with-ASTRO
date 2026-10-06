@@ -3,6 +3,9 @@ export interface NavigationItem {
   href: string;
 }
 
+export const whatsappChatUrl = "https://wa.me/8801515656269";
+export const calendlyBookingUrl = "https://calendly.com/workwitharahim/30min";
+
 export interface CtaLink {
   label: string;
   href: string;
@@ -115,15 +118,15 @@ export const portfolio = {
       " designing SaaS products, websites, and mobile apps for growing businesses. A senior partner, not another freelancer.",
     primaryCta: {
       label: "Book a Free Call",
-      href: "#contact",
+      href: calendlyBookingUrl,
       icon: "/icons/calendar.svg",
-      external: false,
+      external: true,
     } satisfies CtaLink,
     secondaryCta: {
       label: "Chat with me",
-      href: "#contact",
+      href: whatsappChatUrl,
       icon: "/icons/whatsapp.svg",
-      external: false,
+      external: true,
     } satisfies CtaLink,
     trustCopy: "Trusted by 120+ founders & startups",
     trustedFounderImages: [
@@ -825,15 +828,15 @@ export const portfolio = {
       "Schedule a free 30-minute discovery call. No pitch, no pressure, just an honest conversation about your mission and how I can support it.",
     primaryCta: {
       label: "Book a Free Call",
-      href: "#contact",
+      href: calendlyBookingUrl,
       icon: "/icons/cta-calendar.svg",
-      external: false,
+      external: true,
     } satisfies CtaLink,
     secondaryCta: {
       label: "Chat with me",
-      href: "#contact",
+      href: whatsappChatUrl,
       icon: "/icons/cta-whatsapp.svg",
-      external: false,
+      external: true,
     } satisfies CtaLink,
     email: "workwitharahim@gmail.com",
     form: {
