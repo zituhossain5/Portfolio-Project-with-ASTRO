@@ -1,0 +1,115 @@
+{
+  "title": "Leanier — UI/UX Design for a Lean-Thinking Productivity App",
+  "intro": "Leanier is a behaviour-change and productivity app built around Lean Thinking, behavioural insight, and AI. Instead of encouraging users to add more tasks, reminders, and routines, Leanier helps them understand what creates friction in everyday life and find a better way forward.",
+  "showIntro": false,
+  "tightSectionHeadings": true,
+  "imageFolder": "leanier",
+  "card": {
+    "title": "Leanier — Productivity Mobile App UI/UX Design",
+    "image": "/images/work/Leanier app.png",
+    "alt": "Two Leanier productivity app screens on a green background",
+    "tags": ["Mobile App Design", "UI/UX Design", "SaaS Design", "Productivity App"]
+  },
+  "metadata": [
+    { "label": "Industry", "values": ["Productivity"] },
+    { "label": "Service Category", "values": ["Mobile App Design"] },
+    { "label": "Scope of work", "values": ["Product Research", "UX Strategy", "User Flow", "Wireframing", "UI Design"] }
+  ],
+  "coverImage": {
+    "src": "/images/work_details/leanier/Leanier app.png",
+    "alt": "Two Leanier app screens showing productivity insights and daily tasks",
+    "width": 916,
+    "height": 638
+  },
+  "sections": [
+    {
+      "id": "about",
+      "title": "About the Project",
+      "blocks": [
+        { "type": "paragraph", "text": "Leanier is a behaviour-change and productivity app built around Lean Thinking, behavioural insight, and AI. Instead of encouraging users to add more tasks, reminders, and routines, Leanier helps them understand what creates friction in everyday life and find a better way forward." },
+        { "type": "paragraph", "text": "I designed the complete mobile app experience from scratch from UX research and product discovery to user flows, wireframes, high-fidelity UI, and the final design system." },
+        { "type": "paragraph", "text": "The design focuses on making a complex behavioural framework feel simple, calm, and actionable, helping users understand their patterns, take small meaningful actions, and continuously improve their everyday systems." }
+      ]
+    },
+    {
+      "id": "problems",
+      "title": "Problems",
+      "blocks": [
+        { "type": "paragraph", "text": "Many productivity apps focus on tracking tasks, maintaining streaks, and reminding users to do more. Leanier takes a different approach by looking at the system behind behaviour rather than simply tracking the behaviour itself." },
+        { "type": "paragraph", "text": "Key problems the product aims to address:" },
+        { "type": "list", "items": [
+          { "text": "Users feel overwhelmed by too many tasks, reminders, and decisions." },
+          { "text": "Traditional productivity tools often focus on what users should do, rather than why things get stuck." },
+          { "text": "Generic task lists can add more mental clutter instead of reducing it." },
+          { "text": "Users need a simpler way to identify friction in their everyday routines." },
+          { "text": "Different areas of life such as home, health, focus, energy, and time are interconnected." },
+          { "text": "Productivity tools often encourage consistency and streaks without adapting to real-life changes." }
+        ] }
+      ]
+    },
+    {
+      "id": "challenges",
+      "title": "Challenges",
+      "blocks": [
+        { "type": "paragraph", "text": "The biggest challenge was translating Lean Thinking and behavioural improvement principles into a simple mobile product experience." },
+        { "type": "list", "items": [
+          { "text": "Turning an abstract behavioural framework into an intuitive onboarding experience." },
+          { "text": "Helping users identify personal friction without making the process feel like a long questionnaire." },
+          { "text": "Designing an experience that feels supportive rather than prescriptive or judgmental." },
+          { "text": "Presenting multiple areas of everyday life without creating dashboard complexity." },
+          { "text": "Balancing behavioural insights and data with a calm, low-cognitive-load interface." },
+          { "text": "Designing a product that can learn and adapt as users interact with it over time." },
+          { "text": "Creating a scalable design system for future AI-powered coaching and behavioural features." }
+        ] }
+      ],
+      "imageAfter": {
+        "src": "/images/work_details/leanier/Leanier app body.png",
+        "alt": "Leanier daily tasks screen displayed on a phone against a dark stone background",
+        "width": 916,
+        "height": 638
+      }
+    },
+    {
+      "id": "solutions",
+      "title": "Solutions",
+      "blocks": [
+        { "type": "paragraph", "text": "Key design solutions included:" },
+        { "type": "list", "items": [
+          { "text": "Friction-first onboarding — a short, honest set of questions that identifies each user's real starting point, not a generic setup flow" },
+          { "text": "Daily Task Tray — a short, prioritised list of next moves instead of an endless task log" },
+          { "text": "AI Coach nudges — contextual suggestions (like \"try a smaller step\") that reduce friction in the moment, not just remind" },
+          { "text": "60-second reflection flow — a lightweight daily check-in that feeds the system's learning loop" },
+          { "text": "Connected score dashboard — Focus, Home, Health, and Planet scores shown together, reflecting how life areas affect each other" },
+          { "text": "Consistent green gradient design system — calm, organic visuals that reinforce the \"lean, not more effort\" brand feeling" }
+        ] }
+      ]
+    },
+    {
+      "id": "result",
+      "title": "The Final Result",
+      "blocks": [
+        { "type": "paragraph", "text": "The final result is a complete mobile UI/UX experience for Leanier, transforming a complex concept around Lean Thinking and behaviour change into a simple, approachable digital product." }
+      ]
+    }
+  ],
+  "gallery": [
+    {
+      "src": "/images/work_details/leanier/Leanier 1 1.png",
+      "alt": "Leanier onboarding and friction-pattern discovery screens",
+      "width": 916,
+      "height": 658
+    },
+    {
+      "src": "/images/work_details/leanier/Leanier 2 1.png",
+      "alt": "Leanier daily tasks, task tray, coaching, and reflection screens",
+      "width": 916,
+      "height": 658
+    },
+    {
+      "src": "/images/work_details/leanier/Leanier 3 1.png",
+      "alt": "Leanier score dashboard, weekly wins, and productivity insights screens",
+      "width": 916,
+      "height": 658
+    }
+  ]
+}

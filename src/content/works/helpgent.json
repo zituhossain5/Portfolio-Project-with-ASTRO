@@ -1,0 +1,184 @@
+{
+  "title": "HelpGent – UI/UX Design for a Conversational Form Builder",
+  "intro": "HelpGent is a powerful conversational, multi-step form builder plugin for WordPress that transforms traditional static forms into engaging, interactive Video Funnels. Instead of collecting a name, an email, and a short message, HelpGent lets visitors respond through video messaging, voice messaging, text messaging, and screen recording making every interaction feel more human and dynamic, without anyone needing to be online at the same time.",
+  "showIntro": false,
+  "tightSectionHeadings": true,
+  "wideMetadata": true,
+  "imageFolder": "helpGent",
+  "card": {
+    "title": "HelpGent — Wordpress Form Builder Plugin UI/UX Design",
+    "image": "/images/work/HelpGent 1.png",
+    "alt": "HelpGent form builder with a customer-support chat preview",
+    "tags": ["UI/UX Design", "SaaS Design", "Product Design", "WordPress Plugin"]
+  },
+  "metadata": [
+    { "label": "Industry", "values": ["SaaS", "WordPress Plugin"] },
+    { "label": "Service Category", "values": ["SaaS Product Design"] },
+    { "label": "Scope of work", "values": ["Product Research", "UX Strategy", "Information Architecture", "User Flow", "Wireframing", "UI Design", "Design System"] },
+    { "label": "Live Link", "values": [{ "text": "Product Link", "href": "https://wpwax.com/helpgent/" }] }
+  ],
+  "coverImage": {
+    "src": "/images/work_details/helpGent/Help Gent.png",
+    "alt": "HelpGent conversational form builder showing a video welcome screen and editor settings",
+    "width": 916,
+    "height": 638
+  },
+  "sections": [
+    {
+      "id": "about",
+      "title": "About the Project",
+      "blocks": [
+        { "type": "paragraph", "text": "HelpGent is a powerful conversational, multi-step form builder plugin for WordPress that transforms traditional static forms into engaging, interactive Video Funnels. Instead of collecting a name, an email, and a short message, HelpGent lets visitors respond through video messaging, voice messaging, text messaging, and screen recording making every interaction feel more human and dynamic, without anyone needing to be online at the same time." },
+        { "type": "paragraph", "text": "I designed the entire plugin from the ground up starting with market research and product strategy, through wireframing and prototyping, all the way to the final high-fidelity UI. This covered the complete plugin experience: the frontend conversational form and chat/messaging experience, the WordPress admin panel, the drag-and-drop conversational form builder, the global settings panel, 10+ form creation elements and their individual settings, and the complete live-chat/form bubble widget that visitors interact with on the frontend. The plugin is currently live on WordPress.org." }
+      ]
+    },
+    {
+      "id": "problems",
+      "title": "Problems",
+      "blocks": [
+        { "type": "paragraph", "text": "Static contact forms and traditional live-chat widgets each solve part of the communication problem, but both leave real gaps for businesses trying to understand and engage their visitors." },
+        { "type": "paragraph", "text": "The key problems we identified:" },
+        { "type": "list", "items": [
+          { "text": "Traditional contact forms collect only a name, an email, and a short text message with no real context about the visitor's intent, urgency, or fit." },
+          { "text": "Live chat widgets require someone to be online at all times, making them impractical for solo consultants, small teams, or businesses spanning multiple time zones." },
+          { "text": "Neither static forms nor live chat allow visitors to explain complex issues (like a bug or a product question) in a natural, expressive way everything is reduced to typed text." },
+          { "text": "Floating chat widgets often feel intrusive, block page content, and still require real-time availability to be useful." },
+          { "text": "There was no single WordPress plugin that combined multi-step conversational forms, async video/voice messaging, and screen recording into one clean, easy-to-use tool." },
+          { "text": "As a form builder targeting non-technical WordPress users, the product needed to feel as simple as a typical form plugin, while still supporting a genuinely new and more complex interaction model (recording, playback, conversation threads)." }
+        ] }
+      ]
+    },
+    {
+      "id": "challenges",
+      "title": "Challenges",
+      "blocks": [
+        { "type": "paragraph", "text": "Across research, design, and the overall product journey, we faced several key challenges:" },
+        { "type": "list", "items": [
+          { "text": "Designing a drag-and-drop conversational form builder that could handle 10+ form elements (text, video recording, voice recording, file upload, date/time pickers, GDPR consent, Google Maps, reCAPTCHA, and more) each with its own configurable settings without becoming overwhelming." },
+          { "text": "Creating an intuitive step-by-step, screen-per-question form experience that feels like a real conversation rather than a traditional multi-page form." },
+          { "text": "Designing a fully functional live-chat / form bubble widget for the frontend covering the floating trigger, the conversation thread, media playback (video, voice, screen recordings), and reply composition all inside a compact, non-intrusive widget." },
+          { "text": "Building a conditional logic system UI that lets non-technical users visually branch a form based on previous answers, without needing to understand complex logic trees." },
+          { "text": "Designing the admin inbox and dashboard to clearly display incoming responses across multiple media types (video, voice, text, screen recordings) in one unified, scannable interface." },
+          { "text": "Structuring the global settings panel general settings, integrations (Google Drive, Bunny Storage, Directorist), notifications, and branding in a way that stays approachable for beginners yet flexible for advanced users." }
+        ] }
+      ],
+      "imageAfter": {
+        "src": "/images/work_details/helpGent/Help Gent Body.png",
+        "alt": "HelpGent conversational form editor displayed on a laptop",
+        "width": 916,
+        "height": 638
+      }
+    },
+    {
+      "id": "solutions",
+      "title": "Solutions",
+      "blocks": [
+        { "type": "subheading", "text": "Conversational Form Builder" },
+        { "type": "list", "items": [
+          { "text": "Designed the complete drag-and-drop form builder experience." },
+          { "text": "Created multi-step form flows with intuitive navigation and configuration." },
+          { "text": "Designed reusable builder patterns for scalability." }
+        ] },
+        { "type": "subheading", "text": "Form Elements & Settings" },
+        { "type": "list", "items": [
+          { "text": "Designed 10+ interactive form elements and their individual settings." },
+          { "text": "Covered text, file upload, video, voice, screen recording, date/time, validation, maps, consent, and other input types." },
+          { "text": "Created flexible configuration patterns for different form requirements." }
+        ] },
+        { "type": "subheading", "text": "Video, Voice & Screen Recording" },
+        { "type": "list", "items": [
+          { "text": "Designed complete recording and media-response experiences." },
+          { "text": "Created interfaces for video, voice, and screen recording, including recording, preview, playback, and response states." }
+        ] },
+        { "type": "subheading", "text": "Conversational Messaging & Live Chat" },
+        { "type": "list", "items": [
+          { "text": "Designed the complete conversation experience for text, video, and voice communication." },
+          { "text": "Created inbox, message threads, media interactions, and follow-up workflows." },
+          { "text": "Connected form submissions with ongoing conversations." }
+        ] },
+        { "type": "subheading", "text": "Frontend & Admin Experience" },
+        { "type": "list", "items": [
+          { "text": "Designed the complete WordPress admin panel and frontend user experience." },
+          { "text": "Covered forms, responses, conversations, contacts, dashboards, and form bubble interactions." },
+          { "text": "Created a structured settings system for product and form-level configurations." }
+        ] },
+        { "type": "subheading", "text": "Scalable Design System" },
+        { "type": "list", "items": [
+          { "text": "Established reusable UI patterns across the entire plugin." },
+          { "text": "Designed consistent components for forms, builders, settings, conversations, media, notifications, and system states." },
+          { "text": "Created a scalable foundation for future features and extensions." }
+        ] }
+      ]
+    },
+    {
+      "id": "result",
+      "title": "The Final Result",
+      "blocks": [
+        { "type": "paragraph", "text": "I designed HelpGent as a complete WordPress conversational communication product, taking the experience from initial market research and product strategy through UX architecture, wireframing, prototyping, and final high-fidelity UI design." },
+        { "type": "paragraph", "text": "My work covered the complete product ecosystem, including:" },
+        { "type": "list", "items": [
+          { "text": "Complete WordPress plugin frontend." },
+          { "text": "Admin panel and dashboard." },
+          { "text": "Drag-and-drop conversational form builder." },
+          { "text": "10+ form elements and their configuration experiences." },
+          { "text": "Multi-step form workflows." },
+          { "text": "Conditional logic." },
+          { "text": "Video messaging." },
+          { "text": "Voice messaging." },
+          { "text": "Screen recording." },
+          { "text": "Text-based conversations." },
+          { "text": "Live-chat and conversation experience." },
+          { "text": "Form bubble." },
+          { "text": "Frontend user dashboard." },
+          { "text": "Form and product settings." },
+          { "text": "Media and communication workflows." },
+          { "text": "Supporting UI patterns and design system." }
+        ] },
+        { "type": "paragraph", "text": "Overall, HelpGent demonstrates how thoughtful, research-driven UI/UX design can turn a fundamentally new interaction model asynchronous, multi-format conversation into a product that feels simple, approachable, and genuinely useful from the very first form. As Lead Product Designer, I'm proud to have shaped this product from initial strategy through to its final, live version." }
+      ]
+    }
+  ],
+  "gallery": [
+    {
+      "heading": "All Forms Table",
+      "src": "/images/work_details/helpGent/Help Gent All forms table.png",
+      "alt": "HelpGent All Forms table with form management menus and status controls",
+      "width": 916,
+      "height": 690
+    },
+    {
+      "heading": "Form Builder Elements",
+      "src": "/images/work_details/helpGent/Help GentBuilder-Elements.png",
+      "alt": "HelpGent form builder element settings and configuration screens",
+      "width": 916,
+      "height": 1751
+    },
+    {
+      "heading": "Live-chat Element",
+      "src": "/images/work_details/helpGent/Help Gent Live-chat.png",
+      "alt": "HelpGent live-chat widget editor and conversation interface screens",
+      "width": 916,
+      "height": 2329
+    },
+    {
+      "src": "/images/work_details/helpGent/Help Gent Live-chat 2.png",
+      "alt": "Additional HelpGent live-chat widget states and settings",
+      "width": 916,
+      "height": 2318
+    },
+    {
+      "heading": "Form Sharing",
+      "src": "/images/work_details/helpGent/Help Gent Share.png",
+      "alt": "HelpGent form sharing and embed options",
+      "width": 916,
+      "height": 704
+    },
+    {
+      "heading": "Admin Conversation",
+      "src": "/images/work_details/helpGent/Help Gent conversation.png",
+      "alt": "HelpGent admin conversation inbox and message thread interface",
+      "width": 916,
+      "height": 2542
+    }
+  ]
+}

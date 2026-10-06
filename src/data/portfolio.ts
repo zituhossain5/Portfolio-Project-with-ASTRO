@@ -300,6 +300,7 @@ export const portfolio = {
         title: "HelpGent — Wordpress Form Builder Plugin UI/UX Design",
         image: "/images/work/HelpGent 1.png",
         alt: "HelpGent form builder with a customer-support chat preview",
+        slug: "helpgent",
         tags: [
           "UI/UX Design",
           "SaaS Design",
@@ -311,6 +312,7 @@ export const portfolio = {
         title: "Leanier — Productivity Mobile App UI/UX Design",
         image: "/images/work/Leanier app.png",
         alt: "Two Leanier productivity app screens on a green background",
+        slug: "leanier",
         tags: [
           "Mobile App Design",
           "UI/UX Design",
@@ -322,6 +324,7 @@ export const portfolio = {
         title: "Directorist — Directory Listing Mobile App Design",
         image: "/images/work/Directorist App 2.png",
         alt: "Directorist directory listing app displayed on two phones",
+        slug: "directorist-mobile-app",
         tags: [
           "Mobile App Design",
           "UI/UX Design",
@@ -351,6 +354,7 @@ export const portfolio = {
           "Product Design",
           "WordPress Plugin",
         ],
+        slug: "formgent",
       },
       {
         title: "Directorist — Directory Plugin UI/UX Design",

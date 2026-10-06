@@ -24,6 +24,7 @@ const works = defineCollection({
 		intro: z.string().min(1),
 		showIntro: z.boolean().optional(),
 		tightSectionHeadings: z.boolean().optional(),
+		wideMetadata: z.boolean().optional(),
 		imageFolder: z.string().min(1),
 		card: z.object({
 			title: z.string().min(1),
@@ -47,6 +48,7 @@ const works = defineCollection({
 			blocks: z.array(z.discriminatedUnion("type", [
 				z.object({ type: z.literal("paragraph"), text: z.string().min(1) }),
 				z.object({ type: z.literal("paragraphs"), paragraphs: z.array(z.string().min(1)).min(1) }),
+				z.object({ type: z.literal("subheading"), text: z.string().min(1) }),
 				z.object({ type: z.literal("list"), items: z.array(z.object({
 					lead: z.string().optional(),
 					text: z.string().min(1),
@@ -54,7 +56,7 @@ const works = defineCollection({
 			])).min(1),
 			imageAfter: localImage.optional(),
 		})).min(1),
-		gallery: z.array(localImage),
+		gallery: z.array(localImage.extend({ heading: z.string().min(1).optional() })),
 	}),
 });
 

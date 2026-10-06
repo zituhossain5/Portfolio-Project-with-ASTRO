@@ -26,6 +26,12 @@ export async function getStaticPaths() {
 
 const { work } = Astro.props;
 const { data } = work;
+type GalleryImage = typeof data.gallery[number];
+const galleryGroups = data.gallery.reduce<{ heading?: string; images: GalleryImage[] }[]>((groups, image) => {
+	if (image.heading || groups.length === 0) groups.push({ heading: image.heading, images: [] });
+	groups[groups.length - 1].images.push(image);
+	return groups;
+}, []);
 ---
 
 <BaseLayout title={`${data.title} | Abdur Rahim`} description={data.intro} ogImage={data.coverImage.src}>
@@ -39,7 +45,7 @@ const { data } = work;
 				</a>
 			</div>
 			<article class:list={["work-page__article", { "work-page__article--tight-headings": data.tightSectionHeadings }]}>
-				<header class:list={["work-page__hero", { "work-page__hero--without-intro": data.showIntro === false }]}>
+				<header class:list={["work-page__hero", { "work-page__hero--without-intro": data.showIntro === false, "work-page__hero--wide-metadata": data.wideMetadata }]}>
 					<h1>{data.title}</h1>
 					<dl class="work-page__metadata">
 						{data.metadata.map((item) => (
@@ -57,7 +63,7 @@ const { data } = work;
 				</header>
 				<img class="work-page__image" src={data.coverImage.src} alt={data.coverImage.alt} width={data.coverImage.width} height={data.coverImage.height} fetchpriority="high" decoding="async" />
 				{data.sections.map((section) => <WorkSection section={section} />)}
-				{data.gallery.length > 0 && <div class="work-page__gallery" aria-label="Project gallery">{data.gallery.map((image) => <img class="work-page__image" src={image.src} alt={image.alt} width={image.width} height={image.height} loading="lazy" decoding="async" />)}</div>}
+				{galleryGroups.length > 0 && <div class:list={["work-page__gallery", { "work-page__gallery--headed": galleryGroups.some((group) => group.heading) }]} aria-label="Project gallery">{galleryGroups.map((group) => <section class="work-page__gallery-group" aria-label={group.heading || "Project screenshots"}>{group.heading && <h2>{group.heading}</h2>}{group.images.map((image) => <img class="work-page__image" src={image.src} alt={image.alt} width={image.width} height={image.height} loading="lazy" decoding="async" />)}</section>)}</div>}
 			</article>
 		</div>
 		<Contact />
@@ -87,16 +93,22 @@ const { data } = work;
 	.work-page__hero h1 { max-width: 100%; margin: 0; font-size: 3rem; font-weight: 600; letter-spacing: -0.01em; line-height: 1.1; }
 	.work-page__metadata { display: grid; grid-template-columns: 6rem 8.75rem 9.75rem 6.5rem; gap: 4.5rem; margin: 2.5rem 0 2.5rem; }
 	.work-page__hero--without-intro .work-page__metadata { grid-template-columns: 4.6875rem 8.375rem 7rem 9.5rem; }
+	.work-page__hero--wide-metadata .work-page__metadata { grid-template-columns: 6.875rem 8.375rem 9.5rem 4.9375rem; }
 	.work-page__meta-item { min-width: 0; }
 	.work-page__meta-item dt { margin-bottom: 1rem; color: rgb(255 255 255 / 50%); font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.04em; line-height: 1.2; text-transform: uppercase; white-space: nowrap; }
 	.work-page__meta-item dd { display: flex; flex-direction: column; gap: 0.25rem; margin: 0; color: var(--color-text-80); font-size: 0.875rem; font-weight: 500; line-height: 1.4; white-space: nowrap; }
 	.work-page__meta-item .work-page__meta-values--inline { flex-direction: row; }
 	.work-page__hero--without-intro .work-page__metadata { margin-bottom: 0; }
+	.work-page__hero--wide-metadata .work-page__metadata { margin-bottom: 2px; }
 	.work-page__meta-item a { text-decoration: underline; text-underline-offset: 0.2em; }
 	.work-page__hero > p { max-width: 57.25rem; margin: 0; color: var(--color-text-muted); font-size: 1.125rem; font-weight: 400; line-height: 1.5; }
 	.work-page__article--tight-headings :global(.work-section h2) { line-height: 1.1; }
 	.work-page__image { display: block; width: 100%; height: auto; border-radius: var(--radius-card); }
 	.work-page__gallery { display: flex; flex-direction: column; gap: 2.5rem; }
+	.work-page__gallery--headed { gap: 3.75rem; }
+	.work-page__gallery-group { display: flex; flex-direction: column; gap: 2rem; }
+	.work-page__gallery:not(.work-page__gallery--headed) .work-page__gallery-group { gap: 2.5rem; }
+	.work-page__gallery-group h2 { width: min(39.125rem, 100%); margin: 0 0 0 min(5.625rem, max(0px, calc((100% - 39.125rem) / 2))); color: var(--color-text); font-size: 3rem; font-weight: 600; letter-spacing: -0.01em; line-height: 1.5; }
 	@media (max-width: 56.24rem) {
 		.work-page { padding-top: 5rem; }
 		.work-page__case-study::before,
@@ -105,6 +117,8 @@ const { data } = work;
 		.work-page__article { margin-top: 3rem; gap: 3rem; }
 		.work-page__metadata { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem 2rem; margin-block: 2rem; }
 		.work-page__hero--without-intro .work-page__metadata { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+		.work-page__hero--wide-metadata .work-page__metadata { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+		.work-page__gallery-group h2 { margin-inline: auto; font-size: clamp(2rem, 5vw, 3rem); line-height: 1.2; }
 		.work-page__article--tight-headings :global(.work-section h2) { line-height: 1.2; }
 		.work-page__meta-item dd { white-space: normal; }
 	}
