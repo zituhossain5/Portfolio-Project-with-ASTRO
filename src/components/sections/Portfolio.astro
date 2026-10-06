@@ -1,5 +1,5 @@
 ---
-import { portfolio } from "../../data/portfolio";
+import { portfolio, type PortfolioProject } from "../../data/portfolio";
 import { getCollection } from "astro:content";
 import ButtonLink from "../ui/ButtonLink.astro";
 
@@ -10,6 +10,9 @@ interface Props {
 const { variant = "home" } = Astro.props;
 const { selectedWorks } = portfolio;
 const isWorksPage = variant === "works";
+const projects: PortfolioProject[] = isWorksPage
+	? [...selectedWorks.projects, ...selectedWorks.worksOnlyProjects]
+	: selectedWorks.projects;
 const workSlugs = new Set((await getCollection("works")).map((entry) => entry.id));
 ---
 
@@ -34,7 +37,7 @@ const workSlugs = new Set((await getCollection("works")).map((entry) => entry.id
 			)}
 
 			<ul class="portfolio-grid" role="list">
-				{selectedWorks.projects.map(({ title, image, alt, tags, slug }) => {
+				{projects.map(({ title, image, alt, tags, slug }) => {
 					const href = slug && workSlugs.has(slug) ? `/works/${slug}` : undefined;
 					const CardSurface = href ? "a" : "div";
 					return (
