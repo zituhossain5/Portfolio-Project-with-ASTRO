@@ -9,13 +9,36 @@
     "title": "Directorist — Directory Listing Mobile App Design",
     "image": "/images/work/Directorist App 2.png",
     "alt": "Directorist directory listing app displayed on two phones",
-    "tags": ["Mobile App Design", "UI/UX Design", "SaaS Design", "Directory App"]
+    "tags": [
+      "Mobile App Design",
+      "UI/UX Design",
+      "SaaS Design",
+      "Directory App"
+    ]
   },
   "metadata": [
     { "label": "Industry", "values": ["Business Directory"] },
     { "label": "Service Category", "values": ["Mobile App Design"] },
-    { "label": "Scope of work", "values": ["UX Research", "User Flow", "Information Architecture", "Wireframing", "UI/UX Design", "Design System"] },
-    { "label": "Live Link", "values": [{ "text": "Live Preview", "href": "https://directorist.com/mobile-app/" }] }
+    {
+      "label": "Scope of work",
+      "values": [
+        "UX Research",
+        "User Flow",
+        "Information Architecture",
+        "Wireframing",
+        "UI/UX Design",
+        "Design System"
+      ]
+    },
+    {
+      "label": "Live Link",
+      "values": [
+        {
+          "text": "Live Preview",
+          "href": "https://directorist.com/mobile-app/"
+        }
+      ]
+    }
   ],
   "coverImage": {
     "src": "/images/work_details/directorist/Directorist App Main.png",
@@ -28,39 +51,82 @@
       "id": "about",
       "title": "About the Project",
       "blocks": [
-        { "type": "paragraph", "text": "Directorist is one of the most popular WordPress plugins in the Directory & Listing category, widely used to build business directory and listing websites. The Directorist Mobile App is the official mobile extension of this plugin, designed to help users easily discover, explore, and interact with local businesses and services directly from their phones." },
-        { "type": "paragraph", "text": "We handled the complete UI/UX design of the mobile app from the very first idea to the final, live version. This included the entire user journey: onboarding, search, listing details, filters, user profiles, reviews, and dashboard interactions. Our process covered user research, flow mapping, wireframing, prototyping, and high-fidelity UI design, resulting in a clean, scalable, and user-friendly mobile interface." },
-        { "type": "paragraph", "text": "The app is currently live on both Google Play Store and Apple App Store." }
+        {
+          "type": "paragraph",
+          "text": "Directorist is one of the most popular WordPress plugins in the Directory & Listing category, widely used to build business directory and listing websites. The Directorist Mobile App is the official mobile extension of this plugin, designed to help users easily discover, explore, and interact with local businesses and services directly from their phones."
+        },
+        {
+          "type": "paragraph",
+          "text": "We handled the complete UI/UX design of the mobile app from the very first idea to the final, live version. This included the entire user journey: onboarding, search, listing details, filters, user profiles, reviews, and dashboard interactions. Our process covered user research, flow mapping, wireframing, prototyping, and high-fidelity UI design, resulting in a clean, scalable, and user-friendly mobile interface."
+        },
+        {
+          "type": "paragraph",
+          "text": "The app is currently live on both Google Play Store and Apple App Store."
+        }
       ]
     },
     {
       "id": "problems",
       "title": "Problems",
       "blocks": [
-        { "type": "paragraph", "text": "Directory and listing platforms often deal with large volumes of data businesses, categories, locations, and reviews which can easily overwhelm users if the mobile experience isn't carefully structured. Directorist needed a mobile app that could bring the same power of its WordPress plugin into a simple, intuitive mobile interface." },
+        {
+          "type": "paragraph",
+          "text": "Directory and listing platforms often deal with large volumes of data businesses, categories, locations, and reviews which can easily overwhelm users if the mobile experience isn't carefully structured. Directorist needed a mobile app that could bring the same power of its WordPress plugin into a simple, intuitive mobile interface."
+        },
         { "type": "paragraph", "text": "The key problems we identified:" },
-        { "type": "list", "items": [
-          { "text": "No dedicated mobile experience existed for Directorist users to browse and manage listings on the go." },
-          { "text": "Searching and filtering through a large number of business listings could easily become slow and confusing without a well-structured UI." },
-          { "text": "Listing details (business info, location, contact, reviews) needed to be presented clearly without overwhelming the user." },
-          { "text": "Both regular users (searching for services) and business owners (managing listings) needed distinct, purpose-built experiences within the same app." },
-          { "text": "The mobile app needed to reflect the flexibility and feature depth of the Directorist WordPress plugin, without feeling cluttered or overly complex." }
-        ] }
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "No dedicated mobile experience existed for Directorist users to browse and manage listings on the go."
+            },
+            {
+              "text": "Searching and filtering through a large number of business listings could easily become slow and confusing without a well-structured UI."
+            },
+            {
+              "text": "Listing details (business info, location, contact, reviews) needed to be presented clearly without overwhelming the user."
+            },
+            {
+              "text": "Both regular users (searching for services) and business owners (managing listings) needed distinct, purpose-built experiences within the same app."
+            },
+            {
+              "text": "The mobile app needed to reflect the flexibility and feature depth of the Directorist WordPress plugin, without feeling cluttered or overly complex."
+            }
+          ]
+        }
       ]
     },
     {
       "id": "challenges",
       "title": "Challenges",
       "blocks": [
-        { "type": "paragraph", "text": "Across research, design, and the overall product journey, we faced several key challenges:" },
-        { "type": "list", "items": [
-          { "text": "Understanding the existing Directorist WordPress plugin's feature set and translating its flexibility into a mobile-first experience." },
-          { "text": "Studying the needs of two different user types, everyday users searching for services, and business owners managing their listings." },
-          { "text": "Structuring a large volume of categories, listings, and filters into a simple, easy-to-navigate mobile interface." },
-          { "text": "Designing a search and filter system that stays fast and intuitive even with a large number of listings and categories." },
-          { "text": "Creating a listing details screen that balances business information, images, location, and reviews without feeling cluttered." },
-          { "text": "Designing a dashboard experience that lets business owners manage their listings, view insights, and interact with users smoothly." }
-        ] }
+        {
+          "type": "paragraph",
+          "text": "Across research, design, and the overall product journey, I faced several key challenges:"
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Understanding the existing Directorist WordPress plugin's feature set and translating its flexibility into a mobile-first experience."
+            },
+            {
+              "text": "Studying the needs of two different user types, everyday users searching for services, and business owners managing their listings."
+            },
+            {
+              "text": "Structuring a large volume of categories, listings, and filters into a simple, easy-to-navigate mobile interface."
+            },
+            {
+              "text": "Designing a search and filter system that stays fast and intuitive even with a large number of listings and categories."
+            },
+            {
+              "text": "Creating a listing details screen that balances business information, images, location, and reviews without feeling cluttered."
+            },
+            {
+              "text": "Designing a dashboard experience that lets business owners manage their listings, view insights, and interact with users smoothly."
+            }
+          ]
+        }
       ],
       "imageAfter": {
         "src": "/images/work_details/directorist/Directorist Mobile App Body.png",
@@ -73,34 +139,99 @@
       "id": "solutions",
       "title": "Solutions",
       "blocks": [
-        { "type": "paragraph", "text": "To address these challenges, we designed a complete, scalable UI/UX system focused on clarity, speed, and ease of use:" },
+        {
+          "type": "paragraph",
+          "text": "To address these challenges, we designed a complete, scalable UI/UX system focused on clarity, speed, and ease of use:"
+        },
         { "type": "paragraph", "text": "Key UX/UI solutions included:" },
-        { "type": "list", "items": [
-          { "lead": "Designed a smooth onboarding flow:", "text": " Helping new users quickly understand the app's core value and get started with minimal friction." },
-          { "lead": "Built an intuitive search and filter system:", "text": " Allowing users to quickly find relevant businesses and services by category, location, and other filters." },
-          { "lead": "Created a clean, information-rich listing details screen:", "text": " Presenting business information, images, location, contact details, and reviews in a clear, organized layout." },
-          { "lead": "Designed a dedicated user profile and dashboard experience:", "text": " Giving both regular users and business owners a personalized space to manage their activity and listings." },
-          { "lead": "Implemented a structured review and rating system:", "text": " Making it easy for users to read and leave feedback on businesses." },
-          { "lead": "Followed a scalable design system approach:", "text": " Ensuring the UI could support new features and listing categories as the platform grows." },
-          { "lead": "Focused on mobile-first usability and clarity:", "text": " Keeping every screen simple, consistent, and easy to navigate, even with large amounts of data." }
-        ] }
+        {
+          "type": "list",
+          "items": [
+            {
+              "lead": "Designed a smooth onboarding flow:",
+              "text": " Helping new users quickly understand the app's core value and get started with minimal friction."
+            },
+            {
+              "lead": "Built an intuitive search and filter system:",
+              "text": " Allowing users to quickly find relevant businesses and services by category, location, and other filters."
+            },
+            {
+              "lead": "Created a clean, information-rich listing details screen:",
+              "text": " Presenting business information, images, location, contact details, and reviews in a clear, organized layout."
+            },
+            {
+              "lead": "Designed a dedicated user profile and dashboard experience:",
+              "text": " Giving both regular users and business owners a personalized space to manage their activity and listings."
+            },
+            {
+              "lead": "Implemented a structured review and rating system:",
+              "text": " Making it easy for users to read and leave feedback on businesses."
+            },
+            {
+              "lead": "Followed a scalable design system approach:",
+              "text": " Ensuring the UI could support new features and listing categories as the platform grows."
+            },
+            {
+              "lead": "Focused on mobile-first usability and clarity:",
+              "text": " Keeping every screen simple, consistent, and easy to navigate, even with large amounts of data."
+            }
+          ]
+        }
       ]
     },
     {
       "id": "result",
       "title": "The Final Result",
       "blocks": [
-        { "type": "paragraph", "text": "Through structured research, detailed wireframing, and a carefully crafted high-fidelity UI, the Directorist Mobile App has become a complete, scalable mobile experience that brings the power of the Directorist WordPress plugin to mobile users." }
+        {
+          "type": "paragraph",
+          "text": "Through structured research, detailed wireframing, and a carefully crafted high-fidelity UI, the Directorist Mobile App has become a complete, scalable mobile experience that brings the power of the Directorist WordPress plugin to mobile users."
+        }
       ]
     }
   ],
   "gallery": [
-    { "src": "/images/work_details/directorist/Directorist Mobile App Result 1.png", "alt": "Directorist splash, sign-in, sign-up, and password recovery screens", "width": 916, "height": 687 },
-    { "src": "/images/work_details/directorist/Directorist Mobile App Result 2.png", "alt": "Directorist discovery, search, categories, and location search screens", "width": 916, "height": 687 },
-    { "src": "/images/work_details/directorist/Directorist Mobile App Result 3.png", "alt": "Directorist listing results, filters, and listing details screens", "width": 916, "height": 687 },
-    { "src": "/images/work_details/directorist/Directorist Mobile App Result 4.png", "alt": "Directorist maps, reviews, messaging, and author profile screens", "width": 916, "height": 687 },
-    { "src": "/images/work_details/directorist/Directorist Mobile App Result 5.png", "alt": "Directorist listing creation, account, and listing management screens", "width": 916, "height": 687 },
-    { "src": "/images/work_details/directorist/Directorist Mobile App Result 6.png", "alt": "Directorist reviews, checkout, packages, and order history screens", "width": 916, "height": 687 },
-    { "src": "/images/work_details/directorist/Directorist Mobile App Result 7.png", "alt": "Directorist profile information, messages, settings, and language screens", "width": 916, "height": 687 }
+    {
+      "src": "/images/work_details/directorist/Directorist Mobile App Result 1.png",
+      "alt": "Directorist splash, sign-in, sign-up, and password recovery screens",
+      "width": 916,
+      "height": 687
+    },
+    {
+      "src": "/images/work_details/directorist/Directorist Mobile App Result 2.png",
+      "alt": "Directorist discovery, search, categories, and location search screens",
+      "width": 916,
+      "height": 687
+    },
+    {
+      "src": "/images/work_details/directorist/Directorist Mobile App Result 3.png",
+      "alt": "Directorist listing results, filters, and listing details screens",
+      "width": 916,
+      "height": 687
+    },
+    {
+      "src": "/images/work_details/directorist/Directorist Mobile App Result 4.png",
+      "alt": "Directorist maps, reviews, messaging, and author profile screens",
+      "width": 916,
+      "height": 687
+    },
+    {
+      "src": "/images/work_details/directorist/Directorist Mobile App Result 5.png",
+      "alt": "Directorist listing creation, account, and listing management screens",
+      "width": 916,
+      "height": 687
+    },
+    {
+      "src": "/images/work_details/directorist/Directorist Mobile App Result 6.png",
+      "alt": "Directorist reviews, checkout, packages, and order history screens",
+      "width": 916,
+      "height": 687
+    },
+    {
+      "src": "/images/work_details/directorist/Directorist Mobile App Result 7.png",
+      "alt": "Directorist profile information, messages, settings, and language screens",
+      "width": 916,
+      "height": 687
+    }
   ]
 }

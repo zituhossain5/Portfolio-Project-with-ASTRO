@@ -9,13 +9,32 @@
     "title": "FormGent — WordPress Form Builder Plugin Design",
     "image": "/images/work/FormGent 1.png",
     "alt": "FormGent drag-and-drop form builder interface",
-    "tags": ["UI/UX Design", "SaaS Design", "Product Design", "WordPress Plugin"]
+    "tags": [
+      "UI/UX Design",
+      "SaaS Design",
+      "Product Design",
+      "WordPress Plugin"
+    ]
   },
   "metadata": [
     { "label": "Industry", "values": ["SaaS", "WordPress Plugin"] },
     { "label": "Service Category", "values": ["SaaS Product Design"] },
-    { "label": "Scope of work", "values": ["Product Research", "UX Strategy", "Information Architecture", "User Flow", "Wireframing", "UI Design", "Design System"] },
-    { "label": "Live Link", "values": [{ "text": "Live Preview", "href": "https://formgent.com/" }] }
+    {
+      "label": "Scope of work",
+      "values": [
+        "Product Research",
+        "UX Strategy",
+        "Information Architecture",
+        "User Flow",
+        "Wireframing",
+        "UI Design",
+        "Design System"
+      ]
+    },
+    {
+      "label": "Live Link",
+      "values": [{ "text": "Live Preview", "href": "https://formgent.com/" }]
+    }
   ],
   "coverImage": {
     "src": "/images/work_details/formGent/Form Gent Main.png",
@@ -28,40 +47,84 @@
       "id": "about",
       "title": "About the Project",
       "blocks": [
-        { "type": "paragraph", "text": "FormGent is an AI-powered, native WordPress form builder plugin designed to make form creation fast, flexible, and genuinely enjoyable without needing a separate platform outside WordPress. It supports two core ways of building forms: a Multi-Step Form (also called a Conversational Form), where every element or question appears on its own screen for a guided, chat-like experience, and a Classical Form, where all elements and questions sit together on a single page in the traditional format." },
-        { "type": "paragraph", "text": "We designed the entire plugin, end-to-end. This covered the plugin's frontend experience, the WordPress admin panel, the Form Creation flow and Form Table, AI-powered form creation, the Multi-Step Form Builder, the Classical Form Builder, the Form Settings panel, Conditional Logic, Form Appearance customization, Form Results/response management, and the complete set of 20+ form elements and their individual configurations. Every screen and interaction across FormGent was designed by our team." }
+        {
+          "type": "paragraph",
+          "text": "FormGent is an AI-powered, native WordPress form builder plugin designed to make form creation fast, flexible, and genuinely enjoyable without needing a separate platform outside WordPress. It supports two core ways of building forms: a Multi-Step Form (also called a Conversational Form), where every element or question appears on its own screen for a guided, chat-like experience, and a Classical Form, where all elements and questions sit together on a single page in the traditional format."
+        },
+        {
+          "type": "paragraph",
+          "text": "I designed the entire plugin, end-to-end. This covered the plugin's frontend experience, the WordPress admin panel, the Form Creation flow and Form Table, AI-powered form creation, the Multi-Step Form Builder, the Classical Form Builder, the Form Settings panel, Conditional Logic, Form Appearance customization, Form Results/response management, and the complete set of 20+ form elements and their individual configurations. Every screen and interaction across FormGent was designed by our team."
+        }
       ]
     },
     {
       "id": "problems",
       "title": "Problems",
       "blocks": [
-        { "type": "paragraph", "text": "Most WordPress form builders force users to choose between simplicity and power either an overly basic plugin that can't handle real business needs, or a bloated tool with a steep learning curve. Users also increasingly expect AI assistance to speed up repetitive setup work, which most existing form plugins don't offer at all." },
+        {
+          "type": "paragraph",
+          "text": "Most WordPress form builders force users to choose between simplicity and power either an overly basic plugin that can't handle real business needs, or a bloated tool with a steep learning curve. Users also increasingly expect AI assistance to speed up repetitive setup work, which most existing form plugins don't offer at all."
+        },
         { "type": "paragraph", "text": "The key problems we identified:" },
-        { "type": "list", "items": [
-          { "text": "Existing form plugins typically support only one form format classical, single-page forms leaving no easy way to build higher-converting, conversational multi-step experiences in the same tool." },
-          { "text": "Building a form from scratch (fields, logic, payments, notifications) is time-consuming, especially for non-technical WordPress users." },
-          { "text": "Managing 20+ different form elements, each with its own settings, can quickly become overwhelming without a clear, organized interface." },
-          { "text": "Conditional logic showing or hiding fields based on previous answers is often buried in complex, technical configuration screens." },
-          { "text": "Reviewing form responses, tracking analytics, and managing submissions is frequently an afterthought in most form builders, with weak or cluttered results views." },
-          { "text": "Site owners want a form builder that feels native to WordPress using the block editor they already know rather than a separate, disconnected admin experience." }
-        ] }
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Existing form plugins typically support only one form format classical, single-page forms leaving no easy way to build higher-converting, conversational multi-step experiences in the same tool."
+            },
+            {
+              "text": "Building a form from scratch (fields, logic, payments, notifications) is time-consuming, especially for non-technical WordPress users."
+            },
+            {
+              "text": "Managing 20+ different form elements, each with its own settings, can quickly become overwhelming without a clear, organized interface."
+            },
+            {
+              "text": "Conditional logic showing or hiding fields based on previous answers is often buried in complex, technical configuration screens."
+            },
+            {
+              "text": "Reviewing form responses, tracking analytics, and managing submissions is frequently an afterthought in most form builders, with weak or cluttered results views."
+            },
+            {
+              "text": "Site owners want a form builder that feels native to WordPress using the block editor they already know rather than a separate, disconnected admin experience."
+            }
+          ]
+        }
       ]
     },
     {
       "id": "challenges",
       "title": "Challenges",
       "blocks": [
-        { "type": "paragraph", "text": "Across research, design, and the overall product journey, we faced several key challenges:" },
-        { "type": "list", "items": [
-          { "text": "Designing two distinct form-building experiences the Multi-Step/Conversational Form Builder (one question per screen) and the Classical Form Builder (all fields on one page) while keeping both intuitive and visually consistent within the same builder interface." },
-          { "text": "Structuring 20+ form elements (Name, Email, File Upload, Payment, Rating, Repeater, Date & Time Picker, GDPR Compliance, and more) into an organized, searchable element library, each with its own configuration panel." },
-          { "text": "Designing an approachable AI Form Creation flow letting users describe a form in plain language and instantly get a fully built, editable form." },
-          { "text": "Creating a clear, visual Conditional Logic builder that lets non-technical users define show/hide rules without needing to understand complex logic trees." },
-          { "text": "Designing a comprehensive Form Settings panel covering general settings, notifications, confirmations, payments, and integrations, without overwhelming first-time users." },
-          { "text": "Building an intuitive Form Appearance/styling system, giving users control over colors, layout, and branding without touching CSS." },
-          { "text": "Designing a clear Form Results/response area including entry tables, single-entry views, exports, analytics summaries, and status tracking that stays readable even with high response volumes." }
-        ] }
+        {
+          "type": "paragraph",
+          "text": "Across research, design, and the overall product journey, I faced several key challenges:"
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Designing two distinct form-building experiences the Multi-Step/Conversational Form Builder (one question per screen) and the Classical Form Builder (all fields on one page) while keeping both intuitive and visually consistent within the same builder interface."
+            },
+            {
+              "text": "Structuring 20+ form elements (Name, Email, File Upload, Payment, Rating, Repeater, Date & Time Picker, GDPR Compliance, and more) into an organized, searchable element library, each with its own configuration panel."
+            },
+            {
+              "text": "Designing an approachable AI Form Creation flow letting users describe a form in plain language and instantly get a fully built, editable form."
+            },
+            {
+              "text": "Creating a clear, visual Conditional Logic builder that lets non-technical users define show/hide rules without needing to understand complex logic trees."
+            },
+            {
+              "text": "Designing a comprehensive Form Settings panel covering general settings, notifications, confirmations, payments, and integrations, without overwhelming first-time users."
+            },
+            {
+              "text": "Building an intuitive Form Appearance/styling system, giving users control over colors, layout, and branding without touching CSS."
+            },
+            {
+              "text": "Designing a clear Form Results/response area including entry tables, single-entry views, exports, analytics summaries, and status tracking that stays readable even with high response volumes."
+            }
+          ]
+        }
       ],
       "imageAfter": {
         "src": "/images/work_details/formGent/Form Gent Body.png",
@@ -74,106 +137,221 @@
       "id": "solutions",
       "title": "Solutions",
       "blocks": [
-        { "type": "paragraph", "text": "I approached FormGent as a complete WordPress form-building ecosystem, focusing on making advanced functionality easy to understand and use." },
+        {
+          "type": "paragraph",
+          "text": "I approached FormGent as a complete WordPress form-building ecosystem, focusing on making advanced functionality easy to understand and use."
+        },
         { "type": "subheading", "text": "Research & Product Strategy" },
-        { "type": "list", "items": [
-          { "text": "Conducted market and UX research around modern WordPress form builders." },
-          { "text": "Defined core user journeys from form creation to submission management." },
-          { "text": "Structured the product architecture around different form-building needs." },
-          { "text": "Established scalable patterns for future features and integrations." }
-        ] },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Conducted market and UX research around modern WordPress form builders."
+            },
+            {
+              "text": "Defined core user journeys from form creation to submission management."
+            },
+            {
+              "text": "Structured the product architecture around different form-building needs."
+            },
+            {
+              "text": "Established scalable patterns for future features and integrations."
+            }
+          ]
+        },
         { "type": "subheading", "text": "AI-Powered Form Creation" },
-        { "type": "list", "items": [
-          { "text": "AI-assisted form creation flow." },
-          { "text": "Clear prompt-based interaction." },
-          { "text": "Generated form preview and editing experience." },
-          { "text": "Smooth transition from AI generation to manual customization." }
-        ] },
+        {
+          "type": "list",
+          "items": [
+            { "text": "AI-assisted form creation flow." },
+            { "text": "Clear prompt-based interaction." },
+            { "text": "Generated form preview and editing experience." },
+            {
+              "text": "Smooth transition from AI generation to manual customization."
+            }
+          ]
+        },
         { "type": "subheading", "text": "Classic & Multi-Step Form Builders" },
-        { "type": "paragraph", "text": "Designed two distinct form-building experiences:" },
-        { "type": "list", "items": [
-          { "lead": "Classic Form Builder:", "text": " All form fields presented within a single-page structure." },
-          { "lead": "Multi-Step / Conversational Form Builder:", "text": " Questions and sections presented progressively through multiple steps." }
-        ] },
-        { "type": "paragraph", "text": "The builder experience includes page breaks, welcome/end screens, navigation controls, and customizable form interactions." },
+        {
+          "type": "paragraph",
+          "text": "Designed two distinct form-building experiences:"
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "lead": "Classic Form Builder:",
+              "text": " All form fields presented within a single-page structure."
+            },
+            {
+              "lead": "Multi-Step / Conversational Form Builder:",
+              "text": " Questions and sections presented progressively through multiple steps."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The builder experience includes page breaks, welcome/end screens, navigation controls, and customizable form interactions."
+        },
         { "type": "subheading", "text": "Form Elements & Configuration" },
-        { "type": "paragraph", "text": "I designed 20+ form elements and their individual configuration experiences." },
-        { "type": "list", "items": [
-          { "text": "Text and contact fields." },
-          { "text": "Choice and selection fields." },
-          { "text": "File upload." },
-          { "text": "Date & time." },
-          { "text": "Rating and range slider." },
-          { "text": "Address and Google Maps." },
-          { "text": "CAPTCHA and GDPR consent." },
-          { "text": "Repeater and advanced inputs." },
-          { "text": "Payment-related elements." },
-          { "text": "Login and registration elements." }
-        ] },
-        { "type": "paragraph", "text": "Each element was given a consistent configuration pattern while allowing its unique settings and behavior." },
+        {
+          "type": "paragraph",
+          "text": "I designed 20+ form elements and their individual configuration experiences."
+        },
+        {
+          "type": "list",
+          "items": [
+            { "text": "Text and contact fields." },
+            { "text": "Choice and selection fields." },
+            { "text": "File upload." },
+            { "text": "Date & time." },
+            { "text": "Rating and range slider." },
+            { "text": "Address and Google Maps." },
+            { "text": "CAPTCHA and GDPR consent." },
+            { "text": "Repeater and advanced inputs." },
+            { "text": "Payment-related elements." },
+            { "text": "Login and registration elements." }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Each element was given a consistent configuration pattern while allowing its unique settings and behavior."
+        },
         { "type": "subheading", "text": "Conditional Logic" },
-        { "type": "list", "items": [
-          { "text": "Intuitive condition-building interface." },
-          { "text": "Rule and value selection." },
-          { "text": "Show/hide behavior." },
-          { "text": "Multiple condition support." },
-          { "text": "Clear relationship between conditions and form fields." }
-        ] },
-        { "type": "paragraph", "text": "This allows forms to dynamically adapt based on user responses instead of showing every field to every visitor." },
+        {
+          "type": "list",
+          "items": [
+            { "text": "Intuitive condition-building interface." },
+            { "text": "Rule and value selection." },
+            { "text": "Show/hide behavior." },
+            { "text": "Multiple condition support." },
+            { "text": "Clear relationship between conditions and form fields." }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "This allows forms to dynamically adapt based on user responses instead of showing every field to every visitor."
+        },
         { "type": "subheading", "text": "Form Settings & Appearance" },
-        { "type": "list", "items": [
-          { "text": "General form settings." },
-          { "text": "Submission and confirmation behavior." },
-          { "text": "Notification settings." },
-          { "text": "Form appearance and styling." },
-          { "text": "Layout and field configuration." },
-          { "text": "Custom behavior and advanced settings." }
-        ] },
+        {
+          "type": "list",
+          "items": [
+            { "text": "General form settings." },
+            { "text": "Submission and confirmation behavior." },
+            { "text": "Notification settings." },
+            { "text": "Form appearance and styling." },
+            { "text": "Layout and field configuration." },
+            { "text": "Custom behavior and advanced settings." }
+          ]
+        },
         { "type": "subheading", "text": "Form Results & Analytics" },
-        { "type": "paragraph", "text": "I designed the complete response-management experience to help users understand and manage submitted data." },
-        { "type": "list", "items": [
-          { "text": "Forms dashboard and form table." },
-          { "text": "Submission/entry management." },
-          { "text": "Individual response views." },
-          { "text": "Response status and actions." },
-          { "text": "Data export and management." },
-          { "text": "Form analytics and performance summaries." }
-        ] },
+        {
+          "type": "paragraph",
+          "text": "I designed the complete response-management experience to help users understand and manage submitted data."
+        },
+        {
+          "type": "list",
+          "items": [
+            { "text": "Forms dashboard and form table." },
+            { "text": "Submission/entry management." },
+            { "text": "Individual response views." },
+            { "text": "Response status and actions." },
+            { "text": "Data export and management." },
+            { "text": "Form analytics and performance summaries." }
+          ]
+        },
         { "type": "subheading", "text": "Scalable Product Design System" },
-        { "type": "paragraph", "text": "Established reusable UI patterns across the entire plugin to maintain consistency between the builder, settings, dashboard, and frontend." }
+        {
+          "type": "paragraph",
+          "text": "Established reusable UI patterns across the entire plugin to maintain consistency between the builder, settings, dashboard, and frontend."
+        }
       ]
     },
     {
       "id": "result",
       "title": "The Final Result",
       "blocks": [
-        { "type": "paragraph", "text": "I designed FormGent as a complete AI-powered WordPress form builder, taking the product from initial market research and product strategy through UX architecture, wireframing, prototyping, and final high-fidelity UI design." },
-        { "type": "paragraph", "text": "My work covered the complete product ecosystem, including:" },
-        { "type": "list", "items": [
-          { "text": "WordPress plugin frontend." },
-          { "text": "Admin panel and forms dashboard." },
-          { "text": "Form creation and forms table." },
-          { "text": "AI-powered form creation." },
-          { "text": "Classic Form Builder." },
-          { "text": "Multi-Step / Conversational Form Builder." },
-          { "text": "Form settings and appearance." },
-          { "text": "Conditional Logic." },
-          { "text": "Form Results and response management." },
-          { "text": "Analytics and reporting experiences." },
-          { "text": "20+ form elements and their configurations." },
-          { "text": "Supporting UI patterns and scalable design system." }
-        ] },
-        { "type": "paragraph", "text": "Overall, FormGent shows how a well-structured, research-driven design system can turn a feature-dense form builder into something that feels simple, fast, and genuinely native to WordPress and we're proud to have designed this product across every screen, from AI-assisted creation to the final results dashboard." }
+        {
+          "type": "paragraph",
+          "text": "I designed FormGent as a complete AI-powered WordPress form builder, taking the product from initial market research and product strategy through UX architecture, wireframing, prototyping, and final high-fidelity UI design."
+        },
+        {
+          "type": "paragraph",
+          "text": "My work covered the complete product ecosystem, including:"
+        },
+        {
+          "type": "list",
+          "items": [
+            { "text": "WordPress plugin frontend." },
+            { "text": "Admin panel and forms dashboard." },
+            { "text": "Form creation and forms table." },
+            { "text": "AI-powered form creation." },
+            { "text": "Classic Form Builder." },
+            { "text": "Multi-Step / Conversational Form Builder." },
+            { "text": "Form settings and appearance." },
+            { "text": "Conditional Logic." },
+            { "text": "Form Results and response management." },
+            { "text": "Analytics and reporting experiences." },
+            { "text": "20+ form elements and their configurations." },
+            { "text": "Supporting UI patterns and scalable design system." }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Overall, FormGent shows how a well-structured, research-driven design system can turn a feature-dense form builder into something that feels simple, fast, and genuinely native to WordPress and we're proud to have designed this product across every screen, from AI-assisted creation to the final results dashboard."
+        }
       ]
     }
   ],
   "gallery": [
-    { "heading": "Creating Form", "src": "/images/work_details/formGent/Form Gent Creating Form.png", "alt": "FormGent create form options, form types, and forms table screens", "width": 916, "height": 701 },
-    { "heading": "Multi-step Form Builder", "src": "/images/work_details/formGent/Form Gent Conversational Form Builder.png", "alt": "FormGent multi-step conversational form builder screens", "width": 916, "height": 948 },
-    { "heading": "Classical Form Builder", "src": "/images/work_details/formGent/Form Gent Classical Form Builder.png", "alt": "FormGent classical form builder and field configuration screens", "width": 916, "height": 1596 },
-    { "heading": "Conditional Logic", "src": "/images/work_details/formGent/Form Gent Conditional Logic.png", "alt": "FormGent conditional logic builder and rule configuration screens", "width": 916, "height": 1215 },
-    { "heading": "Form Settings Panel", "src": "/images/work_details/formGent/Form Gent Form Settings Panel.png", "alt": "FormGent settings, notifications, scheduling, and integrations screens", "width": 916, "height": 1566 },
-    { "heading": "Form Appearance", "src": "/images/work_details/formGent/Form Gent Appearance.png", "alt": "FormGent form appearance and visual customization screens", "width": 916, "height": 1072 },
-    { "heading": "Form Results", "src": "/images/work_details/formGent/Form Gent Form Results.png", "alt": "FormGent responses, summaries, and analytics screens", "width": 916, "height": 1687 }
+    {
+      "heading": "Creating Form",
+      "src": "/images/work_details/formGent/Form Gent Creating Form.png",
+      "alt": "FormGent create form options, form types, and forms table screens",
+      "width": 916,
+      "height": 701
+    },
+    {
+      "heading": "Multi-step Form Builder",
+      "src": "/images/work_details/formGent/Form Gent Conversational Form Builder.png",
+      "alt": "FormGent multi-step conversational form builder screens",
+      "width": 916,
+      "height": 948
+    },
+    {
+      "heading": "Classical Form Builder",
+      "src": "/images/work_details/formGent/Form Gent Classical Form Builder.png",
+      "alt": "FormGent classical form builder and field configuration screens",
+      "width": 916,
+      "height": 1596
+    },
+    {
+      "heading": "Conditional Logic",
+      "src": "/images/work_details/formGent/Form Gent Conditional Logic.png",
+      "alt": "FormGent conditional logic builder and rule configuration screens",
+      "width": 916,
+      "height": 1215
+    },
+    {
+      "heading": "Form Settings Panel",
+      "src": "/images/work_details/formGent/Form Gent Form Settings Panel.png",
+      "alt": "FormGent settings, notifications, scheduling, and integrations screens",
+      "width": 916,
+      "height": 1566
+    },
+    {
+      "heading": "Form Appearance",
+      "src": "/images/work_details/formGent/Form Gent Appearance.png",
+      "alt": "FormGent form appearance and visual customization screens",
+      "width": 916,
+      "height": 1072
+    },
+    {
+      "heading": "Form Results",
+      "src": "/images/work_details/formGent/Form Gent Form Results.png",
+      "alt": "FormGent responses, summaries, and analytics screens",
+      "width": 916,
+      "height": 1687
+    }
   ]
 }
