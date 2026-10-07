@@ -100,14 +100,15 @@ const { hero } = portfolio;
 	.hero__actions { display: flex; align-items: center; gap: 0.75rem; }
 	.trust { display: flex; align-items: center; gap: 0.75rem; margin-top: 3rem; }
 	.trust__avatars { display: flex; align-items: center; border-radius: var(--radius-pill); background: white; padding: 0.25rem; box-shadow: var(--shadow-sm); }
-	/* Figma: five 38px circles, each 8px over the previous one, with a 4px outer white ring. */
-	.trust__avatar, .trust__count { position: relative; display: grid; flex: 0 0 2.375rem; width: 2.375rem; height: 2.375rem; place-items: center; overflow: hidden; border-radius: var(--radius-pill); box-shadow: 0 0 0 4px white; }
+	/* Figma's 4px ring is inside each 38px circle; only the 30px inner area shows the portrait. */
+	.trust__avatar, .trust__count { position: relative; display: grid; flex: 0 0 2.375rem; width: 2.375rem; height: 2.375rem; place-items: center; overflow: hidden; border: 4px solid white; border-radius: var(--radius-pill); }
 	.trust__avatars > :not(:first-child) { margin-left: -0.5rem; }
 	.trust__avatar img { width: 100%; height: 100%; object-fit: cover; }
 	.trust__avatar:first-child img { width: 133%; max-width: none; }
-	/* These two Figma PNGs contain their own 4px white ring at 46px; crop it so the shared outer ring is the only visible ring. */
-	.trust__avatar:nth-child(2) img, .trust__avatar:nth-child(3) img { position: absolute; top: -4px; left: -4px; width: calc(100% + 8px); height: calc(100% + 8px); max-width: none; }
+	/* The second and third PNGs include an 8px ring in their 92px source; show only their inner 76px portrait. */
+	.trust__avatar:nth-child(2) img, .trust__avatar:nth-child(3) img { position: absolute; top: 50%; left: 50%; width: 121.053%; height: 121.053%; max-width: none; transform: translate(-50%, -50%); }
 	.trust__count { background: var(--color-ink); color: white; font-size: 0.75rem; font-weight: 700; line-height: 1.5; }
+	span.trust__count {font-size: 10px !important;font-weight: 500 !important;}
 	.trust__rating { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 8px; }
 	.trust__stars { display: flex; }
 	.trust__rating p { margin: 0; color: var(--color-text-muted); font-size: 0.875rem; font-weight: 500; line-height: 1.25; white-space: nowrap; }

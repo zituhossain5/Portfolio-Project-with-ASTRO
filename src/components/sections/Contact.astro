@@ -80,10 +80,10 @@ const { contact } = portfolio;
 			<div class="contact__socials">
 				<p>{contact.socialLabel}</p>
 				<div class="contact__social-list">
-					{contact.socials.map(({ name, icon }) => (
-						<span class="contact__social-icon" role="img" aria-label={name}>
+					{contact.socials.map(({ name, icon, href }) => (
+						<a class="contact__social-icon" href={href} aria-label={name} target="_blank" rel="noopener noreferrer">
 							<img src={icon} alt="" aria-hidden="true" width="24" height="24" />
-						</span>
+						</a>
 					))}
 				</div>
 			</div>

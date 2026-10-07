@@ -881,9 +881,9 @@ export const portfolio = {
     },
     socialLabel: "Follow me on socials",
     socials: [
-      { name: "LinkedIn", icon: "/icons/cta-linkedin.svg" },
-      { name: "YouTube", icon: "/icons/cta-youtube.svg" },
-      { name: "Dribbble", icon: "/icons/cta-dribbble.svg" },
+      { name: "LinkedIn", icon: "/icons/cta-linkedin.svg", href: "https://www.linkedin.com/in/abdurrahim55/" },
+      { name: "YouTube", icon: "/icons/cta-youtube.svg", href: "https://www.youtube.com/@DesigningHeroAcademy" },
+      { name: "Dribbble", icon: "/icons/cta-dribbble.svg", href: "https://dribbble.com/arahimdesign" },
     ],
     copyright: "© 2026 Abdur Rahim. All Rights Reserved",
   },
