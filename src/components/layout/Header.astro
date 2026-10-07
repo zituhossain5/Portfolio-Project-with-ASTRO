@@ -19,7 +19,9 @@ const bookCall = { label: "Book a Call", href: calendlyBookingUrl, icon: "/icons
 		</div>
 		<div class="desktop-nav__right">
 			<p class="availability">
-				<img src="/icons/availability.svg" alt="" aria-hidden="true" width="18" height="18" />
+				<span class="availability__status" aria-hidden="true">
+					<img src="/icons/availability.svg" alt="" width="18" height="18" />
+				</span>
 				<span>{portfolio.availability}</span>
 			</p>
 			<ButtonLink {...bookCall} compact />
@@ -91,6 +93,22 @@ const bookCall = { label: "Book a Call", href: calendlyBookingUrl, icon: "/icons
 	.desktop-nav__links a:hover { color: var(--color-text); }
 	.desktop-nav__right { gap: 1.5rem; }
 	.availability { gap: 1rem; margin: 0; color: var(--color-text-muted); font-size: 0.875rem; font-weight: 500; line-height: 1.5; white-space: nowrap; }
+	.availability__status { position: relative; display: block; width: 1.125rem; height: 1.125rem; flex: none; }
+	.availability__status img { position: relative; z-index: 1; }
+	.availability__status::after {
+		position: absolute;
+		inset: 0;
+		border-radius: 50%;
+		background: #14dd4a;
+		content: "";
+		opacity: 0;
+		pointer-events: none;
+		animation: availability-pulse 1.9s ease-out infinite;
+	}
+	@keyframes availability-pulse {
+		0% { transform: scale(0.65); opacity: 0.2; }
+		100% { transform: scale(1.65); opacity: 0; }
+	}
 	.mobile-brand-link { display: none; position: absolute; top: 0.9375rem; left: 1.25rem; z-index: 1; }
 	.mobile-nav { display: none; overflow: hidden; border-radius: var(--radius-pill); }
 	.mobile-nav summary { display: flex; width: 3.75rem; height: 3.75rem; cursor: pointer; align-items: center; justify-content: center; margin-left: auto; list-style: none; }
@@ -125,5 +143,6 @@ const bookCall = { label: "Book a Call", href: calendlyBookingUrl, icon: "/icons
 	}
 	@media (prefers-reduced-motion: reduce) {
 		.site-header { transition: none; }
+		.availability__status::after { animation: none; }
 	}
 </style>
