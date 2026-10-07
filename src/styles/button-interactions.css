@@ -45,6 +45,28 @@
 
 .button-link--whatsapp .button-link__rest { gap: 0.625rem; }
 
+.action-pill--light {
+	position: relative;
+	display: inline-grid;
+	min-height: 3.25rem;
+	overflow: hidden;
+	border-radius: var(--radius-pill);
+	background: #fff;
+	color: var(--color-ink);
+	font-size: 1.125rem;
+	font-weight: 600;
+	line-height: 1.22;
+	white-space: nowrap;
+}
+
+.action-pill--light .action-pill__rest,
+.action-pill--light .action-pill__hover { grid-area: 1 / 1; }
+
+.action-pill--light .action-pill__rest { padding-inline: 1.25rem; }
+
+/* Participate in grid sizing so the arrow has room without resizing the link on hover. */
+.action-pill--light .action-pill__hover { position: relative; inset: auto; }
+
 .button-link__rest,
 .action-pill__rest {
 	display: inline-flex;
@@ -91,22 +113,28 @@
 	.button-link--primary:hover,
 	.action-pill--submit:hover { background: #fff; }
 	.button-link--primary:hover .button-link__rest,
-	.action-pill--submit:hover .action-pill__rest { opacity: 0; transform: translate3d(-0.5rem, 0, 0); }
+	.action-pill--submit:hover .action-pill__rest,
+	.action-pill--light:hover .action-pill__rest { opacity: 0; transform: translate3d(-0.5rem, 0, 0); }
 	.button-link--primary:hover .action-pill__hover,
-	.action-pill--submit:hover .action-pill__hover { opacity: 1; transform: translate3d(0, 0, 0); }
+	.action-pill--submit:hover .action-pill__hover,
+	.action-pill--light:hover .action-pill__hover { opacity: 1; transform: translate3d(0, 0, 0); }
 	.button-link--primary:hover .action-pill__arrow,
-	.action-pill--submit:hover .action-pill__arrow { transform: scale(1); }
+	.action-pill--submit:hover .action-pill__arrow,
+	.action-pill--light:hover .action-pill__arrow { transform: scale(1); }
 	.button-link--whatsapp:hover { background: #32864e; }
 }
 
 .button-link--primary:focus-visible,
 .action-pill--submit:focus-visible { background: #fff; }
 .button-link--primary:focus-visible .button-link__rest,
-.action-pill--submit:focus-visible .action-pill__rest { opacity: 0; transform: translate3d(-0.5rem, 0, 0); }
+.action-pill--submit:focus-visible .action-pill__rest,
+.action-pill--light:focus-visible .action-pill__rest { opacity: 0; transform: translate3d(-0.5rem, 0, 0); }
 .button-link--primary:focus-visible .action-pill__hover,
-.action-pill--submit:focus-visible .action-pill__hover { opacity: 1; transform: translate3d(0, 0, 0); }
+.action-pill--submit:focus-visible .action-pill__hover,
+.action-pill--light:focus-visible .action-pill__hover { opacity: 1; transform: translate3d(0, 0, 0); }
 .button-link--primary:focus-visible .action-pill__arrow,
-.action-pill--submit:focus-visible .action-pill__arrow { transform: scale(1); }
+.action-pill--submit:focus-visible .action-pill__arrow,
+.action-pill--light:focus-visible .action-pill__arrow { transform: scale(1); }
 .button-link--whatsapp:focus-visible { background: #32864e; }
 
 @media (max-width: 47.99rem) {
@@ -117,6 +145,7 @@
 @media (prefers-reduced-motion: reduce) {
 	.button-link,
 	.action-pill--submit,
+	.action-pill--light,
 	.button-link__rest,
 	.action-pill__rest,
 	.action-pill__hover,

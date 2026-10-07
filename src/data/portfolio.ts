@@ -177,14 +177,14 @@ export const portfolio = {
       src: "/images/clients/leanier.svg",
       width: 140,
       height: 34,
-      mobileHeight: 32,
+      mobileHeight: 22,
     },
     {
       name: "OneListing",
       src: "/images/clients/oneListing.svg",
       width: 147,
       height: 42,
-      mobileHeight: 18,
+      mobileHeight: 32,
     },
     {
       name: "Offcoustic",
@@ -198,7 +198,7 @@ export const portfolio = {
       src: "/images/clients/alQuran.svg",
       width: 141,
       height: 40,
-      mobileHeight: 18,
+      mobileHeight: 28,
     },
     {
       name: "Lendflow",

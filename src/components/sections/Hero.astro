@@ -45,7 +45,7 @@ const { hero } = portfolio;
 		<div class="trust">
 			<div class="trust__avatars" aria-hidden="true">
 				{hero.trustedFounderImages.map((image) => (
-					<span class="trust__avatar"><img src={image} alt="" width="46" height="46" /></span>
+					<span class="trust__avatar"><img src={image} alt="" width="38" height="38" /></span>
 				))}
 				<span class="trust__count">120+</span>
 			</div>
@@ -100,12 +100,13 @@ const { hero } = portfolio;
 	.hero__actions { display: flex; align-items: center; gap: 0.75rem; }
 	.trust { display: flex; align-items: center; gap: 0.75rem; margin-top: 3rem; }
 	.trust__avatars { display: flex; align-items: center; border-radius: var(--radius-pill); background: white; padding: 0.25rem; box-shadow: var(--shadow-sm); }
-	/* Figma: 38px avatars with a 4px white stroke drawn OUTSIDE the circle, so the ring takes no space and the photos stay full size. */
-	.trust__avatar, .trust__count { position: relative; display: grid; width: 2.375rem; height: 2.375rem; place-items: center; border-radius: var(--radius-pill); box-shadow: 0 0 0 4px white; }
-	.trust__avatar + .trust__avatar, .trust__count { margin-left: -0.5rem; }
-	.trust__avatar { overflow: hidden; }
+	/* Figma: five 38px circles, each 8px over the previous one, with a 4px outer white ring. */
+	.trust__avatar, .trust__count { position: relative; display: grid; flex: 0 0 2.375rem; width: 2.375rem; height: 2.375rem; place-items: center; overflow: hidden; border-radius: var(--radius-pill); box-shadow: 0 0 0 4px white; }
+	.trust__avatars > :not(:first-child) { margin-left: -0.5rem; }
 	.trust__avatar img { width: 100%; height: 100%; object-fit: cover; }
 	.trust__avatar:first-child img { width: 133%; max-width: none; }
+	/* These two Figma PNGs contain their own 4px white ring at 46px; crop it so the shared outer ring is the only visible ring. */
+	.trust__avatar:nth-child(2) img, .trust__avatar:nth-child(3) img { position: absolute; top: -4px; left: -4px; width: calc(100% + 8px); height: calc(100% + 8px); max-width: none; }
 	.trust__count { background: var(--color-ink); color: white; font-size: 0.75rem; font-weight: 700; line-height: 1.5; }
 	.trust__rating { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 8px; }
 	.trust__stars { display: flex; }
