@@ -37,6 +37,9 @@
 	--container-content: 86.25rem;
 	--container-rails: 91.25rem;
 	--gutter-page: clamp(1.25rem, 3vw, 2.5rem);
+	--rails-min-inset: 0.5rem;
+	--rails-inset: calc(50% - var(--container-rails) / 2);
+	--layout-line: rgb(255 255 255 / 15%);
 	--space-1: 0.25rem;
 	--space-2: 0.5rem;
 	--space-3: 0.75rem;
@@ -143,14 +146,25 @@ a {
  * Figma "Layout Border" frames: dashed rails on the 1460px column edges, and hatched bands between
  * full-width dashed lines (3/2 dash with round caps, so 4px on / 1px off). Bands must sit inside .layout-rails.
  */
-.layout-rails {
-	--layout-line: rgb(255 255 255 / 15%);
+.layout-rails,
+.hero__responsive-grid {
 	--layout-dash-x: repeating-linear-gradient(to right, var(--layout-line) 0 4px, transparent 4px 5px);
 	--layout-dash-y: repeating-linear-gradient(to bottom, var(--layout-line) 0 4px, transparent 4px 5px);
-	--rails-inset: calc(50% - var(--container-rails) / 2);
+}
+
+.layout-rails {
 	position: relative;
-	/* Below 1460px the rails sit off-screen, like the hero's; don't let them widen the page. */
 	overflow-x: clip;
+}
+
+.home-page-frame {
+	/* One inset for the Hero, section rails, and their horizontal bands. */
+	--rails-inset: max(var(--rails-min-inset), calc(50% - var(--container-rails) / 2));
+}
+
+@media (min-width: 56.25rem) {
+	/* The Contact dividers can then span the page frame without using 100vw. */
+	.home-page-frame .contact { container-type: inline-size; }
 }
 
 .layout-rails::before,
@@ -226,7 +240,7 @@ a {
 	}
 
 	/* Mobile frames inset the rails 8px from the edges and use 24px bands. */
-	.layout-rails { --rails-inset: 0.5rem; }
+	.layout-rails { --rails-inset: var(--rails-min-inset); }
 	.layout-band { height: 1.5rem; }
 
 	.section-foundation {

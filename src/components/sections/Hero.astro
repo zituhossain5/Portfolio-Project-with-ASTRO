@@ -7,6 +7,7 @@ const { hero } = portfolio;
 
 <section class="hero" id="top" aria-labelledby="hero-heading">
 	<img class="hero__layout-grid" src="/images/hero-layout-grid.svg" alt="" aria-hidden="true" width="1920" height="906" />
+	<div class="hero__responsive-grid" aria-hidden="true"></div>
 	<img class="hero__grid" src="/images/hero-grid.png" alt="" aria-hidden="true" width="1920" height="896" />
 	<div class="hero__portrait">
 		<img src="/images/abdur-rahim-portrait.png" alt="Abdur Rahim, UI/UX and product designer" width="771" height="800" />
@@ -66,6 +67,7 @@ const { hero } = portfolio;
 	.hero__layout-grid, .hero__grid, .hero__portrait, .hero__overlay-window, .hero__gradient-window { pointer-events: none; }
 	/* Figma stacking, back to front: grid 0, portrait 1, overlay 2, gradient 3, content 4, work marquee 5, layout lines 6. */
 	.hero__layout-grid { top: 0; left: 50%; z-index: 6; width: 120rem; height: 56.625rem; transform: translateX(-50%); }
+	.hero__responsive-grid { display: none; }
 	.hero__grid { top: 5.6875rem; left: 50%; z-index: 0; width: 120rem; height: 56rem; transform: translateX(-50%); object-fit: cover; opacity: 0.3; }
 	/* The mask fades the lower body (forearms, knees) into the page so only the gradient shows there, as in Figma. */
 	.hero__portrait { top: 6.625rem; left: calc(50% - 5.0625rem); z-index: 1; width: 48.1875rem; height: 50rem; mask: linear-gradient(to bottom, black 62%, rgb(0 0 0 / 45%) 76%, rgb(0 0 0 / 12%) 86%, transparent 93%); }
@@ -112,6 +114,19 @@ const { hero } = portfolio;
 	.trust__rating { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 8px; }
 	.trust__stars { display: flex; }
 	.trust__rating p { margin: 0; color: var(--color-text-muted); font-size: 0.875rem; font-weight: 500; line-height: 1.25; white-space: nowrap; }
+
+	/* Keep the existing 1920px artwork; prevent global img max-width from shrinking it at narrower desktop widths. */
+	@media (max-width: 119.99rem) {
+		.hero__layout-grid { max-width: none; }
+	}
+
+	@media (min-width: 56.25rem) and (max-width: 93.125rem) {
+		.hero__layout-grid { display: none; }
+		.hero__responsive-grid { position: absolute; inset: 0; z-index: 6; display: block; background: var(--layout-dash-x) left 5.6875rem / 100% 1px no-repeat; pointer-events: none; }
+		.hero__responsive-grid::before, .hero__responsive-grid::after { position: absolute; top: 0; bottom: 0; width: 1px; background: var(--layout-dash-y); content: ""; }
+		.hero__responsive-grid::before { left: var(--rails-inset); }
+		.hero__responsive-grid::after { right: var(--rails-inset); }
+	}
 
 	@media (max-width: 78rem) and (min-width: 56.25rem) {
 		.hero__copy-group { width: min(38rem, 58vw); }

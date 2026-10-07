@@ -223,7 +223,7 @@ const { contact } = portfolio;
 	.contact__or {
 		position: relative;
 		display: flex;
-		width: min(var(--container-rails), calc(100vw - 1rem));
+		width: min(var(--container-rails), calc(100cqw - var(--rails-min-inset) - var(--rails-min-inset)));
 		height: 2.1875rem;
 		flex: 0 0 auto;
 		align-items: flex-start;
@@ -343,7 +343,7 @@ const { contact } = portfolio;
 	.contact-form__submit { cursor: default; }
 
 	.contact__footer-band {
-		width: 100vw;
+		width: 100cqw;
 		flex: 0 0 auto;
 		margin-top: 3.75rem;
 	}
