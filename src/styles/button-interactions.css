@@ -1,0 +1,124 @@
+/* Shared CTA states from the Figma button components. The second face is layered,
+   so its appearance cannot change the button's box or move its neighbours. */
+.button-link,
+.action-pill--submit {
+	display: inline-flex;
+	min-height: 3.25rem;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	border: 0;
+	border-radius: var(--radius-pill);
+	padding: 0.875rem 1.25rem;
+	font: inherit;
+	font-size: 1.125rem;
+	font-weight: 600;
+	line-height: 1.22;
+	white-space: nowrap;
+}
+
+.button-link img,
+.action-pill--submit img { flex: 0 0 auto; }
+
+.button-link--compact {
+	min-height: 2.75rem;
+	padding-block: 0.75rem;
+	font-size: 1rem;
+}
+
+.button-link--primary,
+.action-pill--submit {
+	position: relative;
+	overflow: hidden;
+	background: var(--color-brand);
+	/* The hovered 20px inset + 42px arrow needs 5px more than the resting icon row. */
+	padding-right: 1.5625rem;
+	color: var(--color-ink);
+	transition: background-color 280ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.button-link--whatsapp {
+	background: var(--color-whatsapp);
+	color: var(--color-text);
+	transition: background-color 260ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.button-link--whatsapp .button-link__rest { gap: 0.625rem; }
+
+.button-link__rest,
+.action-pill__rest {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	transition: opacity 220ms ease, transform 280ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.action-pill__hover {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.625rem;
+	padding: 0.3125rem 0.3125rem 0.3125rem 1.25rem;
+	opacity: 0;
+	transform: translate3d(0.5rem, 0, 0);
+	transition: opacity 220ms ease, transform 280ms cubic-bezier(0.22, 1, 0.36, 1);
+	pointer-events: none;
+}
+
+.action-pill__arrow {
+	display: grid;
+	width: 2.625rem;
+	height: 2.625rem;
+	flex: 0 0 auto;
+	place-items: center;
+	border-radius: 50%;
+	background: var(--color-ink);
+	transform: scale(0.72);
+	transition: transform 280ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.action-pill__arrow img { width: 1.25rem; height: 1.25rem; }
+
+.button-link--compact .action-pill__arrow { width: 2.125rem; height: 2.125rem; }
+.button-link--compact .action-pill__arrow img { width: 1rem; height: 1rem; }
+
+.button-link__label--mobile { display: none; }
+
+@media (hover: hover) and (pointer: fine) {
+	.button-link--primary:hover,
+	.action-pill--submit:hover { background: #fff; }
+	.button-link--primary:hover .button-link__rest,
+	.action-pill--submit:hover .action-pill__rest { opacity: 0; transform: translate3d(-0.5rem, 0, 0); }
+	.button-link--primary:hover .action-pill__hover,
+	.action-pill--submit:hover .action-pill__hover { opacity: 1; transform: translate3d(0, 0, 0); }
+	.button-link--primary:hover .action-pill__arrow,
+	.action-pill--submit:hover .action-pill__arrow { transform: scale(1); }
+	.button-link--whatsapp:hover { background: #32864e; }
+}
+
+.button-link--primary:focus-visible,
+.action-pill--submit:focus-visible { background: #fff; }
+.button-link--primary:focus-visible .button-link__rest,
+.action-pill--submit:focus-visible .action-pill__rest { opacity: 0; transform: translate3d(-0.5rem, 0, 0); }
+.button-link--primary:focus-visible .action-pill__hover,
+.action-pill--submit:focus-visible .action-pill__hover { opacity: 1; transform: translate3d(0, 0, 0); }
+.button-link--primary:focus-visible .action-pill__arrow,
+.action-pill--submit:focus-visible .action-pill__arrow { transform: scale(1); }
+.button-link--whatsapp:focus-visible { background: #32864e; }
+
+@media (max-width: 47.99rem) {
+	.button-link__label--desktop { display: none; }
+	.button-link__label--mobile { display: inline; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.button-link,
+	.action-pill--submit,
+	.button-link__rest,
+	.action-pill__rest,
+	.action-pill__hover,
+	.action-pill__arrow { transition-duration: 0.01ms; }
+}

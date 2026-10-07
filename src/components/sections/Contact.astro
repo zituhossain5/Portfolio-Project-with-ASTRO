@@ -61,9 +61,15 @@ const { contact } = portfolio;
 					))}
 				</div>
 
-				<button class="contact-form__submit" type="button">
-					<img src={contact.form.submitIcon} alt="" aria-hidden="true" width="24" height="24" />
-					<span>{contact.form.submitLabel}</span>
+				<button class="contact-form__submit action-pill--submit" type="button">
+					<span class="action-pill__rest">
+						<img src={contact.form.submitIcon} alt="" aria-hidden="true" width="24" height="24" />
+						<span>{contact.form.submitLabel}</span>
+					</span>
+					<span class="action-pill__hover" aria-hidden="true">
+						<span>{contact.form.submitLabel}</span>
+						<span class="action-pill__arrow"><img src="/icons/cta-arrow-up-right.svg" alt="" width="20" height="20" /></span>
+					</span>
 				</button>
 			</form>
 		</div>
@@ -334,26 +340,7 @@ const { contact } = portfolio;
 		box-shadow: 0 0 0 1px var(--color-brand), var(--focus-ring);
 	}
 
-	.contact-form__submit {
-		display: inline-flex;
-		min-height: 3.25rem;
-		align-items: center;
-		justify-content: center;
-		gap: 0.5rem;
-		border: 0;
-		border-radius: var(--radius-pill);
-		background: var(--color-brand);
-		padding: 0.875rem 1.25rem;
-		color: var(--color-ink);
-		cursor: default;
-		font: inherit;
-		font-size: 1.125rem;
-		font-weight: 600;
-		line-height: 1.22;
-		white-space: nowrap;
-	}
-
-	.contact-form__submit img { flex: 0 0 auto; }
+	.contact-form__submit { cursor: default; }
 
 	.contact__footer-band {
 		width: 100vw;
@@ -406,11 +393,27 @@ const { contact } = portfolio;
 		justify-content: center;
 		border-radius: 0.625rem;
 		background: rgb(255 255 255 / 10%);
+		transition: background-color 260ms cubic-bezier(0.22, 1, 0.36, 1);
 	}
+
+	@media (hover: hover) and (pointer: fine) {
+		.contact__social-icon:hover { background: rgb(255 255 255 / 25%); }
+		.contact__social-icon:hover img { opacity: 1; }
+	}
+
+	.contact__social-icon:focus-visible { background: rgb(255 255 255 / 25%); }
+	.contact__social-icon:focus-visible img { opacity: 1; }
 
 	.contact__social-icon img {
 		width: 1.5rem;
 		height: 1.5rem;
+		opacity: 0.7;
+		transition: opacity 260ms cubic-bezier(0.22, 1, 0.36, 1);
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.contact__social-icon,
+		.contact__social-icon img { transition-duration: 0.01ms; }
 	}
 
 	@media (max-width: 56.24rem) {

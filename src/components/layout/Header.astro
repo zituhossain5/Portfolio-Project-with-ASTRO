@@ -26,9 +26,11 @@ const bookCall = { label: "Book a Call", href: calendlyBookingUrl, icon: "/icons
 		</div>
 	</nav>
 
+	<a class="mobile-brand-link" href="/" aria-label="Abdur Rahim — home">
+		<img class="mobile-nav__logo" src="/icons/logo.svg" alt="" width="68" height="30" />
+	</a>
 	<details class="mobile-nav">
 		<summary aria-label="Toggle navigation menu">
-			<img class="mobile-nav__logo" src="/icons/logo.svg" alt="Abdur Rahim" width="68" height="30" />
 			<img class="mobile-nav__menu" src="/icons/menu.svg" alt="" aria-hidden="true" width="24" height="24" />
 			<img class="mobile-nav__close" src="/icons/close.svg" alt="" aria-hidden="true" width="24" height="24" />
 		</summary>
@@ -89,8 +91,9 @@ const bookCall = { label: "Book a Call", href: calendlyBookingUrl, icon: "/icons
 	.desktop-nav__links a:hover { color: var(--color-text); }
 	.desktop-nav__right { gap: 1.5rem; }
 	.availability { gap: 1rem; margin: 0; color: var(--color-text-muted); font-size: 0.875rem; font-weight: 500; line-height: 1.5; white-space: nowrap; }
+	.mobile-brand-link { display: none; position: absolute; top: 0.9375rem; left: 1.25rem; z-index: 1; }
 	.mobile-nav { display: none; overflow: hidden; border-radius: var(--radius-pill); }
-	.mobile-nav summary { display: flex; height: 3.75rem; cursor: pointer; align-items: center; justify-content: space-between; padding-inline: 1.25rem; list-style: none; }
+	.mobile-nav summary { display: flex; width: 3.75rem; height: 3.75rem; cursor: pointer; align-items: center; justify-content: center; margin-left: auto; list-style: none; }
 	.mobile-nav summary::-webkit-details-marker { display: none; }
 	.mobile-nav__logo { width: 4.2575rem; height: 1.875rem; }
 	.mobile-nav__close { display: none; }
@@ -110,12 +113,13 @@ const bookCall = { label: "Book a Call", href: calendlyBookingUrl, icon: "/icons
 	@media (max-width: 56.24rem) {
 		.site-header { top: 1rem; right: auto; left: 1.25rem; width: calc(100vw - 2.5rem); transform: translate3d(0, var(--header-translate-y), 0); }
 		.desktop-nav { display: none; }
+		.mobile-brand-link { display: block; }
 		.mobile-nav { display: block; }
 	}
 
 	@media (max-width: 47.99rem) {
 		.mobile-nav[open] { border: 0; background: var(--color-page); box-shadow: inset 0 0 0 1px var(--color-border); padding: 1rem 1.25rem 1.25rem; }
-		.mobile-nav[open] summary { height: 1.875rem; padding-inline: 0; }
+		.mobile-nav[open] summary { width: 1.875rem; height: 1.875rem; }
 		.mobile-nav[open] .mobile-nav__panel { margin-top: 1.25rem; padding: 0; }
 		.mobile-nav[open] .mobile-nav__panel li { min-height: 1.25rem; }
 	}
