@@ -363,6 +363,7 @@ export const portfolio = {
         title: "Directorist — Directory Plugin UI/UX Design",
         image: "/images/work/Directorist Plugin 3.png",
         alt: "Directorist listing form builder interface",
+        slug: "directorist-plugin",
         tags: [
           "UI/UX Design",
           "SaaS Design",
@@ -374,6 +375,7 @@ export const portfolio = {
         title: "EmLock — EMI Mobile Shopping App UI/UX Design",
         image: "/images/work/01_Project_EmLock 3.png",
         alt: "EmLock shopping app displayed on a phone held in hand",
+        slug: "emlock",
         tags: [
           "Mobile App Design",
           "UI/UX Design",
@@ -385,6 +387,7 @@ export const portfolio = {
         title: "HRM — Workforce Management Platform UI/UX Design",
         image: "/images/work/Sovware_HRM.png",
         alt: "HRM workforce management and attendance dashboard",
+        slug: "hrm",
         tags: [
           "UI/UX Design",
           "SaaS Design",

@@ -1,0 +1,175 @@
+{
+  "title": "EmLock — UI/UX Design for EMI-Based Mobile Application for Smart Installment Sales & Device Locking",
+  "intro": "EmLock is an EMI-based mobile application designed to help mobile retailers sell smartphones through flexible installment plans while reducing the risk of missed payments.",
+  "showIntro": false,
+  "tightSectionHeadings": true,
+  "imageFolder": "emlock",
+  "card": {
+    "title": "EmLock — EMI Mobile Shopping App UI/UX Design",
+    "image": "/images/work/01_Project_EmLock 3.png",
+    "alt": "EmLock shopping app displayed on a phone held in hand",
+    "tags": [
+      "Mobile App Design",
+      "UI/UX Design",
+      "Fintech App",
+      "Ecommerce App"
+    ]
+  },
+  "metadata": [
+    {
+      "label": "Industry",
+      "values": [
+        "Fintech"
+      ]
+    },
+    {
+      "label": "Service Category",
+      "values": [
+        "Mobile App Design"
+      ]
+    },
+    {
+      "label": "Scope of work",
+      "values": [
+        "Product Research",
+        "UX Strategy",
+        "Wireframing",
+        "UI/UX Design",
+        "Design System"
+      ]
+    }
+  ],
+  "coverImage": {
+    "src": "/images/work_details/emlock/EmLock Main.png",
+    "alt": "EmLock EMI shop finder mobile app displayed on a phone held in hand",
+    "width": 916,
+    "height": 638
+  },
+  "sections": [
+    {
+      "id": "about",
+      "title": "About the Project",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "EmLock is an EMI-based mobile application designed to help mobile retailers sell smartphones through flexible installment plans while reducing the risk of missed payments."
+        },
+        {
+          "type": "paragraph",
+          "text": "The platform connects two key user groups mobile buyers and mobile shop owners. Buyers can discover nearby shops offering mobile phones on EMI, while shop owners can manage customers, installment plans, payments, and device access from a dedicated system."
+        },
+        {
+          "type": "paragraph",
+          "text": "The core of EmLock is its Android mobile locking system, which allows authorized shop owners to restrict device access when an EMI payment remains overdue. Once the payment is completed, the device can be unlocked through the authorized process."
+        }
+      ]
+    },
+    {
+      "id": "problems",
+      "title": "Problems",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "EMI-based mobile phone sales are a popular practice in the retail market, but they come with a major risk for shop owners: customers disappearing or going unreachable before completing their installment payments."
+        },
+        {
+          "type": "paragraph",
+          "text": "The key problems I identified:"
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Shop owners had no way to track or control a device once a customer defaulted or delayed payment."
+            },
+            {
+              "text": "Manual installment tracking was error-prone and time-consuming."
+            },
+            {
+              "text": "There was no structured system for sending payment reminders or notifications to customers."
+            },
+            {
+              "text": "Customers struggled to find trustworthy, verified EMI shops nearby."
+            },
+            {
+              "text": "Without a secure, remotely controllable locking mechanism, the entire EMI business model carried a high risk of financial loss."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "challenges",
+      "title": "Challenges",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Across research, design, and the overall product journey, I faced several key challenges:"
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Understanding the EMI business model and local mobile retail industry behavior."
+            },
+            {
+              "text": "Analyzing the needs of two distinct user personas, buyers and sellers at the same time."
+            },
+            {
+              "text": "Translating a complex installment management system into a simple, user-friendly interface."
+            },
+            {
+              "text": "Designing separate dashboards for two different user types, ensuring a clear and intuitive experience for both."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "solutions",
+      "title": "Solutions",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "To address these challenges, I designed a complete, secure, and user-friendly system that makes EMI-based mobile sales far more organized and risk-free."
+        }
+      ]
+    },
+    {
+      "id": "result",
+      "title": "The Final Result",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Through my research and design process, EmLock has become a fully functional MVP that makes EMI-based mobile phone sales safer, more organized, and more profitable for retailers."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Shop owners can now sell mobile phones on EMI with confidence, knowing the device will automatically lock if a payment is missed."
+            },
+            {
+              "text": "Customers can easily find trustworthy EMI shops in their area and track their installment details."
+            },
+            {
+              "text": "The automated reminder and lock/unlock system has significantly improved collection rates and reduced manual overhead for shop owners."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Overall, EmLock demonstrates how a simple, technology-driven solution can transform a traditional business model into something smarter, safer, and more scalable - and i’m proud to have been part of this project from concept to launch."
+        }
+      ]
+    }
+  ],
+  "gallery": [
+    {
+      "src": "/images/work_details/emlock/EmLock Mobile App.png",
+      "alt": "EmLock onboarding, EMI shop finder, and shop payment-plan screens",
+      "width": 916,
+      "height": 587
+    }
+  ]
+}

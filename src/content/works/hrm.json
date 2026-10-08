@@ -1,0 +1,316 @@
+{
+  "title": "HRM — UI/UX Design for an Internal Team & Workforce Management Platform",
+  "intro": "HRM is a complete internal workforce management platform built for SovWare, an IT agency, to manage everything from daily attendance and project tracking to leave requests, performance evaluation, and payroll - all in one system.",
+  "showIntro": false,
+  "tightSectionHeadings": true,
+  "imageFolder": "hrm",
+  "card": {
+    "title": "HRM — Workforce Management Platform UI/UX Design",
+    "image": "/images/work/Sovware_HRM.png",
+    "alt": "HRM workforce management and attendance dashboard",
+    "tags": [
+      "UI/UX Design",
+      "SaaS Design",
+      "Product Design",
+      "Dashboard Design"
+    ]
+  },
+  "metadata": [
+    {
+      "label": "Industry",
+      "values": [
+        "SaaS",
+        "Human Resource Management"
+      ]
+    },
+    {
+      "label": "Service Category",
+      "values": [
+        "SaaS Product Design"
+      ]
+    },
+    {
+      "label": "Scope of work",
+      "values": [
+        "Product Research",
+        "UX Strategy",
+        "Information Architecture",
+        "User Flow",
+        "Wireframing",
+        "UI/UX Design",
+        "Design System"
+      ]
+    }
+  ],
+  "coverImage": {
+    "src": "/images/work_details/hrm/Sovware_HRM_Thumbnail 1.png",
+    "alt": "HRM attendance tracking and workforce management interface",
+    "width": 916,
+    "height": 639
+  },
+  "sections": [
+    {
+      "id": "about",
+      "title": "About the Project",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "HRM is a complete internal workforce management platform built for SovWare, an IT agency, to manage everything from daily attendance and project tracking to leave requests, performance evaluation, and payroll - all in one system."
+        },
+        {
+          "type": "paragraph",
+          "text": "I designed the full product from scratch across three role-based areas - General Members, Team Leads, and Admin, each with its own dashboard and permissions, so every user sees only what's relevant to their role."
+        },
+        {
+          "type": "paragraph",
+          "text": "The final design focuses on making daily operational work (checking in, tracking tasks, requesting leave) effortless for employees, while giving leads and admins the oversight tools needed to manage a growing team."
+        }
+      ]
+    },
+    {
+      "id": "problems",
+      "title": "Problems",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Managing a growing remote and in-office team across attendance, projects, leave, and payroll had outgrown spreadsheets and scattered tools."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Attendance, leave, and performance data lived in separate, disconnected sheets"
+            },
+            {
+              "text": "Team leads had no simple way to review team productivity or give structured feedback"
+            },
+            {
+              "text": "Leave requests and approvals were handled manually, with no clear tracking"
+            },
+            {
+              "text": "Admins lacked one place to manage departments, schedules, payroll, and reports together"
+            },
+            {
+              "text": "There was no consistent way to measure performance across skills like time management, work quality, or teamwork"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "challenges",
+      "title": "Challenges",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Designing one system for three very different user roles meant balancing simplicity for daily users with depth for admins managing the whole organization."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Structuring three distinct role-based areas (Member, Team Lead, Admin) without duplicating effort in design"
+            },
+            {
+              "text": "Designing a clear attendance and screenshot-activity flow that feels transparent, not invasive"
+            },
+            {
+              "text": "Turning a long, multi-criteria performance evaluation into a form that's quick to fill out"
+            },
+            {
+              "text": "Visualizing team-wide data (attendance %, productivity, activity) in a way that's scannable at a glance"
+            },
+            {
+              "text": "Bringing leave management, payroll, and accounting into one consistent design language"
+            }
+          ]
+        }
+      ],
+      "imageAfter": {
+        "src": "/images/work_details/hrm/HRM solution.png",
+        "alt": "HRM attendance dashboard displayed on a tablet",
+        "width": 916,
+        "height": 639
+      }
+    },
+    {
+      "id": "solutions",
+      "title": "Solutions",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "To solve these problems, I designed a role-based system where each area surfaces only what that user needs to act on."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "lead": "General Member dashboard:",
+              "text": " Simple check-in/out, task tracking, leave application, and a personal attendance summary."
+            },
+            {
+              "lead": "Team Lead area:",
+              "text": " A \"My Team\" view showing hours, productivity, and activity per member, plus a structured performance-evaluation form with clear rating scales."
+            },
+            {
+              "lead": "Admin control center:",
+              "text": " Centralized management for departments, work schedules, leave approvals, payroll, and accounting, backed by reports for performance and meetings."
+            },
+            {
+              "lead": "Screenshot Activity module:",
+              "text": " Time-blocked activity logs with thumbnails, giving visibility without being intrusive."
+            },
+            {
+              "lead": "Consistent card-and-table design system:",
+              "text": " Used across attendance, projects, payments, and reports so the whole platform feels like one product, not stitched-together modules."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "result",
+      "title": "The Final Result",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Through structured, role-based design, SovWare now has one internal platform that brings attendance, project tracking, leave, performance, and payroll together in a single system."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Employees can check in, track tasks, and apply for leave without leaving one dashboard"
+            },
+            {
+              "text": "Team leads can review team performance and submit structured feedback in minutes"
+            },
+            {
+              "text": "Admins manage departments, schedules, payroll, and company-wide reports from one place"
+            },
+            {
+              "text": "The platform replaced multiple spreadsheets and manual processes with one connected system"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Overall, this project shows how a role-based UI/UX approach can turn a scattered set of internal processes into one clear, scalable workforce management platform  built around how each team actually works day to day."
+        }
+      ]
+    }
+  ],
+  "gallery": [
+    {
+      "src": "/images/work_details/hrm/HRM_General Member 1 3.png",
+      "alt": "HRM General Member dashboard screenshot 1",
+      "width": 916,
+      "height": 1190,
+      "heading": "General Member Dashboard"
+    },
+    {
+      "src": "/images/work_details/hrm/HRM_General Member 2 3.png",
+      "alt": "HRM General Member dashboard screenshot 2",
+      "width": 916,
+      "height": 1274
+    },
+    {
+      "src": "/images/work_details/hrm/HRM_General Member 3 1.png",
+      "alt": "HRM General Member dashboard screenshot 3",
+      "width": 916,
+      "height": 1245
+    },
+    {
+      "src": "/images/work_details/hrm/HRM_General Member 4 1.png",
+      "alt": "HRM General Member dashboard screenshot 4",
+      "width": 916,
+      "height": 1625
+    },
+    {
+      "src": "/images/work_details/hrm/HRM_General Member 5 1.png",
+      "alt": "HRM General Member dashboard screenshot 5",
+      "width": 916,
+      "height": 1224
+    },
+    {
+      "src": "/images/work_details/hrm/HRM_General Member 6 1.png",
+      "alt": "HRM General Member dashboard screenshot 6",
+      "width": 916,
+      "height": 1169
+    },
+    {
+      "src": "/images/work_details/hrm/HRM_Team Leads Area 1 1.png",
+      "alt": "HRM Team Lead area screenshot 1",
+      "width": 916,
+      "height": 1774,
+      "heading": "Team Lead Area"
+    },
+    {
+      "src": "/images/work_details/hrm/HRM_Team Leads Area 2 1.png",
+      "alt": "HRM Team Lead area screenshot 2",
+      "width": 916,
+      "height": 2171
+    },
+    {
+      "src": "/images/work_details/hrm/HRM_Admin Area 1 2.png",
+      "alt": "HRM Admin Control Center screenshot 1",
+      "width": 916,
+      "height": 1783,
+      "heading": "Admin Control Center"
+    },
+    {
+      "src": "/images/work_details/hrm/HRM_Admin Area 2 2.png",
+      "alt": "HRM Admin Control Center screenshot 2",
+      "width": 916,
+      "height": 1665
+    },
+    {
+      "src": "/images/work_details/hrm/HRM_Admin Area 3 2.png",
+      "alt": "HRM Admin Control Center screenshot 3",
+      "width": 916,
+      "height": 1432
+    },
+    {
+      "src": "/images/work_details/hrm/HRM_Admin Area 4 1.png",
+      "alt": "HRM Admin Control Center screenshot 4",
+      "width": 916,
+      "height": 1250
+    },
+    {
+      "src": "/images/work_details/hrm/HRM_Admin Area 5 1.png",
+      "alt": "HRM Admin Control Center screenshot 5",
+      "width": 916,
+      "height": 1560
+    },
+    {
+      "src": "/images/work_details/hrm/HRM_Admin Area 6 1.png",
+      "alt": "HRM Admin Control Center screenshot 6",
+      "width": 916,
+      "height": 1587
+    },
+    {
+      "src": "/images/work_details/hrm/HRM_Admin Area 7 1.png",
+      "alt": "HRM Admin Control Center screenshot 7",
+      "width": 916,
+      "height": 1310
+    },
+    {
+      "src": "/images/work_details/hrm/HRM_Admin Area 8 1.png",
+      "alt": "HRM Admin Control Center screenshot 8",
+      "width": 916,
+      "height": 1427
+    },
+    {
+      "src": "/images/work_details/hrm/HRM_Admin Area 9 1.png",
+      "alt": "HRM Admin Control Center screenshot 9",
+      "width": 916,
+      "height": 1334
+    },
+    {
+      "src": "/images/work_details/hrm/HRM_Admin Area 10 1.png",
+      "alt": "HRM Admin Control Center screenshot 10",
+      "width": 916,
+      "height": 853
+    }
+  ]
+}

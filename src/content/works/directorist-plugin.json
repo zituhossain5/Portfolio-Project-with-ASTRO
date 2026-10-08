@@ -1,0 +1,303 @@
+{
+  "title": "Directorist — Complete UI/UX Design for a WordPress Directory Plugin",
+  "intro": "Directorist is one of the most popular and highest-rated WordPress plugins in the Directory & Listing category, trusted by over 20,000 active businesses worldwide. It lets anyone build and monetize a business directory, classifieds site, job board, real estate portal, or niche listing platform, all without writing a single line of code.",
+  "showIntro": false,
+  "tightSectionHeadings": true,
+  "wideMetadata": true,
+  "imageFolder": "directoristPlugin",
+  "card": {
+    "title": "Directorist — Directory Plugin UI/UX Design",
+    "image": "/images/work/Directorist Plugin 3.png",
+    "alt": "Directorist listing form builder interface",
+    "tags": [
+      "UI/UX Design",
+      "SaaS Design",
+      "WordPress Plugin",
+      "Builder Design"
+    ]
+  },
+  "metadata": [
+    {
+      "label": "Industry",
+      "values": [
+        "WordPress Plugin",
+        "Business Directory"
+      ]
+    },
+    {
+      "label": "Service Category",
+      "values": [
+        "SaaS Product Design"
+      ]
+    },
+    {
+      "label": "Scope of work",
+      "values": [
+        "Product Research",
+        "UX Strategy",
+        "Information Architecture",
+        "User Flow",
+        "Wireframing",
+        "UI/UX Design",
+        "Design System"
+      ]
+    },
+    {
+      "label": "Live Link",
+      "inline": true,
+      "values": [
+        {
+          "text": "Visit Website",
+          "href": "https://directorist.com/"
+        },
+        "|",
+        {
+          "text": "View Product",
+          "href": "https://wordpress.org/plugins/directorist/"
+        }
+      ]
+    }
+  ],
+  "coverImage": {
+    "src": "/images/work_details/directoristPlugin/Directorist Plugin Main.png",
+    "alt": "Directorist directory builder showing listing form fields and settings",
+    "width": 916,
+    "height": 639
+  },
+  "sections": [
+    {
+      "id": "about",
+      "title": "About the Project",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Directorist is one of the most popular and highest-rated WordPress plugins in the Directory & Listing category, trusted by over 20,000 active businesses worldwide. It lets anyone build and monetize a business directory, classifieds site, job board, real estate portal, or niche listing platform, all without writing a single line of code."
+        },
+        {
+          "type": "paragraph",
+          "text": "I designed the entire product, end-to-end. This included the plugin's frontend user experience (listing submission, search, filters, single listing pages, and the user dashboard), the WordPress admin panel (directory builder, settings panel, listing management, orders, and configuration screens), the plugin licensing and activation flow, the setup wizard that walks new users through their first directory, the Directory (Theme) Builder used to visually construct listing pages and search forms, and the complete UI for 13+ directory themes and 38+ premium extensions. Every screen, flow, and component across the entire Directorist ecosystem."
+        }
+      ]
+    },
+    {
+      "id": "problems",
+      "title": "Problems",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Directorist had grown from a simple directory plugin into a large, feature-rich platform and that growth had outpaced its original design foundation. As new extensions, themes, and features were added over the years, the product needed a design system that could scale without becoming inconsistent or overwhelming for users."
+        },
+        {
+          "type": "paragraph",
+          "text": "The key problems I identified:"
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "With 30+ extensions and multiple themes, the product lacked a unified design language, making the experience feel fragmented across different parts of the plugin."
+            },
+            {
+              "text": "The admin panel needed to handle a huge range of settings and configuration options without overwhelming non-technical WordPress users."
+            },
+            {
+              "text": "New users often struggled to go from \"plugin installed\" to \"directory live,\" with no guided setup experience."
+            },
+            {
+              "text": "Building a directory page visually (choosing widgets, layouts, and search fields) required a flexible builder interface that didn't yet exist in an intuitive form."
+            },
+            {
+              "text": "Licensing, activation, and update flows needed to feel simple and trustworthy, since this is often a user's first interaction with the paid product."
+            },
+            {
+              "text": "Each of the 13+ directory themes needed a distinct visual identity while still feeling like part of the same trusted Directorist product family."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "challenges",
+      "title": "Challenges",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Across research, design, and the overall product journey, I faced several key challenges:"
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Understanding the needs of two very different WordPress user types: non-technical site owners who just want a working directory, and developers/agencies who need deep customization."
+            },
+            {
+              "text": "Studying 30+ existing extensions and themes to identify shared patterns and opportunities for a consistent design system."
+            },
+            {
+              "text": "Analyzing competitor directory plugins to identify where Directorist could differentiate through simplicity and usability."
+            },
+            {
+              "text": "Creating a scalable design system that could support dozens of extensions and themes without fragmenting the user experience."
+            },
+            {
+              "text": "Designing a drag-and-drop Directory Builder that felt powerful for advanced users, yet approachable for complete beginners."
+            },
+            {
+              "text": "Structuring a dense WordPress admin panel settings, listings, orders, pricing plans, users into a clear, navigable interface."
+            },
+            {
+              "text": "Designing 13+ distinct directory themes (job boards, real estate, restaurants, classifieds, and more) that each feel purpose-built for their niche."
+            },
+            {
+              "text": "Balancing flexibility (unlimited custom fields, layouts, and directory types) with a UI that doesn't overwhelm first-time users."
+            }
+          ]
+        }
+      ],
+      "imageAfter": {
+        "src": "/images/work_details/directoristPlugin/Directorist Builder.png",
+        "alt": "Collage of Directorist directory builder screens and settings",
+        "width": 916,
+        "height": 688
+      }
+    },
+    {
+      "id": "solutions",
+      "title": "Solutions",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "To address these challenges, we designed a complete, scalable UI/UX system across every part of the Directorist product:"
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "lead": "Built a unified design system:",
+              "text": " Consistent components, spacing, typography, and interaction patterns applied across the plugin frontend, admin panel, builder, and all extensions, so the entire product feels like one cohesive experience."
+            },
+            {
+              "lead": "Designed an intuitive Setup Wizard:",
+              "text": " guiding new users step-by-step from plugin activation to a live, functioning directory, dramatically reducing time-to-launch."
+            },
+            {
+              "lead": "Created the Directory Builder interface:",
+              "text": " A visual, drag-and-drop builder that lets users construct listing pages, search forms, and layouts without touching code, designed to feel powerful yet simple."
+            },
+            {
+              "lead": "Redesigned the WordPress admin panel:",
+              "text": " Organizing settings, listings, orders, and configuration options into clear, logically grouped sections with improved navigation and search."
+            },
+            {
+              "lead": "Designed a clean, trustworthy licensing and activation flow:",
+              "text": " Making plugin activation, updates, and account management simple and frustration-free."
+            },
+            {
+              "lead": "Delivered UI for 13+ directory themes:",
+              "text": " Each with its own distinct visual identity (jobs, hotels, restaurants, real estate, classifieds, and more) while maintaining shared design DNA across the Directorist product family."
+            },
+            {
+              "lead": "Designed UI for 38+ premium extensions:",
+              "text": " Including booking, pricing plans, claim listings, business hours, live chat, advanced search, and payment integrations, ensuring each extension feels like a natural part of the core product."
+            },
+            {
+              "lead": "Prioritized accessibility and usability for non-technical users:",
+              "text": " Since most Directorist customers manage their directory without any coding experience."
+            },
+            {
+              "text": "Maintained close collaboration with development throughout the product lifecycle - ensuring designs were fully implementable within WordPress's technical ecosystem and adaptable across frequent product releases."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "result",
+      "title": "The Final Result",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Through structured research, a scalable design system, and detailed UI work across every corner of the product, Directorist has become one of the most complete and highest-rated WordPress directory plugins on the market."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "The plugin now serves 20,000+ active businesses worldwide, with a strong 4.6-star average rating and hundreds of five-star reviews consistently praising its clean, intuitive interface."
+            },
+            {
+              "text": "The redesigned Directory Builder have made it significantly easier for non-technical users to launch a fully functioning directory in a single day."
+            },
+            {
+              "text": "With a unified design system now powering 13+ themes and 38+ extensions, Directorist can continue scaling its feature set without sacrificing consistency or usability."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Overall, this project reflects how thoughtful, systemized UI/UX design can transform a growing, feature-heavy product into a cohesive, scalable, and genuinely enjoyable experience and we're proud to have designed the Directorist ecosystem across every layer, from the setup wizard to the admin panel to the themes and extensions that power thousands of live directory websites today."
+        }
+      ]
+    }
+  ],
+  "gallery": [
+    {
+      "heading": "Directorist Builder",
+      "src": "/images/work_details/directoristPlugin/Directorist Builder 1.png",
+      "alt": "Directorist directory types empty and populated management screens",
+      "width": 916,
+      "height": 1124
+    },
+    {
+      "src": "/images/work_details/directoristPlugin/Directorist Builder 2.png",
+      "alt": "Directorist directory and listing form builder configuration screens",
+      "width": 916,
+      "height": 893
+    },
+    {
+      "src": "/images/work_details/directoristPlugin/Directorist Builder 3.png",
+      "alt": "Directorist single-page layout and listing card builder screens",
+      "width": 916,
+      "height": 846
+    },
+    {
+      "src": "/images/work_details/directoristPlugin/Directorist Builder 4.png",
+      "alt": "Additional Directorist builder layout and listing card screens",
+      "width": 916,
+      "height": 846
+    },
+    {
+      "heading": "Directorist Setup Wizard",
+      "src": "/images/work_details/directoristPlugin/Directorist Setup wizard.png",
+      "alt": "Directorist setup wizard steps for directory type, location, content, and completion",
+      "width": 916,
+      "height": 678
+    },
+    {
+      "heading": "Directorist Product Management",
+      "src": "/images/work_details/directoristPlugin/Directorist Licencing 1.png",
+      "alt": "Directorist themes, extensions, and product access screens",
+      "width": 916,
+      "height": 2249
+    },
+    {
+      "src": "/images/work_details/directoristPlugin/Directorist Licencing 2.png",
+      "alt": "Directorist extension and theme management screens",
+      "width": 916,
+      "height": 653
+    },
+    {
+      "heading": "Directorist Theme Setup Wizard",
+      "src": "/images/work_details/directoristPlugin/Directorist Theme Setup wizard 1.png",
+      "alt": "Directorist theme setup wizard template and configuration screens",
+      "width": 916,
+      "height": 798
+    },
+    {
+      "src": "/images/work_details/directoristPlugin/Directorist Theme Setup wizard 2.png",
+      "alt": "Directorist theme setup wizard content installation and completion screens",
+      "width": 916,
+      "height": 774
+    }
+  ]
+}

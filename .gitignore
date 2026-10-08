@@ -12,6 +12,10 @@ dist/
 # Dependencies
 # =========================
 node_modules/
+vendor/
+
+# Private cPanel contact-form configuration (never deploy inside public_html)
+contact-config.php
 
 # =========================
 # Logs

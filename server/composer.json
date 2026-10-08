@@ -1,0 +1,9 @@
+{
+  "name": "arahim/contact-backend",
+  "description": "Private PHPMailer dependency for the static portfolio contact form",
+  "require": {
+    "php": "^8.0",
+    "ext-openssl": "*",
+    "phpmailer/phpmailer": "^7.0"
+  }
+}

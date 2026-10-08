@@ -33,8 +33,14 @@ const { contact } = portfolio;
 		<div class="contact__or" aria-hidden="true"><span>or</span></div>
 
 		<div class="contact__form-shell">
-			<form class="contact-form" aria-labelledby="contact-form-heading">
+			<form class="contact-form" action="/api/contact.php" method="post" aria-labelledby="contact-form-heading">
 				<h3 id="contact-form-heading">{contact.form.heading}</h3>
+				<input type="hidden" name="action" value="submit" />
+				<input type="hidden" name="token" value="" />
+				<div class="contact-form__honeypot" aria-hidden="true">
+					<label for="contact-website">Leave this field empty</label>
+					<input id="contact-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+				</div>
 
 				<div class="contact-form__fields">
 					{contact.form.fields.map((field) => (
@@ -46,6 +52,8 @@ const { contact } = portfolio;
 									name={field.name}
 									placeholder={field.placeholder}
 									required={field.required}
+									minlength={field.name === "message" ? 25 : undefined}
+									maxlength={field.name === "message" ? 4000 : undefined}
 								></textarea>
 							) : (
 								<input
@@ -55,22 +63,25 @@ const { contact } = portfolio;
 									placeholder={field.placeholder}
 									required={field.required}
 									autocomplete={field.autocomplete}
+									minlength={field.name === "name" ? 2 : undefined}
+									maxlength={field.name === "name" ? 80 : field.name === "email" ? 254 : field.name === "phone" ? 30 : undefined}
 								/>
 							)}
 						</div>
 					))}
 				</div>
 
-				<button class="contact-form__submit action-pill--submit" type="button">
+				<button class="contact-form__submit action-pill--submit" type="submit">
 					<span class="action-pill__rest">
 						<img src={contact.form.submitIcon} alt="" aria-hidden="true" width="24" height="24" />
-						<span>{contact.form.submitLabel}</span>
+						<span data-submit-label>{contact.form.submitLabel}</span>
 					</span>
 					<span class="action-pill__hover" aria-hidden="true">
-						<span>{contact.form.submitLabel}</span>
+						<span data-submit-label>{contact.form.submitLabel}</span>
 						<span class="action-pill__arrow"><img src="/icons/cta-arrow-up-right.svg" alt="" width="20" height="20" /></span>
 					</span>
 				</button>
+				<p class="contact-form__status" role="status" aria-live="polite"></p>
 			</form>
 		</div>
 
@@ -91,6 +102,104 @@ const { contact } = portfolio;
 		</footer>
 	</div>
 </section>
+
+<script>
+	const form = document.querySelector<HTMLFormElement>(".contact-form");
+	if (form) {
+		const endpoint = form.action;
+		const token = form.querySelector<HTMLInputElement>('[name="token"]')!;
+		const name = form.querySelector<HTMLInputElement>('[name="name"]')!;
+		const message = form.querySelector<HTMLTextAreaElement>('[name="message"]')!;
+		const button = form.querySelector<HTMLButtonElement>('[type="submit"]')!;
+		const labels = form.querySelectorAll<HTMLElement>("[data-submit-label]");
+		const status = form.querySelector<HTMLElement>(".contact-form__status")!;
+		let tokenRequest: Promise<boolean> | null = null;
+		let sending = false;
+
+		function requestToken(): Promise<boolean> {
+			if (token.value) return Promise.resolve(true);
+			if (tokenRequest) return tokenRequest;
+			tokenRequest = (async () => {
+				try {
+					const response = await fetch(endpoint, {
+						method: "POST",
+						headers: { "Content-Type": "application/x-www-form-urlencoded" },
+						body: "action=init",
+						credentials: "same-origin",
+						cache: "no-store",
+					});
+					if (!response.ok || !response.headers.get("content-type")?.includes("application/json")) return false;
+					const result = await response.json();
+					if (result.ok && typeof result.token === "string") {
+						token.value = result.token;
+						return true;
+					}
+				} catch { /* Astro's local dev server does not execute PHP. */ }
+				return false;
+			})().finally(() => { tokenRequest = null; });
+			return tokenRequest;
+		}
+
+		function setSending(value: boolean) {
+			if (value) button.style.width = `${button.getBoundingClientRect().width}px`;
+			sending = value;
+			button.disabled = value;
+			form.setAttribute("aria-busy", String(value));
+			labels.forEach((label) => { label.textContent = value ? "Sending..." : "Send Message"; });
+			if (!value) button.style.removeProperty("width");
+		}
+
+		form.addEventListener("input", (event) => {
+			if (event.target instanceof HTMLInputElement || event.target instanceof HTMLTextAreaElement) {
+				event.target.setCustomValidity("");
+			}
+		});
+
+		form.addEventListener("submit", async (event) => {
+			event.preventDefault();
+			if (sending) return;
+			if (name.value.trim().length < 2) {
+				name.setCustomValidity("Please enter at least two characters.");
+				name.reportValidity();
+				return;
+			}
+			if (message.value.trim().length < 25) {
+				message.setCustomValidity("Please enter at least 25 characters.");
+				message.reportValidity();
+				return;
+			}
+
+			setSending(true);
+			status.textContent = "Sending your message...";
+			try {
+				if (!(await requestToken())) throw new Error("Contact endpoint unavailable");
+				const response = await fetch(endpoint, {
+					method: "POST",
+					body: new FormData(form),
+					credentials: "same-origin",
+					cache: "no-store",
+				});
+				if (!response.headers.get("content-type")?.includes("application/json")) throw new Error("Invalid response");
+				const result = await response.json();
+				if (!response.ok || !result.ok) {
+					status.textContent = response.status === 429
+						? "Too many attempts. Please try again in 15 minutes."
+						: "Sorry, your message could not be sent. Please try again.";
+					return;
+				}
+				form.reset();
+				status.textContent = "Thanks! Your message has been sent. I’ll get back to you soon.";
+				void requestToken();
+			} catch {
+				status.textContent = "Sorry, your message could not be sent. Please try again.";
+			} finally {
+				setSending(false);
+			}
+		});
+
+		void requestToken();
+	}
+</script>
 
 <style>
 	.contact {
@@ -341,6 +450,9 @@ const { contact } = portfolio;
 	}
 
 	.contact-form__submit { cursor: default; }
+	.contact-form__honeypot { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+	.contact-form__status { margin: 0; color: var(--color-text-muted); font-size: 0.875rem; line-height: 1.5; }
+	.contact-form__status:empty { display: none; }
 
 	.contact__footer-band {
 		width: 100cqw;
