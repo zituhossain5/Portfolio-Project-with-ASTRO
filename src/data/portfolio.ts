@@ -46,6 +46,7 @@ export interface PortfolioProject {
   alt: string;
   tags: readonly string[];
   slug?: string;
+  externalHref?: `https://${string}`;
 }
 
 export interface ServiceCard {
@@ -413,6 +414,7 @@ export const portfolio = {
         title: "LeadFex — B2B Lead Generation Website Design",
         image: "/images/work/Leadfex.png",
         alt: "LeadFex lead generation website displayed on a laptop",
+        externalHref: "https://leadfex.com/",
         tags: [
           "UI/UX Design",
           "Website Design",

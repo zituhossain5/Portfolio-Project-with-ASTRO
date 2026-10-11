@@ -37,12 +37,12 @@ const workSlugs = new Set((await getCollection("works")).map((entry) => entry.id
 			)}
 
 			<ul class="portfolio-grid" role="list">
-				{projects.map(({ title, image, alt, tags, slug }) => {
-					const href = slug && workSlugs.has(slug) ? `/works/${slug}` : undefined;
+				{projects.map(({ title, image, alt, tags, slug, externalHref }) => {
+					const href = externalHref ?? (slug && workSlugs.has(slug) ? `/works/${slug}` : undefined);
 					const CardSurface = href ? "a" : "div";
 					return (
 						<li class:list={["project-card", { "project-card--linked": href }]}>
-							<CardSurface class="project-card__surface" href={href} aria-label={href ? `View project: ${title}` : undefined}>
+							<CardSurface class="project-card__surface" href={href} target={externalHref ? "_blank" : undefined} rel={externalHref ? "noopener noreferrer" : undefined} aria-label={href ? `View project: ${title}` : undefined}>
 								<div class="project-card__media" data-project-media={href ? "" : undefined}>
 									<img
 										class="project-card__image"
