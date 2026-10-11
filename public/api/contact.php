@@ -19,7 +19,7 @@ function contactRespond(int $status, array $body): void
 
 function contactConfig(string $privateRoot): array
 {
-    $path = getenv('CONTACT_CONFIG_PATH') ?: $privateRoot . '/contact-config.php';
+    $path = getenv('CONTACT_CONFIG_PATH') ?: $privateRoot . '/private/arahim-contact-config.php';
     $config = is_file($path) ? require $path : [];
     if (!is_array($config)) {
         throw new RuntimeException('Invalid contact configuration');

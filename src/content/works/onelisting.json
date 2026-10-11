@@ -1,0 +1,174 @@
+{
+  "title": "OneListing — UI/UX Design for a WordPress Directory Website",
+  "intro": "OneListing is a premium WordPress theme built on the Directorist plugin, designed to help businesses launch directory and listing websites for restaurants, real estate, cars, hotels, and more.",
+  "showIntro": false,
+  "tightSectionHeadings": true,
+  "imageFolder": "onelisting",
+  "card": {
+    "title": "OneListing — Directory Listing Website UI/UX Design",
+    "image": "/images/work/OneListing.png",
+    "alt": "OneListing directory website showing listing categories, properties, and featured cards",
+    "tags": ["UI/UX Design", "Website Design", "Landing Page Design", "SaaS Website"]
+  },
+  "metadata": [
+    { "label": "Industry", "values": ["Business Directory"] },
+    { "label": "Service Category", "values": ["Website Design"] },
+    {
+      "label": "Scope of work",
+      "values": [
+        "Product Research",
+        "UX Strategy",
+        "Information Architecture",
+        "User Flow",
+        "Wireframing",
+        "UI/UX Design"
+      ]
+    }
+  ],
+  "coverImage": {
+    "src": "/images/work_details/onelisting/OneListing main.png",
+    "alt": "OneListing directory homepage and highlights preview",
+    "width": 916,
+    "height": 639
+  },
+  "sections": [
+    {
+      "id": "about",
+      "title": "About the Project",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "OneListing is a premium WordPress theme built on the Directorist plugin, designed to help businesses launch directory and listing websites for restaurants, real estate, cars, hotels, and more."
+        },
+        {
+          "type": "paragraph",
+          "text": "I designed the complete experience from scratch, covering both sides of a directory: the visitor-facing website (home, listings, map view, single listing, pricing) and the listing owner’s workspace (multi-step add listing flow and frontend dashboard)."
+        },
+        {
+          "type": "paragraph",
+          "text": "The final design focuses on fast discovery for visitors, a simple submission and management flow for owners, and a flexible system that adapts to any directory niche."
+        }
+      ]
+    },
+    {
+      "id": "problems",
+      "title": "Problems",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Directory websites often struggle to serve two very different audiences at once: people searching for places, and owners who want to list and manage them."
+        },
+        {
+          "type": "list",
+          "items": [
+            { "text": "Search and filtering felt overwhelming on listing-heavy pages" },
+            { "text": "Listing cards and single pages didn’t build enough trust for visitors to take action" },
+            { "text": "Adding a listing was long and confusing, which led owners to drop off" },
+            { "text": "Owners had no single place to manage listings, packages, earnings, and orders" },
+            { "text": "Most directory themes looked generic and couldn’t adapt to different niches" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "challenges",
+      "title": "Challenges",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Designing a theme meant creating one system flexible enough for many directory types, without losing clarity or personality."
+        },
+        {
+          "type": "list",
+          "items": [
+            { "text": "Designing a home page that works equally well for restaurants, cars, real estate, and travel" },
+            { "text": "Balancing advanced search filters with a clean, scannable listings layout" },
+            { "text": "Combining grid and map views without overwhelming users" },
+            { "text": "Breaking a long listing submission form into a clear, low-effort flow" },
+            { "text": "Presenting packages, earnings, bookings, and payouts clearly inside the owner dashboard" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "solutions",
+      "title": "Solutions",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "To solve these problems, we designed a flexible, discovery-first system that serves visitors and listing owners equally well."
+        },
+        {
+          "type": "list",
+          "items": [
+            { "text": "Category-led home page with a tabbed search bar, trending categories, featured listings, and curated content, so visitors start exploring right away" },
+            { "text": "Listings with grid and map views with a filter sidebar for price, rating, radius, tags, and features" },
+            { "text": "Trust-focused single listing page with a photo gallery, business hours, amenities, reviews, FAQs, and a clear owner contact section" },
+            { "text": "Pricing and package selection that clearly compares plans before an owner submits a listing" },
+            { "text": "9-step add listing flow with a progress sidebar and Save & Next controls, which turns a long form into small, manageable steps" },
+            { "text": "Owner dashboard covering listings, packages, wallet and payouts, bookmarks, order history, announcements, and notifications" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "result",
+      "title": "The Final Result",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Through research-led design and a flexible component system, OneListing is now a complete directory theme that works for both visitors and listing owners."
+        },
+        {
+          "type": "list",
+          "items": [
+            { "text": "Visitors can search, filter, compare, and book listings in a few clicks" },
+            { "text": "Owners can create a listing step by step and manage everything from one dashboard" },
+            { "text": "The theme adapts easily to restaurants, real estate, cars, hotels, and other directory niches" },
+            { "text": "The design supports monetization through paid listings, featured listings, and subscription packages" }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Overall, OneListing shows how thoughtful UI/UX design can turn a complex, multi-sided directory platform into a clear, flexible, and conversion-friendly experience for everyone using it."
+        }
+      ]
+    }
+  ],
+  "gallery": [
+    {
+      "heading": "Home Page",
+      "src": "/images/work_details/onelisting/OneListing homepage.png",
+      "alt": "OneListing homepage showing search, categories, highlights, and featured listings",
+      "width": 916,
+      "height": 1105
+    },
+    {
+      "heading": "Listings Pages",
+      "src": "/images/work_details/onelisting/OneListing listing pages.png",
+      "alt": "OneListing grid and map search results with single listing details",
+      "width": 916,
+      "height": 1866
+    },
+    {
+      "heading": "Add Listing Form",
+      "src": "/images/work_details/onelisting/OneListing listing form.png",
+      "alt": "OneListing listing submission form, package selection, and first steps",
+      "width": 916,
+      "height": 1636
+    },
+    {
+      "src": "/images/work_details/onelisting/OneListing listing form 2.png",
+      "alt": "OneListing later listing submission steps and final publish confirmation",
+      "width": 916,
+      "height": 1011
+    },
+    {
+      "heading": "Listings Management Dashboard",
+      "src": "/images/work_details/onelisting/One Listing_Dashboard.png",
+      "alt": "OneListing owner dashboard with wallet, listings, packages, and account settings",
+      "width": 916,
+      "height": 2156
+    }
+  ]
+}

@@ -104,9 +104,9 @@ const { contact } = portfolio;
 </section>
 
 <script>
+	const CONTACT_ENDPOINT = "/api/contact.php";
 	const form = document.querySelector<HTMLFormElement>(".contact-form");
 	if (form) {
-		const endpoint = form.action;
 		const token = form.querySelector<HTMLInputElement>('[name="token"]')!;
 		const name = form.querySelector<HTMLInputElement>('[name="name"]')!;
 		const message = form.querySelector<HTMLTextAreaElement>('[name="message"]')!;
@@ -121,7 +121,7 @@ const { contact } = portfolio;
 			if (tokenRequest) return tokenRequest;
 			tokenRequest = (async () => {
 				try {
-					const response = await fetch(endpoint, {
+					const response = await fetch(CONTACT_ENDPOINT, {
 						method: "POST",
 						headers: { "Content-Type": "application/x-www-form-urlencoded" },
 						body: "action=init",
@@ -173,7 +173,7 @@ const { contact } = portfolio;
 			status.textContent = "Sending your message...";
 			try {
 				if (!(await requestToken())) throw new Error("Contact endpoint unavailable");
-				const response = await fetch(endpoint, {
+				const response = await fetch(CONTACT_ENDPOINT, {
 					method: "POST",
 					body: new FormData(form),
 					credentials: "same-origin",

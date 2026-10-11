@@ -375,6 +375,7 @@ export const portfolio = {
         title: "Templatiq — Template Marketplace Plugin UI/UX Design",
         image: "/images/work/Templatiq.png",
         alt: "Templatiq template marketplace interface with template cards and plugin details",
+        slug: "templatiq",
         tags: [
           "UI/UX Design",
           "SaaS Design",
@@ -398,6 +399,7 @@ export const portfolio = {
         title: "OneListing — Directory Listing Website UI/UX Design",
         image: "/images/work/OneListing.png",
         alt: "OneListing directory website showing listing categories, properties, and featured cards",
+        slug: "onelisting",
         tags: [
           "UI/UX Design",
           "Website Design",

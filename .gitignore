@@ -16,6 +16,7 @@ vendor/
 
 # Private cPanel contact-form configuration (never deploy inside public_html)
 contact-config.php
+arahim-contact-config.php
 
 # =========================
 # Logs
