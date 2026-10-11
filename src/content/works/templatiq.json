@@ -8,10 +8,15 @@
     "title": "Templatiq — Template Marketplace Plugin UI/UX Design",
     "image": "/images/work/Templatiq.png",
     "alt": "Templatiq template marketplace interface with template cards and plugin details",
-    "tags": ["UI/UX Design", "SaaS Design", "Product Design", "Dashboard Design"]
+    "tags": [
+      "UI/UX Design",
+      "SaaS Design",
+      "Product Design",
+      "Dashboard Design"
+    ]
   },
   "metadata": [
-    { "label": "Industry", "values": ["WordPress", "Human Resource Management"] },
+    { "label": "Industry", "values": ["WordPress"] },
     { "label": "Service Category", "values": ["SaaS Product Design"] },
     {
       "label": "Scope of work",
@@ -62,12 +67,24 @@
         {
           "type": "list",
           "items": [
-            { "text": "Creating website layouts from scratch requires significant time and effort." },
-            { "text": "Finding suitable templates across different website builders can be difficult." },
-            { "text": "Users need a straightforward way to discover templates for different website types." },
-            { "text": "Importing templates and integrating them into existing WordPress websites can feel complicated." },
-            { "text": "Managing complete website layouts and individual design components requires a more organized workflow." },
-            { "text": "Users need clarity when exploring free and premium template options." }
+            {
+              "text": "Creating website layouts from scratch requires significant time and effort."
+            },
+            {
+              "text": "Finding suitable templates across different website builders can be difficult."
+            },
+            {
+              "text": "Users need a straightforward way to discover templates for different website types."
+            },
+            {
+              "text": "Importing templates and integrating them into existing WordPress websites can feel complicated."
+            },
+            {
+              "text": "Managing complete website layouts and individual design components requires a more organized workflow."
+            },
+            {
+              "text": "Users need clarity when exploring free and premium template options."
+            }
           ]
         }
       ]
@@ -83,13 +100,27 @@
         {
           "type": "list",
           "items": [
-            { "text": "Organizing templates across multiple page builders and website categories." },
-            { "text": "Designing a browsing experience that makes relevant templates easy to discover." },
-            { "text": "Presenting template previews and details without overwhelming users." },
-            { "text": "Simplifying the workflow from template discovery to import and customization." },
-            { "text": "Supporting different use cases, including business websites, directories, portfolios, and ecommerce stores." },
-            { "text": "Creating consistent interface patterns that could scale as the template library expanded." },
-            { "text": "Making the experience accessible to both beginners and experienced WordPress users." }
+            {
+              "text": "Organizing templates across multiple page builders and website categories."
+            },
+            {
+              "text": "Designing a browsing experience that makes relevant templates easy to discover."
+            },
+            {
+              "text": "Presenting template previews and details without overwhelming users."
+            },
+            {
+              "text": "Simplifying the workflow from template discovery to import and customization."
+            },
+            {
+              "text": "Supporting different use cases, including business websites, directories, portfolios, and ecommerce stores."
+            },
+            {
+              "text": "Creating consistent interface patterns that could scale as the template library expanded."
+            },
+            {
+              "text": "Making the experience accessible to both beginners and experienced WordPress users."
+            }
           ]
         }
       ]
@@ -105,14 +136,38 @@
         {
           "type": "list",
           "items": [
-            { "lead": "Organized Template Library:", "text": " Structured templates by website type, category, and supported page builder for easier discovery." },
-            { "lead": "Intuitive Browsing Experience:", "text": " Designed a clean interface that helps users explore available templates and identify suitable options quickly." },
-            { "lead": "Clear Template Previews:", "text": " Established a visual browsing experience that helps users evaluate templates before importing them." },
-            { "lead": "Simplified Import Workflow:", "text": " Focused on making template selection and importing more straightforward." },
-            { "lead": "Page Builder Compatibility:", "text": " Organized the experience around Elementor, Bricks, and Gutenberg to help users find relevant resources." },
-            { "lead": "Full-Site & Individual Templates:", "text": " Supported workflows for users who need complete website layouts as well as individual page designs." },
-            { "lead": "Scalable UI Components:", "text": " Created reusable design patterns to maintain consistency across categories, template cards, and interface elements." },
-            { "lead": "Consistent Visual Design:", "text": " Developed a clean, functional interface that keeps the focus on templates and the website-building workflow." }
+            {
+              "lead": "Organized Template Library:",
+              "text": " Structured templates by website type, category, and supported page builder for easier discovery."
+            },
+            {
+              "lead": "Intuitive Browsing Experience:",
+              "text": " Designed a clean interface that helps users explore available templates and identify suitable options quickly."
+            },
+            {
+              "lead": "Clear Template Previews:",
+              "text": " Established a visual browsing experience that helps users evaluate templates before importing them."
+            },
+            {
+              "lead": "Simplified Import Workflow:",
+              "text": " Focused on making template selection and importing more straightforward."
+            },
+            {
+              "lead": "Page Builder Compatibility:",
+              "text": " Organized the experience around Elementor, Bricks, and Gutenberg to help users find relevant resources."
+            },
+            {
+              "lead": "Full-Site & Individual Templates:",
+              "text": " Supported workflows for users who need complete website layouts as well as individual page designs."
+            },
+            {
+              "lead": "Scalable UI Components:",
+              "text": " Created reusable design patterns to maintain consistency across categories, template cards, and interface elements."
+            },
+            {
+              "lead": "Consistent Visual Design:",
+              "text": " Developed a clean, functional interface that keeps the focus on templates and the website-building workflow."
+            }
           ]
         },
         {
@@ -133,12 +188,47 @@
     }
   ],
   "gallery": [
-    { "src": "/images/work_details/templatiq/Templatiq Final result 1.png", "alt": "Templatiq template pack browsing and pro template details", "width": 916, "height": 2601 },
-    { "src": "/images/work_details/templatiq/Templatiq Final result 2.png", "alt": "Templatiq subscription pricing and checkout screens", "width": 916, "height": 2200 },
-    { "src": "/images/work_details/templatiq/Templatiq Final result 3.png", "alt": "Templatiq free template details and required plugins dialog", "width": 916, "height": 1710 },
-    { "src": "/images/work_details/templatiq/Templatiq Final result 4.png", "alt": "Templatiq page templates and plugin installation dialogs", "width": 916, "height": 2494 },
-    { "src": "/images/work_details/templatiq/Templatiq Final result 5.png", "alt": "Templatiq directory type and import settings dialogs", "width": 916, "height": 1690 },
-    { "src": "/images/work_details/templatiq/Templatiq Final result 6.png", "alt": "Templatiq account sign-in, favorites, and downloads screens", "width": 916, "height": 2224 },
-    { "src": "/images/work_details/templatiq/Templatiq Final result 7.png", "alt": "Templatiq purchases, account settings, and delete account confirmation", "width": 916, "height": 2224 }
+    {
+      "src": "/images/work_details/templatiq/Templatiq Final result 1.png",
+      "alt": "Templatiq template pack browsing and pro template details",
+      "width": 916,
+      "height": 2601
+    },
+    {
+      "src": "/images/work_details/templatiq/Templatiq Final result 2.png",
+      "alt": "Templatiq subscription pricing and checkout screens",
+      "width": 916,
+      "height": 2200
+    },
+    {
+      "src": "/images/work_details/templatiq/Templatiq Final result 3.png",
+      "alt": "Templatiq free template details and required plugins dialog",
+      "width": 916,
+      "height": 1710
+    },
+    {
+      "src": "/images/work_details/templatiq/Templatiq Final result 4.png",
+      "alt": "Templatiq page templates and plugin installation dialogs",
+      "width": 916,
+      "height": 2494
+    },
+    {
+      "src": "/images/work_details/templatiq/Templatiq Final result 5.png",
+      "alt": "Templatiq directory type and import settings dialogs",
+      "width": 916,
+      "height": 1690
+    },
+    {
+      "src": "/images/work_details/templatiq/Templatiq Final result 6.png",
+      "alt": "Templatiq account sign-in, favorites, and downloads screens",
+      "width": 916,
+      "height": 2224
+    },
+    {
+      "src": "/images/work_details/templatiq/Templatiq Final result 7.png",
+      "alt": "Templatiq purchases, account settings, and delete account confirmation",
+      "width": 916,
+      "height": 2224
+    }
   ]
 }
