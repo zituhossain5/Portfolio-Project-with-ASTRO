@@ -42,7 +42,7 @@ export interface WhyPrinciple {
 
 export interface PortfolioProject {
   title: string;
-  image: `/images/work/${string}.png`;
+  image: `/images/work/${string}.png` | `/images/work_details/${string}.png`;
   alt: string;
   tags: readonly string[];
   slug?: string;
@@ -432,6 +432,18 @@ export const portfolio = {
           "UI/UX Design",
           "Fintech App",
           "Ecommerce App",
+        ],
+      },
+      {
+        title: "MediTrust — UI/UX Design for a Multivendor Medical Equipment Marketplace Website",
+        image: "/images/work_details/mediTrust/heroImg.png",
+        alt: "MediTrust medical equipment marketplace homepage displayed on a laptop",
+        slug: "meditrust",
+        tags: [
+          "UI/UX Design",
+          "Website Design",
+          "Healthcare",
+          "Ecommerce",
         ],
       },
     ] satisfies PortfolioProject[],

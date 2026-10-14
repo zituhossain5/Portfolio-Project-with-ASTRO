@@ -1,7 +1,6 @@
 import { defineCollection } from "astro:content";
+import { glob } from "astro/loaders";
 import { z } from "astro/zod";
-import { readFile, readdir } from "node:fs/promises";
-import { join } from "node:path";
 
 const localImage = z.object({
 	src: z.string().startsWith("/images/work_details/"),
@@ -11,14 +10,7 @@ const localImage = z.object({
 });
 
 const works = defineCollection({
-	loader: async () => {
-		const folder = join(process.cwd(), "src", "content", "works");
-		const files = (await readdir(folder)).filter((file) => file.endsWith(".json"));
-		return Promise.all(files.map(async (file) => ({
-			id: file.slice(0, -5),
-			...JSON.parse(await readFile(join(folder, file), "utf8")),
-		})));
-	},
+	loader: glob({ base: "./src/content/works", pattern: "*.json" }),
 	schema: z.object({
 		title: z.string().min(1),
 		intro: z.string().min(1),

@@ -1,0 +1,147 @@
+{
+  "title": "MediTrust — UI/UX Design for a Multivendor Medical Equipment Marketplace Website",
+  "intro": "MediTrust International is a Bangladesh-based multivendor marketplace that connects medical equipment suppliers with hospitals, clinics, and healthcare institutes.",
+  "showIntro": false,
+  "tightSectionHeadings": true,
+  "imageFolder": "mediTrust",
+  "card": {
+    "title": "MediTrust — UI/UX Design for a Multivendor Medical Equipment Marketplace Website",
+    "image": "/images/work_details/mediTrust/heroImg.png",
+    "alt": "MediTrust medical equipment marketplace homepage displayed on a laptop",
+    "tags": ["UI/UX Design", "Website Design", "Healthcare", "Ecommerce"]
+  },
+  "metadata": [
+    { "label": "Industry", "values": ["Healthcare", "Ecommerce"] },
+    { "label": "Service Category", "values": ["Website Design"] },
+    {
+      "label": "Scope of work",
+      "values": [
+        "Research",
+        "UX Strategy",
+        "Information Architecture",
+        "User Flow",
+        "Wireframing",
+        "UI/UX Design"
+      ]
+    },
+    { "label": "Live Link", "values": [{ "text": "Visit Website", "href": "http://meditrustintbd.com/" }] }
+  ],
+  "coverImage": {
+    "src": "/images/work_details/mediTrust/heroImg.png",
+    "alt": "MediTrust medical equipment marketplace homepage displayed on a laptop",
+    "width": 916,
+    "height": 639
+  },
+  "sections": [
+    {
+      "id": "about",
+      "title": "About the Project",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "MediTrust International is a Bangladesh-based multivendor marketplace that connects medical equipment suppliers with hospitals, clinics, and healthcare institutes."
+        },
+        {
+          "type": "paragraph",
+          "text": "We designed and developed the complete website, covering the product marketplace, vendor stores, registration flows, and a medical directory, so buyers and suppliers can find and connect with each other in one trusted place."
+        },
+        {
+          "type": "paragraph",
+          "text": "The final website focuses on easy equipment discovery, clear supplier credibility, and a simple path from browsing to inquiry."
+        }
+      ]
+    },
+    {
+      "id": "problems",
+      "title": "Problems",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Sourcing medical equipment in Bangladesh often depends on personal contacts, scattered listings, and slow back-and-forth communication."
+        },
+        {
+          "type": "list",
+          "items": [
+            { "text": "Buyers had no single place to compare equipment from different suppliers" },
+            { "text": "Finding the right product among many equipment types was time-consuming" },
+            { "text": "Product details like brand origin, warranty, and availability were hard to verify" },
+            { "text": "Suppliers lacked a professional online presence to reach healthcare institutes" },
+            { "text": "Useful resources such as ambulance services, blood banks, and supplier lists were spread across different sources" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "challenges",
+      "title": "Challenges",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Designing a medical marketplace meant balancing a large technical catalogue with the trust and clarity that healthcare buyers expect."
+        },
+        {
+          "type": "list",
+          "items": [
+            { "text": "Organizing a wide range of equipment, from lab devices to hospital furniture, into simple navigation" },
+            { "text": "Presenting products where pricing is often “on request” without making the experience feel incomplete" },
+            { "text": "Showing key trust signals like brand, origin, warranty, and stock status clearly on every product" },
+            { "text": "Supporting multiple vendors with their own stores in a consistent design system" },
+            { "text": "Serving two audiences, suppliers and healthcare institutes, with clear registration and contact flows" }
+          ]
+        }
+      ],
+      "imageAfter": {
+        "src": "/images/work_details/mediTrust/bodyImg.png",
+        "alt": "MediTrust product detail page beside its searchable medical equipment listings",
+        "width": 916,
+        "height": 639
+      }
+    },
+    {
+      "id": "solutions",
+      "title": "Solutions",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "To solve these problems, we designed and built a clean, trust-focused marketplace around how medical buyers actually search and decide."
+        },
+        {
+          "type": "list",
+          "items": [
+            { "text": "Category-first navigation with 10 clear equipment categories, so buyers reach the right product group in one click" },
+            { "text": "Structured product cards showing brand, origin, warranty, availability, and price or “price on request” at a glance" },
+            { "text": "Vendor stores that give each supplier a dedicated storefront inside the marketplace" },
+            { "text": "Wishlist and inquiry-friendly flow that suits high-value, quotation-based purchases" },
+            { "text": "Separate registration paths for suppliers and healthcare institutes, supporting a verified network" },
+            { "text": "Medical directory with ambulance services, blood banks, hospital links, and supplier lists, adding everyday value beyond the store" },
+            { "text": "Responsive, performance-friendly WordPress build with an easy-to-manage admin experience" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "result",
+      "title": "The Final Result",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Through research-led design and careful development, MediTrust International now has a complete, trust-focused marketplace for the healthcare supply chain."
+        },
+        {
+          "type": "list",
+          "items": [
+            { "text": "Buyers can browse equipment by category and compare brand, origin, and warranty quickly" },
+            { "text": "Suppliers get their own storefronts and a direct channel to healthcare institutes" },
+            { "text": "The directory section adds useful local resources and strengthens the platform’s credibility" },
+            { "text": "The site is easy for the team to manage and ready to scale as more suppliers and products join" }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Overall, this project shows how thoughtful UI/UX design combined with solid development can turn a fragmented sourcing process into a clear, trusted online marketplace for medical equipment."
+        }
+      ]
+    }
+  ],
+  "gallery": []
+}
